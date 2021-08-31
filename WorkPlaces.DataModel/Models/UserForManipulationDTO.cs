@@ -4,7 +4,7 @@ using WorkPlaces.Common.ValidationAttributes;
 
 namespace WorkPlaces.DataModel.Models
 {
-    public abstract class UserForManipulationDTO
+    public class UserForManipulationDTO
     {
         [Required]
         [MinLength(2), MaxLength(50)]

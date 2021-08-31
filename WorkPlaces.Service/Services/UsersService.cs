@@ -45,7 +45,7 @@ namespace WorkPlaces.Service.Services
             };
         }
 
-        public async Task<UserDTO> CreateUserAsync(UserForCreationDTO user)
+        public async Task<UserDTO> CreateUserAsync(UserForManipulationDTO user)
         {
             var userEntity = new User
             {
@@ -67,7 +67,7 @@ namespace WorkPlaces.Service.Services
             };
         }
 
-        public async Task UpdateUser(int userId, UserForUpdateDTO user)
+        public async Task UpdateUser(int userId, UserForManipulationDTO user)
         {
             var userEntity = usersRepository.GetUser(userId);
 

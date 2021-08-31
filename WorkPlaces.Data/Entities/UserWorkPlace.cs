@@ -6,10 +6,12 @@ namespace WorkPlaces.Data.Entities
 {
     public class UserWorkPlace : BaseModel
     {
+        [Required]
         public int UserId { get; set; }
 
         public virtual User User { get; set; }
 
+        [Required]
         public int WorkPlaceId { get; set; }
 
         public virtual WorkPlace WorkPlace { get; set; }

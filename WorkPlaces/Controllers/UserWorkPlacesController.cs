@@ -44,7 +44,7 @@ namespace WorkPlaces.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<UserWorkPlaceDTO>> CreateUserWorkPlace(UserWorkPlaceForCreationDTO userWorkPlace)
+        public async Task<ActionResult<UserWorkPlaceDTO>> CreateUserWorkPlace(UserWorkPlaceForManipulationDTO userWorkPlace)
         {
             if (!usersService.UserExists(userWorkPlace.UserId))
             {
@@ -61,7 +61,7 @@ namespace WorkPlaces.Controllers
         }
 
         [HttpPut("{userWorkPlaceId}")]
-        public async Task<ActionResult> UpdateUserWorkPlace(int userWorkPlaceId, UserWorkPlaceForUpdateDTO userWorkPlace)
+        public async Task<ActionResult> UpdateUserWorkPlace(int userWorkPlaceId, UserWorkPlaceForManipulationDTO userWorkPlace)
         {
             if (!userWorkPlacesService.UserWorkPlaceExists(userWorkPlaceId))
             {

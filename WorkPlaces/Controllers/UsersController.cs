@@ -37,14 +37,14 @@ namespace WorkPlaces.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<UserDTO>> CreateUser(UserForCreationDTO user)
+        public async Task<ActionResult<UserDTO>> CreateUser(UserForManipulationDTO user)
         {
             var userToReturn = await usersService.CreateUserAsync(user);
             return CreatedAtRoute(nameof(GetUsers), new { authorId = userToReturn.Id }, userToReturn);
         }
 
         [HttpPut("{userId}")]
-        public async Task<ActionResult> UpdateUser(int userId, UserForUpdateDTO user)
+        public async Task<ActionResult> UpdateUser(int userId, UserForManipulationDTO user)
         {
             if (!usersService.UserExists(userId))
             {

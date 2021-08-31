@@ -53,7 +53,7 @@ namespace WorkPlaces.Service.Services
             };
         }
 
-        public async Task<UserWorkPlaceDTO> CreateUserWorkPlaceAsync(UserWorkPlaceForCreationDTO userWorkPlace)
+        public async Task<UserWorkPlaceDTO> CreateUserWorkPlaceAsync(UserWorkPlaceForManipulationDTO userWorkPlace)
         {
             var userWorkPlaceEntity = new UserWorkPlace
             {
@@ -78,7 +78,7 @@ namespace WorkPlaces.Service.Services
             };
         }
 
-        public async Task UpdateUserWorkPlace(int userWorkPlaceId, UserWorkPlaceForUpdateDTO userWorkPlace)
+        public async Task UpdateUserWorkPlace(int userWorkPlaceId, UserWorkPlaceForManipulationDTO userWorkPlace)
         {
             var userWorkPlaceEntity = userWorkPlacesRepository.GetUserWorkPlace(userWorkPlaceId);
 

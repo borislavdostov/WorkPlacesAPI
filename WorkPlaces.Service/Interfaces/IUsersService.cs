@@ -10,9 +10,9 @@ namespace WorkPlaces.Service.Interfaces
 
         UserDTO GetUser(int userId);
 
-        Task<UserDTO> CreateUserAsync(UserForCreationDTO user);
+        Task<UserDTO> CreateUserAsync(UserForManipulationDTO user);
 
-        Task UpdateUser(int userId, UserForUpdateDTO user);
+        Task UpdateUser(int userId, UserForManipulationDTO user);
 
         Task DeleteUser(int userId);
 

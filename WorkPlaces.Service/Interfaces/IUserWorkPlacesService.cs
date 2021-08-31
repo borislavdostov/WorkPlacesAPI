@@ -10,9 +10,9 @@ namespace WorkPlaces.Service.Interfaces
 
         UserWorkPlaceDTO GetUserWorkPlace(int userWorkPlaceId);
 
-        Task<UserWorkPlaceDTO> CreateUserWorkPlaceAsync(UserWorkPlaceForCreationDTO userWorkPlace);
+        Task<UserWorkPlaceDTO> CreateUserWorkPlaceAsync(UserWorkPlaceForManipulationDTO userWorkPlace);
 
-        Task UpdateUserWorkPlace(int userWorkPlaceId, UserWorkPlaceForUpdateDTO userWorkPlace);
+        Task UpdateUserWorkPlace(int userWorkPlaceId, UserWorkPlaceForManipulationDTO userWorkPlace);
 
         Task DeleteUserWorkPlace(int userWorkPlaceId);
 
