@@ -81,5 +81,17 @@ namespace WorkPlaces.Controllers
             await userWorkPlacesService.UpdateUserWorkPlace(userWorkPlaceId, userWorkPlace);
             return NoContent();
         }
+
+        [HttpDelete("{userWorkPlaceId}")]
+        public async Task<IActionResult> DeleteUserWorkPlace(int userWorkPlaceId)
+        {
+            if (!userWorkPlacesService.UserWorkPlaceExists(userWorkPlaceId))
+            {
+                return NotFound();
+            }
+
+            await userWorkPlacesService.DeleteUserWorkPlace(userWorkPlaceId);
+            return NoContent();
+        }
     }
 }
