@@ -11,10 +11,17 @@ namespace WorkPlaces.Controllers
     public class UserWorkPlacesController : ControllerBase
     {
         private readonly IUserWorkPlacesService userWorkPlacesService;
+        private readonly IUsersService usersService;
+        private readonly IWorkPlacesService workPlacesService;
 
-        public UserWorkPlacesController(IUserWorkPlacesService userWorkPlacesService)
+        public UserWorkPlacesController(
+            IUserWorkPlacesService userWorkPlacesService,
+            IUsersService usersService,
+            IWorkPlacesService workPlacesService)
         {
             this.userWorkPlacesService = userWorkPlacesService;
+            this.usersService = usersService;
+            this.workPlacesService = workPlacesService;
         }
 
         [HttpGet(Name = nameof(GetUserWorkPlaces))]
@@ -27,27 +34,52 @@ namespace WorkPlaces.Controllers
         [HttpGet("{userWorkPlaceId}")]
         public ActionResult<UserWorkPlaceDTO> GetUserWorkPlace(int userWorkPlaceId)
         {
-            var userWorkPlace = userWorkPlacesService.GetUserWorkPlace(userWorkPlaceId);
-
-            if (userWorkPlace == null)
+            if (!userWorkPlacesService.UserWorkPlaceExists(userWorkPlaceId))
             {
                 return NotFound();
             }
 
+            var userWorkPlace = userWorkPlacesService.GetUserWorkPlace(userWorkPlaceId);
             return Ok(userWorkPlace);
         }
 
         [HttpPost]
         public async Task<ActionResult<UserWorkPlaceDTO>> CreateUserWorkPlace(UserWorkPlaceForCreationDTO userWorkPlace)
         {
-            var userWorkPlaceToReturn = await userWorkPlacesService.CreateUserWorkPlaceAsync(userWorkPlace);
-
-            if (userWorkPlaceToReturn == null)
+            if (!usersService.UserExists(userWorkPlace.UserId))
             {
                 return NotFound();
             }
 
+            if (!workPlacesService.WorkPlaceExists(userWorkPlace.WorkPlaceId))
+            {
+                return NotFound();
+            }
+
+            var userWorkPlaceToReturn = await userWorkPlacesService.CreateUserWorkPlaceAsync(userWorkPlace);
             return CreatedAtRoute(nameof(GetUserWorkPlaces), new { userWorkPlaceId = userWorkPlaceToReturn.Id }, userWorkPlaceToReturn);
+        }
+
+        [HttpPut("{userWorkPlaceId}")]
+        public async Task<ActionResult> UpdateUserWorkPlace(int userWorkPlaceId, UserWorkPlaceForUpdateDTO userWorkPlace)
+        {
+            if (!userWorkPlacesService.UserWorkPlaceExists(userWorkPlaceId))
+            {
+                return NotFound();
+            }
+
+            if (!usersService.UserExists(userWorkPlace.UserId))
+            {
+                return NotFound();
+            }
+
+            if (!workPlacesService.WorkPlaceExists(userWorkPlace.WorkPlaceId))
+            {
+                return NotFound();
+            }
+
+            await userWorkPlacesService.UpdateUserWorkPlace(userWorkPlaceId, userWorkPlace);
+            return NoContent();
         }
     }
 }

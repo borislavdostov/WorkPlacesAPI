@@ -11,9 +11,9 @@ namespace WorkPlaces.Data.Repositories
             this.context = context;
         }
 
-        public bool Exists(int workPlaceId)
+        public bool WorkPlaceExists(int workPlaceId)
         {
-            return context.WorkPlaces.Any(wp => wp.DeletedAt == null && wp.Id == workPlaceId);
+            return context.WorkPlaces.Any(wp => wp.Id == workPlaceId && wp.DeletedAt == null);
         }
     }
 }

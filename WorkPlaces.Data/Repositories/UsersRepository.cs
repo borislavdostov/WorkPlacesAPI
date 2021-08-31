@@ -36,7 +36,6 @@ namespace WorkPlaces.Data.Repositories
         {
             user.CreatedAt = DateTime.Now;
             await context.Users.AddAsync(user);
-            await context.SaveChangesAsync();
         }
 
         public void UpdateUser(User user)
@@ -57,9 +56,14 @@ namespace WorkPlaces.Data.Repositories
             UpdateUser(user);
         }
 
-        public bool Exists(int userId)
+        public bool UserExists(int userId)
         {
-            return context.Users.Any(u => u.DeletedAt == null && u.Id == userId);
+            return context.Users.Any(u => u.Id == userId && u.DeletedAt == null);
+        }
+
+        public async Task SaveChangesAsync()
+        {
+            await context.SaveChangesAsync();
         }
     }
 }

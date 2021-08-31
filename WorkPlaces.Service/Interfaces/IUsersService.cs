@@ -12,8 +12,10 @@ namespace WorkPlaces.Service.Interfaces
 
         Task<UserDTO> CreateUserAsync(UserForCreationDTO user);
 
-        void UpdateUser(UserForCreationDTO user);
+        Task UpdateUser(int userId, UserForUpdateDTO user);
 
-        void DeleteUser(int userId);
+        Task DeleteUser(int userId);
+
+        bool UserExists(int userId);
     }
 }

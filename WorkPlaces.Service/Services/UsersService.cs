@@ -36,11 +36,6 @@ namespace WorkPlaces.Service.Services
         {
             var userEntity = usersRepository.GetUser(userId);
 
-            if (userEntity == null)
-            {
-                return null;
-            }
-
             return new UserDTO
             {
                 Id = userEntity.Id,
@@ -61,6 +56,7 @@ namespace WorkPlaces.Service.Services
             };
 
             await usersRepository.AddUserAsync(userEntity);
+            await usersRepository.SaveChangesAsync();
 
             return new UserDTO
             {
@@ -71,18 +67,30 @@ namespace WorkPlaces.Service.Services
             };
         }
 
-        public void UpdateUser(UserForCreationDTO user)
+        public async Task UpdateUser(int userId, UserForUpdateDTO user)
         {
-            throw new NotImplementedException();
-            //repository.Update(user);
-            //repository.SaveChangesAsync();
+            var userEntity = usersRepository.GetUser(userId);
+
+            userEntity.FirstName = user.FirstName;
+            userEntity.LastName = user.LastName;
+            userEntity.Email = user.Email;
+            userEntity.DateOfBirth = user.DateOfBirth;
+
+            usersRepository.UpdateUser(userEntity);
+            await usersRepository.SaveChangesAsync();
         }
 
-        public void DeleteUser(int userId)
+        public async Task DeleteUser(int userId)
         {
             var user = usersRepository.GetUser(userId);
 
             usersRepository.DeleteUser(user);
+            await usersRepository.SaveChangesAsync();
+        }
+
+        public bool UserExists(int userId)
+        {
+            return usersRepository.UserExists(userId);
         }
     }
 }

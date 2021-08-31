@@ -30,10 +30,11 @@ namespace WorkPlaces
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IUsersRepository, UsersRepository>();
-            services.AddScoped<IUserWorkPlacesRepository, UserWorkPlacesRepository>();
             services.AddScoped<IWorkPlacesRepository, WorkPlacesRepository>();
+            services.AddScoped<IUserWorkPlacesRepository, UserWorkPlacesRepository>();
 
             services.AddTransient<IUsersService, UsersService>();
+            services.AddTransient<IWorkPlacesService, WorkPlacesService>();
             services.AddTransient<IUserWorkPlacesService, UserWorkPlacesService>();
         }
 

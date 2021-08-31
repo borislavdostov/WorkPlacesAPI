@@ -2,6 +2,6 @@
 {
     public interface IWorkPlacesRepository
     {
-        bool Exists(int workPlaceId);
+        bool WorkPlaceExists(int workPlaceId);
     }
 }

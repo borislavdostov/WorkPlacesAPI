@@ -37,7 +37,6 @@ namespace WorkPlaces.Data.Repositories
         {
             userWorkPlace.CreatedAt = DateTime.Now;
             await context.UserWorkPlaces.AddAsync(userWorkPlace);
-            await context.SaveChangesAsync();
         }
 
         public void UpdateUserWorkPlace(UserWorkPlace userWorkPlace)
@@ -54,8 +53,18 @@ namespace WorkPlaces.Data.Repositories
 
         public void DeleteUserWorkPlace(UserWorkPlace userWorkPlace)
         {
-            userWorkPlace.DeletedAt = System.DateTime.Now;
+            userWorkPlace.DeletedAt = DateTime.Now;
             UpdateUserWorkPlace(userWorkPlace);
+        }
+
+        public bool UserWorkPlaceExists(int userWorkPlaceId)
+        {
+            return context.UserWorkPlaces.Any(uwp => uwp.Id == userWorkPlaceId && uwp.DeletedAt == null);
+        }
+
+        public async Task SaveChangesAsync()
+        {
+            await context.SaveChangesAsync();
         }
     }
 }

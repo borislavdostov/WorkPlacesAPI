@@ -15,5 +15,9 @@ namespace WorkPlaces.Data.Repositories
         void UpdateUserWorkPlace(UserWorkPlace userWorkPlace);
 
         void DeleteUserWorkPlace(UserWorkPlace userWorkPlace);
+
+        bool UserWorkPlaceExists(int userWorkPlaceId);
+
+        Task SaveChangesAsync();
     }
 }

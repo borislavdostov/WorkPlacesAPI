@@ -27,13 +27,12 @@ namespace WorkPlaces.Controllers
         [HttpGet("{userId}")]
         public ActionResult<UserDTO> GetUser(int userId)
         {
-            var user = usersService.GetUser(userId);
-
-            if (user == null)
+            if (!usersService.UserExists(userId))
             {
                 return NotFound();
             }
 
+            var user = usersService.GetUser(userId);
             return Ok(user);
         }
 
@@ -42,6 +41,18 @@ namespace WorkPlaces.Controllers
         {
             var userToReturn = await usersService.CreateUserAsync(user);
             return CreatedAtRoute(nameof(GetUsers), new { authorId = userToReturn.Id }, userToReturn);
+        }
+
+        [HttpPut("{userId}")]
+        public async Task<ActionResult> UpdateUser(int userId, UserForUpdateDTO user)
+        {
+            if (!usersService.UserExists(userId))
+            {
+                return NotFound();
+            }
+
+            await usersService.UpdateUser(userId, user);
+            return NoContent();
         }
     }
 }

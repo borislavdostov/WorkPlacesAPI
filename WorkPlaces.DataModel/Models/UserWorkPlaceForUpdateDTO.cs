@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WorkPlaces.DataModel.Models
 {
-    public class UserWorkPlaceForCreationDTO
+    public class UserWorkPlaceForUpdateDTO
     {
         [Required]
         public int UserId { get; set; }

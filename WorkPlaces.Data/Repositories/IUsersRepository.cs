@@ -16,6 +16,8 @@ namespace WorkPlaces.Data.Interfaces
 
         void DeleteUser(User user);
 
-        bool Exists(int userId);
+        bool UserExists(int userId);
+
+        Task SaveChangesAsync();
     }
 }
