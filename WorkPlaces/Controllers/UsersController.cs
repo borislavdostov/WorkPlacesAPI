@@ -17,14 +17,14 @@ namespace WorkPlaces.Controllers
             this.usersService = usersService;
         }
 
-        [HttpGet(Name = nameof(GetUsers))]
+        [HttpGet]
         public ActionResult<IEnumerable<UserDTO>> GetUsers()
         {
             var users = usersService.GetUsers();
             return Ok(users);
         }
 
-        [HttpGet("{userId}")]
+        [HttpGet("{userId}", Name = nameof(GetUser))]
         public ActionResult<UserDTO> GetUser(int userId)
         {
             if (!usersService.UserExists(userId))
@@ -40,7 +40,7 @@ namespace WorkPlaces.Controllers
         public async Task<ActionResult<UserDTO>> CreateUser(UserForManipulationDTO user)
         {
             var userToReturn = await usersService.CreateUserAsync(user);
-            return CreatedAtRoute(nameof(GetUsers), new { authorId = userToReturn.Id }, userToReturn);
+            return CreatedAtRoute(nameof(GetUser), new { userId = userToReturn.Id }, userToReturn);
         }
 
         [HttpPut("{userId}")]
