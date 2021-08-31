@@ -8,13 +8,13 @@ namespace WorkPlaces.Common.ValidationAttributes
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            var user = (UserForCreationDTO)validationContext.ObjectInstance;
+            var user = (UserForManipulationDTO)validationContext.ObjectInstance;
 
             if (user.DateOfBirth > DateTime.Now)
             {
                 return new ValidationResult(
-                    "Date of birth cannot be greater than now.",
-                    new[] { nameof(UserForCreationDTO) });
+                    "The date of birth must be lower than today's date.",
+                    new[] { nameof(UserForManipulationDTO) });
             }
 
             return ValidationResult.Success;
