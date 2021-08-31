@@ -57,7 +57,8 @@ namespace WorkPlaces.Controllers
             }
 
             var userWorkPlaceToReturn = await userWorkPlacesService.CreateUserWorkPlaceAsync(userWorkPlace);
-            return CreatedAtRoute(nameof(GetUserWorkPlaces), new { userWorkPlaceId = userWorkPlaceToReturn.Id }, userWorkPlaceToReturn);
+            return CreatedAtRoute(nameof(GetUserWorkPlaces),
+                new { userWorkPlaceId = userWorkPlaceToReturn.Id }, userWorkPlaceToReturn);
         }
 
         [HttpPut("{userWorkPlaceId}")]

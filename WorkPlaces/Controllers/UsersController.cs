@@ -48,7 +48,6 @@ namespace WorkPlaces.Controllers
         {
             if (!usersService.UserExists(userId))
             {
-                // TODO: Create user???
                 return NotFound();
             }
 
