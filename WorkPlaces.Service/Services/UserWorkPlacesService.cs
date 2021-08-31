@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WorkPlaces.Data.Entities;
-using WorkPlaces.Data.Interfaces;
 using WorkPlaces.Data.Repositories;
 using WorkPlaces.DataModel.Models;
 using WorkPlaces.Service.Interfaces;
@@ -13,17 +11,10 @@ namespace WorkPlaces.Service.Services
     public class UserWorkPlacesService : IUserWorkPlacesService
     {
         private readonly IUserWorkPlacesRepository userWorkPlacesRepository;
-        private readonly IUsersRepository usersRepository;
-        private readonly IWorkPlacesRepository workPlacesRepository;
 
-        public UserWorkPlacesService(
-            IUserWorkPlacesRepository userWorkPlacesRepository,
-            IUsersRepository usersRepository,
-            IWorkPlacesRepository workPlacesRepository)
+        public UserWorkPlacesService(IUserWorkPlacesRepository userWorkPlacesRepository)
         {
             this.userWorkPlacesRepository = userWorkPlacesRepository;
-            this.usersRepository = usersRepository;
-            this.workPlacesRepository = workPlacesRepository;
         }
 
         public IEnumerable<UserWorkPlaceDTO> GetUserWorkPlaces()
@@ -66,6 +57,7 @@ namespace WorkPlaces.Service.Services
             await userWorkPlacesRepository.AddAsync(userWorkPlaceEntity);
             await userWorkPlacesRepository.SaveChangesAsync();
 
+            //TODO: Load relations instead of loading the added entity
             var addedUserWorkPlaceEntity = userWorkPlacesRepository.Get(userWorkPlaceEntity.Id);
 
             return new UserWorkPlaceDTO
