@@ -16,5 +16,19 @@ namespace WorkPlaces.Data.Repositories
         {
             return context.WorkPlaces.Any(wp => wp.Id == workPlaceId && wp.DeletedAt == null);
         }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        private void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                context?.Dispose();
+            }
+        }
     }
 }

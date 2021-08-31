@@ -1,10 +1,11 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using WorkPlaces.Data.Entities;
 
 namespace WorkPlaces.Data.Interfaces
 {
-    public interface IUsersRepository
+    public interface IUsersRepository : IDisposable
     {
         IQueryable<User> GetAll();
 

@@ -66,5 +66,19 @@ namespace WorkPlaces.Data.Repositories
         {
             await context.SaveChangesAsync();
         }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        private void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                context?.Dispose();
+            }
+        }
     }
 }

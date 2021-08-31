@@ -1,6 +1,8 @@
-﻿namespace WorkPlaces.Data.Repositories
+﻿using System;
+
+namespace WorkPlaces.Data.Repositories
 {
-    public interface IWorkPlacesRepository
+    public interface IWorkPlacesRepository : IDisposable
     {
         bool WorkPlaceExists(int workPlaceId);
     }
