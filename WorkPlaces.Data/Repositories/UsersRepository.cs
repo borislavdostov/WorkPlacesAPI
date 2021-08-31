@@ -14,7 +14,7 @@ namespace WorkPlaces.Data.Repositories
 
         public UsersRepository(ApplicationDbContext context)
         {
-            this.context = context;
+            this.context = context ?? throw new ArgumentNullException(nameof(context));
             dbSet = context.Set<User>();
         }
 

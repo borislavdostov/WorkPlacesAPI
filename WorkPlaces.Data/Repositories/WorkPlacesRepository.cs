@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace WorkPlaces.Data.Repositories
 {
@@ -8,7 +9,7 @@ namespace WorkPlaces.Data.Repositories
 
         public WorkPlacesRepository(ApplicationDbContext context)
         {
-            this.context = context;
+            this.context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
         public bool WorkPlaceExists(int workPlaceId)

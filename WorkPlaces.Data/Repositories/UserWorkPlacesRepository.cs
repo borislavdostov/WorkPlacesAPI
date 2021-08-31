@@ -13,7 +13,7 @@ namespace WorkPlaces.Data.Repositories
 
         public UserWorkPlacesRepository(ApplicationDbContext context)
         {
-            this.context = context;
+            this.context = context ?? throw new ArgumentNullException(nameof(context));
             dbSet = context.Set<UserWorkPlace>();
         }
 
