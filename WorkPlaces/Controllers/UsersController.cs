@@ -44,10 +44,11 @@ namespace WorkPlaces.Controllers
         }
 
         [HttpPut("{userId}")]
-        public async Task<ActionResult> UpdateUser(int userId, UserForManipulationDTO user)
+        public async Task<IActionResult> UpdateUser(int userId, UserForManipulationDTO user)
         {
             if (!usersService.UserExists(userId))
             {
+                // TODO: Create user???
                 return NotFound();
             }
 

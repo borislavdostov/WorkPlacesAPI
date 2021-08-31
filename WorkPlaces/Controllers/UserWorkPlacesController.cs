@@ -61,7 +61,7 @@ namespace WorkPlaces.Controllers
         }
 
         [HttpPut("{userWorkPlaceId}")]
-        public async Task<ActionResult> UpdateUserWorkPlace(int userWorkPlaceId, UserWorkPlaceForManipulationDTO userWorkPlace)
+        public async Task<IActionResult> UpdateUserWorkPlace(int userWorkPlaceId, UserWorkPlaceForManipulationDTO userWorkPlace)
         {
             if (!userWorkPlacesService.UserWorkPlaceExists(userWorkPlaceId))
             {
