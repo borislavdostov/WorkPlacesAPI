@@ -55,5 +55,17 @@ namespace WorkPlaces.Controllers
             await usersService.UpdateUser(userId, user);
             return NoContent();
         }
+
+        [HttpDelete("{userId}")]
+        public async Task<IActionResult> DeleteUser(int userId)
+        {
+            if (!usersService.UserExists(userId))
+            {
+                return NotFound();
+            }
+
+            await usersService.DeleteUser(userId);
+            return NoContent();
+        }
     }
 }

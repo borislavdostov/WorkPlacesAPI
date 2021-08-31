@@ -25,20 +25,20 @@ namespace WorkPlaces.Data.Repositories
                 .Where(u => u.DeletedAt == null);
         }
 
-        public User GetUser(int userId)
+        public User Get(int userId)
         {
             return context.Users
                 .Include(u => u.WorkPlaces)
                 .FirstOrDefault(u => u.Id == userId && u.DeletedAt == null);
         }
 
-        public async Task AddUserAsync(User user)
+        public async Task AddAsync(User user)
         {
             user.CreatedAt = DateTime.Now;
             await context.Users.AddAsync(user);
         }
 
-        public void UpdateUser(User user)
+        public void Update(User user)
         {
             var entry = context.Entry(user);
             if (entry.State == EntityState.Detached)
@@ -50,13 +50,13 @@ namespace WorkPlaces.Data.Repositories
             entry.State = EntityState.Modified;
         }
 
-        public void DeleteUser(User user)
+        public void Delete(User user)
         {
             user.DeletedAt = DateTime.Now;
-            UpdateUser(user);
+            Update(user);
         }
 
-        public bool UserExists(int userId)
+        public bool Exists(int userId)
         {
             return context.Users.Any(u => u.Id == userId && u.DeletedAt == null);
         }

@@ -41,7 +41,7 @@ namespace WorkPlaces.Service.Services
 
         public UserWorkPlaceDTO GetUserWorkPlace(int userWorkPlaceId)
         {
-            var userWorkPlaceEntity = userWorkPlacesRepository.GetUserWorkPlace(userWorkPlaceId);
+            var userWorkPlaceEntity = userWorkPlacesRepository.Get(userWorkPlaceId);
 
             return new UserWorkPlaceDTO
             {
@@ -63,10 +63,10 @@ namespace WorkPlaces.Service.Services
                 ToDate = userWorkPlace.ToDate
             };
 
-            await userWorkPlacesRepository.AddUserWorkPlaceAsync(userWorkPlaceEntity);
+            await userWorkPlacesRepository.AddAsync(userWorkPlaceEntity);
             await userWorkPlacesRepository.SaveChangesAsync();
 
-            var addedUserWorkPlaceEntity = userWorkPlacesRepository.GetUserWorkPlace(userWorkPlaceEntity.Id);
+            var addedUserWorkPlaceEntity = userWorkPlacesRepository.Get(userWorkPlaceEntity.Id);
 
             return new UserWorkPlaceDTO
             {
@@ -80,27 +80,27 @@ namespace WorkPlaces.Service.Services
 
         public async Task UpdateUserWorkPlace(int userWorkPlaceId, UserWorkPlaceForManipulationDTO userWorkPlace)
         {
-            var userWorkPlaceEntity = userWorkPlacesRepository.GetUserWorkPlace(userWorkPlaceId);
+            var userWorkPlaceEntity = userWorkPlacesRepository.Get(userWorkPlaceId);
 
             userWorkPlaceEntity.UserId = userWorkPlace.UserId;
             userWorkPlaceEntity.WorkPlaceId = userWorkPlace.WorkPlaceId;
             userWorkPlaceEntity.FromDate = userWorkPlace.FromDate;
             userWorkPlaceEntity.ToDate = userWorkPlace.ToDate;
 
-            userWorkPlacesRepository.UpdateUserWorkPlace(userWorkPlaceEntity);
+            userWorkPlacesRepository.Update(userWorkPlaceEntity);
             await userWorkPlacesRepository.SaveChangesAsync();
         }
 
         public async Task DeleteUserWorkPlace(int userId)
         {
-            var userWorkPlaceEntity = userWorkPlacesRepository.GetUserWorkPlace(userId);
-            userWorkPlacesRepository.DeleteUserWorkPlace(userWorkPlaceEntity);
+            var userWorkPlaceEntity = userWorkPlacesRepository.Get(userId);
+            userWorkPlacesRepository.Delete(userWorkPlaceEntity);
             await userWorkPlacesRepository.SaveChangesAsync();
         }
 
         public bool UserWorkPlaceExists(int userWorkPlaceId)
         {
-            return userWorkPlacesRepository.UserWorkPlaceExists(userWorkPlaceId);
+            return userWorkPlacesRepository.Exists(userWorkPlaceId);
         }
     }
 }

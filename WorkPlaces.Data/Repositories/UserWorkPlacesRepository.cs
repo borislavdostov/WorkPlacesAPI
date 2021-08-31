@@ -25,7 +25,7 @@ namespace WorkPlaces.Data.Repositories
                 .Where(u => u.DeletedAt == null);
         }
 
-        public UserWorkPlace GetUserWorkPlace(int userWorkPlaceId)
+        public UserWorkPlace Get(int userWorkPlaceId)
         {
             return context.UserWorkPlaces
                 .Include(u => u.User)
@@ -33,13 +33,13 @@ namespace WorkPlaces.Data.Repositories
                 .FirstOrDefault(u => u.Id == userWorkPlaceId && u.DeletedAt == null);
         }
 
-        public async Task AddUserWorkPlaceAsync(UserWorkPlace userWorkPlace)
+        public async Task AddAsync(UserWorkPlace userWorkPlace)
         {
             userWorkPlace.CreatedAt = DateTime.Now;
             await context.UserWorkPlaces.AddAsync(userWorkPlace);
         }
 
-        public void UpdateUserWorkPlace(UserWorkPlace userWorkPlace)
+        public void Update(UserWorkPlace userWorkPlace)
         {
             var entry = context.Entry(userWorkPlace);
             if (entry.State == EntityState.Detached)
@@ -51,13 +51,13 @@ namespace WorkPlaces.Data.Repositories
             entry.State = EntityState.Modified;
         }
 
-        public void DeleteUserWorkPlace(UserWorkPlace userWorkPlace)
+        public void Delete(UserWorkPlace userWorkPlace)
         {
             userWorkPlace.DeletedAt = DateTime.Now;
-            UpdateUserWorkPlace(userWorkPlace);
+            Update(userWorkPlace);
         }
 
-        public bool UserWorkPlaceExists(int userWorkPlaceId)
+        public bool Exists(int userWorkPlaceId)
         {
             return context.UserWorkPlaces.Any(uwp => uwp.Id == userWorkPlaceId && uwp.DeletedAt == null);
         }

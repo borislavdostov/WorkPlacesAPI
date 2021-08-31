@@ -6,17 +6,17 @@ namespace WorkPlaces.Data.Interfaces
 {
     public interface IUsersRepository
     {
-        User GetUser(int userId);
-
         IQueryable<User> GetAll();
 
-        Task AddUserAsync(User user);
+        User Get(int userId);
 
-        void UpdateUser(User user);
+        Task AddAsync(User user);
 
-        void DeleteUser(User user);
+        void Update(User user);
 
-        bool UserExists(int userId);
+        void Delete(User user);
+
+        bool Exists(int userId);
 
         Task SaveChangesAsync();
     }

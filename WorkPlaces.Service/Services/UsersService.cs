@@ -34,7 +34,7 @@ namespace WorkPlaces.Service.Services
 
         public UserDTO GetUser(int userId)
         {
-            var userEntity = usersRepository.GetUser(userId);
+            var userEntity = usersRepository.Get(userId);
 
             return new UserDTO
             {
@@ -55,7 +55,7 @@ namespace WorkPlaces.Service.Services
                 DateOfBirth = user.DateOfBirth
             };
 
-            await usersRepository.AddUserAsync(userEntity);
+            await usersRepository.AddAsync(userEntity);
             await usersRepository.SaveChangesAsync();
 
             return new UserDTO
@@ -69,28 +69,28 @@ namespace WorkPlaces.Service.Services
 
         public async Task UpdateUser(int userId, UserForManipulationDTO user)
         {
-            var userEntity = usersRepository.GetUser(userId);
+            var userEntity = usersRepository.Get(userId);
 
             userEntity.FirstName = user.FirstName;
             userEntity.LastName = user.LastName;
             userEntity.Email = user.Email;
             userEntity.DateOfBirth = user.DateOfBirth;
 
-            usersRepository.UpdateUser(userEntity);
+            usersRepository.Update(userEntity);
             await usersRepository.SaveChangesAsync();
         }
 
         public async Task DeleteUser(int userId)
         {
-            var user = usersRepository.GetUser(userId);
+            var user = usersRepository.Get(userId);
 
-            usersRepository.DeleteUser(user);
+            usersRepository.Delete(user);
             await usersRepository.SaveChangesAsync();
         }
 
         public bool UserExists(int userId)
         {
-            return usersRepository.UserExists(userId);
+            return usersRepository.Exists(userId);
         }
     }
 }
