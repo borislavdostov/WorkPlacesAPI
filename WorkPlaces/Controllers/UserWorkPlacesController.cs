@@ -43,6 +43,11 @@ namespace WorkPlaces.Controllers
             return Ok(userWorkPlace);
         }
 
+        /// <summary>
+        /// Createsadsadsad
+        /// </summary>
+        /// <param name="userWorkPlace"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<UserWorkPlaceDTO>> CreateUserWorkPlace(UserWorkPlaceForManipulationDTO userWorkPlace)
         {

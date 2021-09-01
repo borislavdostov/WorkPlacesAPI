@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WorkPlaces</name>
+    </assembly>
+    <members>
+        <member name="M:WorkPlaces.Controllers.UserWorkPlacesController.CreateUserWorkPlace(WorkPlaces.DataModel.Models.UserWorkPlaceForManipulationDTO)">
+            <summary>
+            Createsadsadsad
+            </summary>
+            <param name="userWorkPlace"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

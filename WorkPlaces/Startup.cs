@@ -6,6 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
+using System.IO;
+using WorkPlaces.Common.Constants;
 using WorkPlaces.Data;
 using WorkPlaces.Data.Interfaces;
 using WorkPlaces.Data.Repositories;
@@ -33,11 +35,14 @@ namespace WorkPlaces
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo
+                c.SwaggerDoc(Global.SwaggerVersion, new OpenApiInfo
                 {
-                    Title = "Work Places API",
-                    Version = "v1"
+                    Title = Global.SwaggerTitle,
+                    Version = Global.SwaggerVersion
                 });
+
+                var filePath = Path.Combine(AppContext.BaseDirectory, Global.XMLDocument);
+                c.IncludeXmlComments(filePath);
             });
 
             services.AddScoped<IUsersRepository, UsersRepository>();
