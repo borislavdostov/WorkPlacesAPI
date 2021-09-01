@@ -8,6 +8,7 @@ namespace WorkPlaces.DataModel.Models
     {
         [Required]
         [MinLength(2), MaxLength(50)]
+        [RegularExpression(@"[A-Z]{1}[a-z]*", ErrorMessage = "Invalid first name")]
         public string FirstName { get; set; }
 
         [Required]
