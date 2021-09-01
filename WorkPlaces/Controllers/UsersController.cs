@@ -39,12 +39,12 @@ namespace WorkPlaces.Controllers
         [HttpGet("{userId}", Name = nameof(GetUser))]
         public async Task<ActionResult<UserDTO>> GetUser(int userId)
         {
-            if (!await usersService.UserExists(userId))
+            if (!await usersService.UserExistsAsync(userId))
             {
                 return NotFound();
             }
 
-            var user = await usersService.GetUser(userId);
+            var user = await usersService.GetUserAsync(userId);
             return Ok(user);
         }
 
@@ -72,12 +72,12 @@ namespace WorkPlaces.Controllers
         [HttpPut("{userId}")]
         public async Task<IActionResult> UpdateUser(int userId, UserForManipulationDTO user)
         {
-            if (!await usersService.UserExists(userId))
+            if (!await usersService.UserExistsAsync(userId))
             {
                 return NotFound();
             }
 
-            await usersService.UpdateUser(userId, user);
+            await usersService.UpdateUserAsync(userId, user);
             return NoContent();
         }
 
@@ -91,12 +91,12 @@ namespace WorkPlaces.Controllers
         [HttpDelete("{userId}")]
         public async Task<IActionResult> DeleteUser(int userId)
         {
-            if (!await usersService.UserExists(userId))
+            if (!await usersService.UserExistsAsync(userId))
             {
                 return NotFound();
             }
 
-            await usersService.DeleteUser(userId);
+            await usersService.DeleteUserAsync(userId);
             return NoContent();
         }
     }

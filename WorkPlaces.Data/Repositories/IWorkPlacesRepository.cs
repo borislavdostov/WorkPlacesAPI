@@ -5,6 +5,6 @@ namespace WorkPlaces.Data.Repositories
 {
     public interface IWorkPlacesRepository : IDisposable
     {
-        Task<bool> WorkPlaceExists(int workPlaceId);
+        Task<bool> ExistsAsync(int workPlaceId);
     }
 }

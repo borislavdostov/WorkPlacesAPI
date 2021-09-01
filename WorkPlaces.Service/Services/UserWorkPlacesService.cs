@@ -30,9 +30,9 @@ namespace WorkPlaces.Service.Services
             }).ToList();
         }
 
-        public async Task<UserWorkPlaceDTO> GetUserWorkPlace(int userWorkPlaceId)
+        public async Task<UserWorkPlaceDTO> GetUserWorkPlaceAsync(int userWorkPlaceId)
         {
-            var userWorkPlaceEntity = await userWorkPlacesRepository.Get(userWorkPlaceId);
+            var userWorkPlaceEntity = await userWorkPlacesRepository.GetAsync(userWorkPlaceId);
 
             return new UserWorkPlaceDTO
             {
@@ -58,7 +58,7 @@ namespace WorkPlaces.Service.Services
             await userWorkPlacesRepository.SaveChangesAsync();
 
             //TODO: Load relations instead of loading the added entity
-            var addedUserWorkPlaceEntity = await userWorkPlacesRepository.Get(userWorkPlaceEntity.Id);
+            var addedUserWorkPlaceEntity = await userWorkPlacesRepository.GetAsync(userWorkPlaceEntity.Id);
 
             return new UserWorkPlaceDTO
             {
@@ -70,9 +70,9 @@ namespace WorkPlaces.Service.Services
             };
         }
 
-        public async Task UpdateUserWorkPlace(int userWorkPlaceId, UserWorkPlaceForManipulationDTO userWorkPlace)
+        public async Task UpdateUserWorkPlaceAsync(int userWorkPlaceId, UserWorkPlaceForManipulationDTO userWorkPlace)
         {
-            var userWorkPlaceEntity = await userWorkPlacesRepository.Get(userWorkPlaceId);
+            var userWorkPlaceEntity = await userWorkPlacesRepository.GetAsync(userWorkPlaceId);
 
             userWorkPlaceEntity.UserId = userWorkPlace.UserId;
             userWorkPlaceEntity.WorkPlaceId = userWorkPlace.WorkPlaceId;
@@ -83,16 +83,16 @@ namespace WorkPlaces.Service.Services
             await userWorkPlacesRepository.SaveChangesAsync();
         }
 
-        public async Task DeleteUserWorkPlace(int userId)
+        public async Task DeleteUserWorkPlaceAsync(int userId)
         {
-            var userWorkPlaceEntity = await userWorkPlacesRepository.Get(userId);
+            var userWorkPlaceEntity = await userWorkPlacesRepository.GetAsync(userId);
             userWorkPlacesRepository.Delete(userWorkPlaceEntity);
             await userWorkPlacesRepository.SaveChangesAsync();
         }
 
-        public async Task<bool> UserWorkPlaceExists(int userWorkPlaceId)
+        public async Task<bool> UserWorkPlaceExistsAsync(int userWorkPlaceId)
         {
-            return await userWorkPlacesRepository.Exists(userWorkPlaceId);
+            return await userWorkPlacesRepository.ExistsAsync(userWorkPlaceId);
         }
     }
 }

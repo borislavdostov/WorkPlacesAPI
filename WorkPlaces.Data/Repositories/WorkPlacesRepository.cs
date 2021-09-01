@@ -13,7 +13,7 @@ namespace WorkPlaces.Data.Repositories
             this.context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public Task<bool> WorkPlaceExists(int workPlaceId)
+        public Task<bool> ExistsAsync(int workPlaceId)
         {
             return context.WorkPlaces.AnyAsync(wp => wp.Id == workPlaceId && wp.DeletedAt == null);
         }

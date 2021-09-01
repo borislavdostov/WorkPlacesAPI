@@ -25,7 +25,7 @@ namespace WorkPlaces.Data.Repositories
                 .Where(u => u.DeletedAt == null);
         }
 
-        public Task<User> Get(int userId)
+        public Task<User> GetAsync(int userId)
         {
             return context.Users
                 .Include(u => u.WorkPlaces)
@@ -56,7 +56,7 @@ namespace WorkPlaces.Data.Repositories
             Update(user);
         }
 
-        public Task<bool> Exists(int userId)
+        public Task<bool> ExistsAsync(int userId)
         {
             return context.Users.AnyAsync(u => u.Id == userId && u.DeletedAt == null);
         }

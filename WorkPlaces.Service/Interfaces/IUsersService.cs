@@ -8,14 +8,14 @@ namespace WorkPlaces.Service.Interfaces
     {
         IEnumerable<UserDTO> GetUsers();
 
-        Task<UserDTO> GetUser(int userId);
+        Task<UserDTO> GetUserAsync(int userId);
 
         Task<UserDTO> CreateUserAsync(UserForManipulationDTO user);
 
-        Task UpdateUser(int userId, UserForManipulationDTO user);
+        Task UpdateUserAsync(int userId, UserForManipulationDTO user);
 
-        Task DeleteUser(int userId);
+        Task DeleteUserAsync(int userId);
 
-        Task<bool> UserExists(int userId);
+        Task<bool> UserExistsAsync(int userId);
     }
 }

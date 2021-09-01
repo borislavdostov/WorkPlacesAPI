@@ -8,14 +8,14 @@ namespace WorkPlaces.Service.Interfaces
     {
         IEnumerable<UserWorkPlaceDTO> GetUserWorkPlaces();
 
-        Task<UserWorkPlaceDTO> GetUserWorkPlace(int userWorkPlaceId);
+        Task<UserWorkPlaceDTO> GetUserWorkPlaceAsync(int userWorkPlaceId);
 
         Task<UserWorkPlaceDTO> CreateUserWorkPlaceAsync(UserWorkPlaceForManipulationDTO userWorkPlace);
 
-        Task UpdateUserWorkPlace(int userWorkPlaceId, UserWorkPlaceForManipulationDTO userWorkPlace);
+        Task UpdateUserWorkPlaceAsync(int userWorkPlaceId, UserWorkPlaceForManipulationDTO userWorkPlace);
 
-        Task DeleteUserWorkPlace(int userWorkPlaceId);
+        Task DeleteUserWorkPlaceAsync(int userWorkPlaceId);
 
-        Task<bool> UserWorkPlaceExists(int userWorkPlaceId);
+        Task<bool> UserWorkPlaceExistsAsync(int userWorkPlaceId);
     }
 }
