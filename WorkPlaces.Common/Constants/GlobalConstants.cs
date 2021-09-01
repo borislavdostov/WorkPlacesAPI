@@ -1,6 +1,6 @@
 ﻿namespace WorkPlaces.Common.Constants
 {
-    public class Global
+    public class GlobalConstants
     {
         public const string XMLDocument = "WorkPlaces.xml";
         public const string SwaggerTitle = "Work Places API";

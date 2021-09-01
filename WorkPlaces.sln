@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkPlaces.Data", "WorkPlac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkPlaces.DataModel", "WorkPlaces.DataModel\WorkPlaces.DataModel.csproj", "{CEB671EA-4E93-4ADA-9ADB-49177A29C880}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkPlaces.Common", "WorkPlaces.Common\WorkPlaces.Common.csproj", "{6A4932FF-6FD3-46FE-A9D0-96CB2C5AD222}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkPlaces.Common", "WorkPlaces.Common\WorkPlaces.Common.csproj", "{6A4932FF-6FD3-46FE-A9D0-96CB2C5AD222}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

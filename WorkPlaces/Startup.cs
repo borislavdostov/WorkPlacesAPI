@@ -35,13 +35,13 @@ namespace WorkPlaces
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc(Global.SwaggerVersion, new OpenApiInfo
+                c.SwaggerDoc(GlobalConstants.SwaggerVersion, new OpenApiInfo
                 {
-                    Title = Global.SwaggerTitle,
-                    Version = Global.SwaggerVersion
+                    Title = GlobalConstants.SwaggerTitle,
+                    Version = GlobalConstants.SwaggerVersion
                 });
 
-                var filePath = Path.Combine(AppContext.BaseDirectory, Global.XMLDocument);
+                var filePath = Path.Combine(AppContext.BaseDirectory, GlobalConstants.XMLDocument);
                 c.IncludeXmlComments(filePath);
             });
 

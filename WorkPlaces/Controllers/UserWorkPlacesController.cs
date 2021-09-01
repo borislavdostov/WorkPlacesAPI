@@ -24,6 +24,11 @@ namespace WorkPlaces.Controllers
             this.workPlacesService = workPlacesService;
         }
 
+        /// <summary>
+        /// Gets all user workplaces
+        /// </summary>
+        /// <returns>All user work places(without deleted)</returns>
+        /// <response code="200">Returns all user work places(without deleted) or empty collection</response>
         [HttpGet(Name = nameof(GetUserWorkPlaces))]
         public ActionResult<IEnumerable<UserWorkPlaceDTO>> GetUserWorkPlaces()
         {
@@ -31,6 +36,13 @@ namespace WorkPlaces.Controllers
             return Ok(userWorkPlaces);
         }
 
+        /// <summary>
+        /// Gets specific user workplace
+        /// </summary>
+        /// <param name="userWorkPlaceId">Id of the user workplace</param>
+        /// <returns>The user workplace with the given Id</returns>
+        /// <response code="200">Returns a user workplace with the given Id</response>
+        /// <response code="404">If a user workplace with the given id does not exist</response>
         [HttpGet("{userWorkPlaceId}")]
         public ActionResult<UserWorkPlaceDTO> GetUserWorkPlace(int userWorkPlaceId)
         {
@@ -44,10 +56,11 @@ namespace WorkPlaces.Controllers
         }
 
         /// <summary>
-        /// Createsadsadsad
+        /// Creates new user workplace
         /// </summary>
         /// <param name="userWorkPlace"></param>
-        /// <returns></returns>
+        /// <returns>A newly created user workplace</returns>
+        /// <response code="201">Returns the newly created user workplace</response>
         [HttpPost]
         public async Task<ActionResult<UserWorkPlaceDTO>> CreateUserWorkPlace(UserWorkPlaceForManipulationDTO userWorkPlace)
         {
@@ -66,6 +79,14 @@ namespace WorkPlaces.Controllers
                 new { userWorkPlaceId = userWorkPlaceToReturn.Id }, userWorkPlaceToReturn);
         }
 
+        /// <summary>
+        /// Updates user workplace
+        /// </summary>
+        /// <param name="userWorkPlaceId">Id of the user workplace</param>
+        /// <param name="userWorkPlace"></param>
+        /// <returns>No content</returns>
+        /// <response code="204">If the user workplace is updated successfully</response>
+        /// <response code="404">If a user workplace, user or workplace with the given id does not exist</response>
         [HttpPut("{userWorkPlaceId}")]
         public async Task<IActionResult> UpdateUserWorkPlace(int userWorkPlaceId, UserWorkPlaceForManipulationDTO userWorkPlace)
         {
@@ -88,6 +109,13 @@ namespace WorkPlaces.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Deletes user workplace
+        /// </summary>
+        /// <param name="userWorkPlaceId">Id of the user workplace</param>
+        /// <returns>No content</returns>
+        /// <response code="204">If the user workplace is deleted successfully</response>
+        /// <response code="404">If a user workplace with the given id does not exist</response>
         [HttpDelete("{userWorkPlaceId}")]
         public async Task<IActionResult> DeleteUserWorkPlace(int userWorkPlaceId)
         {

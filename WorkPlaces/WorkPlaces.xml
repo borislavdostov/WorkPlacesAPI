@@ -4,12 +4,91 @@
         <name>WorkPlaces</name>
     </assembly>
     <members>
+        <member name="M:WorkPlaces.Controllers.UsersController.GetUsers">
+            <summary>
+            Gets all users
+            </summary>
+            <returns>All users(without deleted)</returns>
+            <response code="200">Returns all users(without deleted) or empty collection</response>
+        </member>
+        <member name="M:WorkPlaces.Controllers.UsersController.GetUser(System.Int32)">
+            <summary>
+            Gets specific user
+            </summary>
+            <param name="userId">Id of the user</param>
+            <returns>The user with the given Id</returns>
+            <response code="200">Returns a user with the given Id</response>
+            <response code="404">If a user with the given id does not exist</response>
+        </member>
+        <member name="M:WorkPlaces.Controllers.UsersController.CreateUser(WorkPlaces.DataModel.Models.UserForManipulationDTO)">
+            <summary>
+            Creates new user
+            </summary>
+            <param name="user"></param>
+            <returns>A newly created user</returns>
+            <response code="201">Returns the newly created user</response>
+        </member>
+        <member name="M:WorkPlaces.Controllers.UsersController.UpdateUser(System.Int32,WorkPlaces.DataModel.Models.UserForManipulationDTO)">
+            <summary>
+            Updates user 
+            </summary>
+            <param name="userId">Id of the user</param>
+            <param name="user"></param>
+            <returns>No content</returns>
+            <response code="204">If the user is updated successfully</response>
+            <response code="404">If a user with the given id does not exist</response>
+        </member>
+        <member name="M:WorkPlaces.Controllers.UsersController.DeleteUser(System.Int32)">
+            <summary>
+            Deletes user
+            </summary>
+            <param name="userId">Id of the user</param>
+            <returns>No content</returns>
+            <response code="204">If the user is deleted successfully</response>
+            <response code="404">If a user with the given id does not exist</response>
+        </member>
+        <member name="M:WorkPlaces.Controllers.UserWorkPlacesController.GetUserWorkPlaces">
+            <summary>
+            Gets all user workplaces
+            </summary>
+            <returns>All user work places(without deleted)</returns>
+            <response code="200">Returns all user work places(without deleted) or empty collection</response>
+        </member>
+        <member name="M:WorkPlaces.Controllers.UserWorkPlacesController.GetUserWorkPlace(System.Int32)">
+            <summary>
+            Gets specific user workplace
+            </summary>
+            <param name="userWorkPlaceId">Id of the user workplace</param>
+            <returns>The user workplace with the given Id</returns>
+            <response code="200">Returns a user workplace with the given Id</response>
+            <response code="404">If a user workplace with the given id does not exist</response>
+        </member>
         <member name="M:WorkPlaces.Controllers.UserWorkPlacesController.CreateUserWorkPlace(WorkPlaces.DataModel.Models.UserWorkPlaceForManipulationDTO)">
             <summary>
-            Createsadsadsad
+            Creates new user workplace
             </summary>
             <param name="userWorkPlace"></param>
-            <returns></returns>
+            <returns>A newly created user workplace</returns>
+            <response code="201">Returns the newly created user workplace</response>
+        </member>
+        <member name="M:WorkPlaces.Controllers.UserWorkPlacesController.UpdateUserWorkPlace(System.Int32,WorkPlaces.DataModel.Models.UserWorkPlaceForManipulationDTO)">
+            <summary>
+            Updates user workplace
+            </summary>
+            <param name="userWorkPlaceId">Id of the user workplace</param>
+            <param name="userWorkPlace"></param>
+            <returns>No content</returns>
+            <response code="204">If the user workplace is updated successfully</response>
+            <response code="404">If a user workplace, user or workplace with the given id does not exist</response>
+        </member>
+        <member name="M:WorkPlaces.Controllers.UserWorkPlacesController.DeleteUserWorkPlace(System.Int32)">
+            <summary>
+            Deletes user workplace
+            </summary>
+            <param name="userWorkPlaceId">Id of the user workplace</param>
+            <returns>No content</returns>
+            <response code="204">If the user workplace is deleted successfully</response>
+            <response code="404">If a user workplace with the given id does not exist</response>
         </member>
     </members>
 </doc>
