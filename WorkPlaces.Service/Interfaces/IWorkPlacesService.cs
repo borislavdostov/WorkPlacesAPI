@@ -1,7 +1,9 @@
-﻿namespace WorkPlaces.Service.Interfaces
+﻿using System.Threading.Tasks;
+
+namespace WorkPlaces.Service.Interfaces
 {
     public interface IWorkPlacesService
     {
-        bool WorkPlaceExists(int workPlaceId);
+        Task<bool> WorkPlaceExists(int workPlaceId);
     }
 }

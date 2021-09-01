@@ -37,14 +37,14 @@ namespace WorkPlaces.Controllers
         /// <response code="200">Returns a user with the given Id</response>
         /// <response code="404">If a user with the given id does not exist</response>
         [HttpGet("{userId}", Name = nameof(GetUser))]
-        public ActionResult<UserDTO> GetUser(int userId)
+        public async Task<ActionResult<UserDTO>> GetUser(int userId)
         {
-            if (!usersService.UserExists(userId))
+            if (!await usersService.UserExists(userId))
             {
                 return NotFound();
             }
 
-            var user = usersService.GetUser(userId);
+            var user = await usersService.GetUser(userId);
             return Ok(user);
         }
 
@@ -72,7 +72,7 @@ namespace WorkPlaces.Controllers
         [HttpPut("{userId}")]
         public async Task<IActionResult> UpdateUser(int userId, UserForManipulationDTO user)
         {
-            if (!usersService.UserExists(userId))
+            if (!await usersService.UserExists(userId))
             {
                 return NotFound();
             }
@@ -91,7 +91,7 @@ namespace WorkPlaces.Controllers
         [HttpDelete("{userId}")]
         public async Task<IActionResult> DeleteUser(int userId)
         {
-            if (!usersService.UserExists(userId))
+            if (!await usersService.UserExists(userId))
             {
                 return NotFound();
             }

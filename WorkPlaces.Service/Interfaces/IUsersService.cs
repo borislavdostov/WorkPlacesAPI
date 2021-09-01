@@ -8,7 +8,7 @@ namespace WorkPlaces.Service.Interfaces
     {
         IEnumerable<UserDTO> GetUsers();
 
-        UserDTO GetUser(int userId);
+        Task<UserDTO> GetUser(int userId);
 
         Task<UserDTO> CreateUserAsync(UserForManipulationDTO user);
 
@@ -16,6 +16,6 @@ namespace WorkPlaces.Service.Interfaces
 
         Task DeleteUser(int userId);
 
-        bool UserExists(int userId);
+        Task<bool> UserExists(int userId);
     }
 }

@@ -30,9 +30,9 @@ namespace WorkPlaces.Service.Services
             }).ToList();
         }
 
-        public UserWorkPlaceDTO GetUserWorkPlace(int userWorkPlaceId)
+        public async Task<UserWorkPlaceDTO> GetUserWorkPlace(int userWorkPlaceId)
         {
-            var userWorkPlaceEntity = userWorkPlacesRepository.Get(userWorkPlaceId);
+            var userWorkPlaceEntity = await userWorkPlacesRepository.Get(userWorkPlaceId);
 
             return new UserWorkPlaceDTO
             {
@@ -58,7 +58,7 @@ namespace WorkPlaces.Service.Services
             await userWorkPlacesRepository.SaveChangesAsync();
 
             //TODO: Load relations instead of loading the added entity
-            var addedUserWorkPlaceEntity = userWorkPlacesRepository.Get(userWorkPlaceEntity.Id);
+            var addedUserWorkPlaceEntity = await userWorkPlacesRepository.Get(userWorkPlaceEntity.Id);
 
             return new UserWorkPlaceDTO
             {
@@ -72,7 +72,7 @@ namespace WorkPlaces.Service.Services
 
         public async Task UpdateUserWorkPlace(int userWorkPlaceId, UserWorkPlaceForManipulationDTO userWorkPlace)
         {
-            var userWorkPlaceEntity = userWorkPlacesRepository.Get(userWorkPlaceId);
+            var userWorkPlaceEntity = await userWorkPlacesRepository.Get(userWorkPlaceId);
 
             userWorkPlaceEntity.UserId = userWorkPlace.UserId;
             userWorkPlaceEntity.WorkPlaceId = userWorkPlace.WorkPlaceId;
@@ -85,14 +85,14 @@ namespace WorkPlaces.Service.Services
 
         public async Task DeleteUserWorkPlace(int userId)
         {
-            var userWorkPlaceEntity = userWorkPlacesRepository.Get(userId);
+            var userWorkPlaceEntity = await userWorkPlacesRepository.Get(userId);
             userWorkPlacesRepository.Delete(userWorkPlaceEntity);
             await userWorkPlacesRepository.SaveChangesAsync();
         }
 
-        public bool UserWorkPlaceExists(int userWorkPlaceId)
+        public async Task<bool> UserWorkPlaceExists(int userWorkPlaceId)
         {
-            return userWorkPlacesRepository.Exists(userWorkPlaceId);
+            return await userWorkPlacesRepository.Exists(userWorkPlaceId);
         }
     }
 }

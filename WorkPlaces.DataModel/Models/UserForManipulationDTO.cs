@@ -8,18 +8,18 @@ namespace WorkPlaces.DataModel.Models
     public class UserForManipulationDTO
     {
         [Required]
-        [MinLength(2), MaxLength(50)]
         [PersonName]
+        [MinLength(2), MaxLength(50)]
         public string FirstName { get; set; }
 
         [Required]
-        [MinLength(2), MaxLength(50)]
         [PersonName]
+        [MinLength(2), MaxLength(50)]
         public string LastName { get; set; }
 
         [Required]
-        [MaxLength(50)]
         [EmailAddress]
+        [MaxLength(50)]
         public string Email { get; set; }
 
         [Required]

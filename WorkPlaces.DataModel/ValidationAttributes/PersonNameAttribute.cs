@@ -13,7 +13,7 @@ namespace WorkPlaces.DataModel.ValidationAttributes
             if (!Regex.IsMatch(name, @"[A-Z]{1}[a-z]*"))
             {
                 return new ValidationResult(
-                "The name should start with a capital letter and cannot contain any special symbols.",
+                "The name should start with a capital letter and cannot contain numbers or any special symbols.",
                  new[] { nameof(UserForManipulationDTO) });
             }
 

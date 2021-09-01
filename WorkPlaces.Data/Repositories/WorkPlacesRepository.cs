@@ -1,5 +1,6 @@
-﻿using System;
-using System.Linq;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Threading.Tasks;
 
 namespace WorkPlaces.Data.Repositories
 {
@@ -12,9 +13,9 @@ namespace WorkPlaces.Data.Repositories
             this.context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public bool WorkPlaceExists(int workPlaceId)
+        public Task<bool> WorkPlaceExists(int workPlaceId)
         {
-            return context.WorkPlaces.Any(wp => wp.Id == workPlaceId && wp.DeletedAt == null);
+            return context.WorkPlaces.AnyAsync(wp => wp.Id == workPlaceId && wp.DeletedAt == null);
         }
 
         public void Dispose()

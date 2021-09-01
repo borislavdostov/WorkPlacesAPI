@@ -20,8 +20,8 @@ namespace WorkPlaces.Common.ValidationAttributes
             if (DateTime.Now.Year - user.DateOfBirth.Year < 18)
             {
                 return new ValidationResult(
-                       "You are not old enough to work.",
-                       new[] { nameof(UserForManipulationDTO) });
+                    "You are not old enough to work.",
+                    new[] { nameof(UserForManipulationDTO) });
             }
 
             return ValidationResult.Success;

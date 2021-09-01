@@ -9,7 +9,7 @@ namespace WorkPlaces.Data.Interfaces
     {
         IQueryable<User> GetAll();
 
-        User Get(int userId);
+        Task<User> Get(int userId);
 
         Task AddAsync(User user);
 
@@ -17,7 +17,7 @@ namespace WorkPlaces.Data.Interfaces
 
         void Delete(User user);
 
-        bool Exists(int userId);
+        Task<bool> Exists(int userId);
 
         Task SaveChangesAsync();
     }

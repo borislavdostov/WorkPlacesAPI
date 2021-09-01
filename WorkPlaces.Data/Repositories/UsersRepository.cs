@@ -25,11 +25,11 @@ namespace WorkPlaces.Data.Repositories
                 .Where(u => u.DeletedAt == null);
         }
 
-        public User Get(int userId)
+        public Task<User> Get(int userId)
         {
             return context.Users
                 .Include(u => u.WorkPlaces)
-                .FirstOrDefault(u => u.Id == userId && u.DeletedAt == null);
+                .FirstOrDefaultAsync(u => u.Id == userId && u.DeletedAt == null);
         }
 
         public async Task AddAsync(User user)
@@ -56,14 +56,14 @@ namespace WorkPlaces.Data.Repositories
             Update(user);
         }
 
-        public bool Exists(int userId)
+        public Task<bool> Exists(int userId)
         {
-            return context.Users.Any(u => u.Id == userId && u.DeletedAt == null);
+            return context.Users.AnyAsync(u => u.Id == userId && u.DeletedAt == null);
         }
 
-        public async Task SaveChangesAsync()
+        public Task SaveChangesAsync()
         {
-            await context.SaveChangesAsync();
+            return context.SaveChangesAsync();
         }
 
         public void Dispose()

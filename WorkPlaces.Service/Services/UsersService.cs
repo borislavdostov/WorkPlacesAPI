@@ -31,9 +31,9 @@ namespace WorkPlaces.Service.Services
             }).ToList();
         }
 
-        public UserDTO GetUser(int userId)
+        public async Task<UserDTO> GetUser(int userId)
         {
-            var userEntity = usersRepository.Get(userId);
+            var userEntity = await usersRepository.Get(userId);
 
             return new UserDTO
             {
@@ -68,7 +68,7 @@ namespace WorkPlaces.Service.Services
 
         public async Task UpdateUser(int userId, UserForManipulationDTO user)
         {
-            var userEntity = usersRepository.Get(userId);
+            var userEntity = await usersRepository.Get(userId);
 
             userEntity.FirstName = user.FirstName;
             userEntity.LastName = user.LastName;
@@ -81,15 +81,15 @@ namespace WorkPlaces.Service.Services
 
         public async Task DeleteUser(int userId)
         {
-            var user = usersRepository.Get(userId);
+            var user = await usersRepository.Get(userId);
 
             usersRepository.Delete(user);
             await usersRepository.SaveChangesAsync();
         }
 
-        public bool UserExists(int userId)
+        public async Task<bool> UserExists(int userId)
         {
-            return usersRepository.Exists(userId);
+            return await usersRepository.Exists(userId);
         }
     }
 }

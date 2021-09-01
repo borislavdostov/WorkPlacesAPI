@@ -1,4 +1,5 @@
-﻿using WorkPlaces.Data.Repositories;
+﻿using System.Threading.Tasks;
+using WorkPlaces.Data.Repositories;
 using WorkPlaces.Service.Interfaces;
 
 namespace WorkPlaces.Service.Services
@@ -12,9 +13,9 @@ namespace WorkPlaces.Service.Services
             this.workPlacesRepository = workPlacesRepository;
         }
 
-        public bool WorkPlaceExists(int workPlaceId)
+        public async Task<bool> WorkPlaceExists(int workPlaceId)
         {
-            return workPlacesRepository.WorkPlaceExists(workPlaceId);
+            return await workPlacesRepository.WorkPlaceExists(workPlaceId);
         }
     }
 }
