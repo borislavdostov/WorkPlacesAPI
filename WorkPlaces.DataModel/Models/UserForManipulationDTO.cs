@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using WorkPlaces.Common.ValidationAttributes;
+using WorkPlaces.DataModel.ValidationAttributes;
 
 namespace WorkPlaces.DataModel.Models
 {
@@ -8,11 +9,12 @@ namespace WorkPlaces.DataModel.Models
     {
         [Required]
         [MinLength(2), MaxLength(50)]
-        [RegularExpression(@"[A-Z]{1}[a-z]*", ErrorMessage = "Invalid first name")]
+        [PersonName]
         public string FirstName { get; set; }
 
         [Required]
         [MinLength(2), MaxLength(50)]
+        [PersonName]
         public string LastName { get; set; }
 
         [Required]
