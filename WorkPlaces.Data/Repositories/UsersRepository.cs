@@ -20,22 +20,22 @@ namespace WorkPlaces.Data.Repositories
 
         public IQueryable<User> GetAll()
         {
-            return context.Users
+            return dbSet
                 .Include(u => u.WorkPlaces)
                 .Where(u => u.DeletedAt == null);
         }
 
         public Task<User> GetAsync(int userId)
         {
-            return context.Users
+            return dbSet
                 .Include(u => u.WorkPlaces)
                 .FirstOrDefaultAsync(u => u.Id == userId && u.DeletedAt == null);
         }
 
-        public async Task AddAsync(User user)
+        public Task AddAsync(User user)
         {
             user.CreatedAt = DateTime.Now;
-            await context.Users.AddAsync(user);
+            return dbSet.AddAsync(user).AsTask();
         }
 
         public void Update(User user)
@@ -58,7 +58,7 @@ namespace WorkPlaces.Data.Repositories
 
         public Task<bool> ExistsAsync(int userId)
         {
-            return context.Users.AnyAsync(u => u.Id == userId && u.DeletedAt == null);
+            return dbSet.AnyAsync(u => u.Id == userId && u.DeletedAt == null);
         }
 
         public Task SaveChangesAsync()
