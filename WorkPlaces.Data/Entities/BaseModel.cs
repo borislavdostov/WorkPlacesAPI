@@ -11,7 +11,5 @@ namespace WorkPlaces.Data.Common
         public DateTime? UpdatedAt { get; set; }
 
         public DateTime? DeletedAt { get; set; }
-
-        public bool IsDeleted => DeletedAt != null;
     }
 }
