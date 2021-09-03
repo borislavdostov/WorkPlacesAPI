@@ -22,12 +22,12 @@ namespace WorkPlaces.Service.Services
         {
             var allUsers = usersRepository.GetAll();
 
-            return allUsers.Select(user => new UserDTO
+            return allUsers.Select(u => new UserDTO
             {
-                Id = user.Id,
-                Name = $"{user.FirstName} { user.LastName}",
-                Email = user.Email,
-                Age = user.DateOfBirth.GetAge()
+                Id = u.Id,
+                Name = u.FullName,
+                Email = u.Email,
+                Age = u.DateOfBirth.GetAge()
             }).ToList();
         }
 
@@ -38,7 +38,7 @@ namespace WorkPlaces.Service.Services
             return new UserDTO
             {
                 Id = userEntity.Id,
-                Name = $"{userEntity.FirstName} {userEntity.LastName}",
+                Name = userEntity.FullName,
                 Email = userEntity.Email,
                 Age = userEntity.DateOfBirth.GetAge()
             };
@@ -60,7 +60,7 @@ namespace WorkPlaces.Service.Services
             return new UserDTO
             {
                 Id = userEntity.Id,
-                Name = $"{userEntity.FirstName} {userEntity.LastName}",
+                Name = userEntity.FullName,
                 Email = userEntity.Email,
                 Age = userEntity.DateOfBirth.GetAge()
             };

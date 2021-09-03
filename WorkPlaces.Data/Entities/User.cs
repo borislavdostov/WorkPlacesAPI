@@ -24,6 +24,8 @@ namespace WorkPlaces.Data.Entities
         [MaxLength(50)]
         public string Email { get; set; }
 
+        public string FullName => $"{FirstName} {LastName}";
+
         [Required]
         public DateTime DateOfBirth { get; set; }
 
