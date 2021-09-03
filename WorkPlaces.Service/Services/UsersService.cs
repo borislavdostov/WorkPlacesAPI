@@ -27,7 +27,7 @@ namespace WorkPlaces.Service.Services
                 Id = u.Id,
                 Name = u.FullName,
                 Email = u.Email,
-                Age = u.DateOfBirth.GetAge()
+                Age = u.Age
             }).ToList();
         }
 
@@ -40,7 +40,7 @@ namespace WorkPlaces.Service.Services
                 Id = userEntity.Id,
                 Name = userEntity.FullName,
                 Email = userEntity.Email,
-                Age = userEntity.DateOfBirth.GetAge()
+                Age = userEntity.Age
             };
         }
 
@@ -62,7 +62,7 @@ namespace WorkPlaces.Service.Services
                 Id = userEntity.Id,
                 Name = userEntity.FullName,
                 Email = userEntity.Email,
-                Age = userEntity.DateOfBirth.GetAge()
+                Age = userEntity.Age
             };
         }
 

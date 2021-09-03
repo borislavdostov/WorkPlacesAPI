@@ -23,7 +23,7 @@ namespace WorkPlaces.Service.Services
             return userWorkPlaces.Select(uwp => new UserWorkPlaceDTO
             {
                 Id = uwp.Id,
-                User = $"{uwp.User.FirstName} {uwp.User.LastName}",
+                User = uwp.User.FullName,
                 WorkPlace = uwp.WorkPlace.Name,
                 FromDate = uwp.FromDate,
                 ToDate = uwp.ToDate
@@ -37,7 +37,7 @@ namespace WorkPlaces.Service.Services
             return new UserWorkPlaceDTO
             {
                 Id = userWorkPlaceEntity.Id,
-                User = $"{userWorkPlaceEntity.User.FirstName} {userWorkPlaceEntity.User.LastName}",
+                User = userWorkPlaceEntity.User.FullName,
                 WorkPlace = userWorkPlaceEntity.WorkPlace.Name,
                 FromDate = userWorkPlaceEntity.FromDate,
                 ToDate = userWorkPlaceEntity.ToDate
@@ -63,7 +63,7 @@ namespace WorkPlaces.Service.Services
             return new UserWorkPlaceDTO
             {
                 Id = userWorkPlaceEntity.Id,
-                User = $"{addedUserWorkPlaceEntity.User.FirstName} {addedUserWorkPlaceEntity.User.LastName}",
+                User = addedUserWorkPlaceEntity.User.FullName,
                 WorkPlace = addedUserWorkPlaceEntity.WorkPlace.Name,
                 FromDate = userWorkPlace.FromDate,
                 ToDate = userWorkPlace.ToDate
