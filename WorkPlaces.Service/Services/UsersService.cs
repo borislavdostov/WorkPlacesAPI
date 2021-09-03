@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using WorkPlaces.Data.Entities;
 using WorkPlaces.Data.Interfaces;
 using WorkPlaces.DataModel.Models;
-using WorkPlaces.Extensions;
 using WorkPlaces.Service.Interfaces;
 
 namespace WorkPlaces.Service.Services

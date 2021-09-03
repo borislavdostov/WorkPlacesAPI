@@ -20,6 +20,7 @@ namespace WorkPlaces.Service.Services
         public IEnumerable<UserWorkPlaceDTO> GetUserWorkPlaces()
         {
             var userWorkPlaces = userWorkPlacesRepository.GetAll();
+
             return userWorkPlaces.Select(uwp => new UserWorkPlaceDTO
             {
                 Id = uwp.Id,
@@ -86,6 +87,7 @@ namespace WorkPlaces.Service.Services
         public async Task DeleteUserWorkPlaceAsync(int userId)
         {
             var userWorkPlaceEntity = await userWorkPlacesRepository.GetAsync(userId);
+
             userWorkPlacesRepository.Delete(userWorkPlaceEntity);
             await userWorkPlacesRepository.SaveChangesAsync();
         }
