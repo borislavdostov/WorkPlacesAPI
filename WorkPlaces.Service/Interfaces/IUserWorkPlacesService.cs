@@ -10,7 +10,7 @@ namespace WorkPlaces.Service.Interfaces
 
         UserWorkPlaceOptionsDTO GetUserWorkPlaceOptions();
 
-        Task<UserWorkPlaceDTO> GetUserWorkPlaceAsync(int userWorkPlaceId);
+        Task<UserWorkPlaceForManipulationDTO> GetUserWorkPlaceAsync(int userWorkPlaceId);
 
         Task<UserWorkPlaceDTO> CreateUserWorkPlaceAsync(UserWorkPlaceForManipulationDTO userWorkPlace);
 

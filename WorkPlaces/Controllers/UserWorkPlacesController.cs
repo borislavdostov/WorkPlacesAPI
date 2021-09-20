@@ -56,7 +56,7 @@ namespace WorkPlaces.Controllers
         /// <response code="200">Returns a user workplace with the given Id</response>
         /// <response code="404">If a user workplace with the given id does not exist</response>
         [HttpGet("{userWorkPlaceId}")]
-        public async Task<ActionResult<UserWorkPlaceDTO>> GetUserWorkPlace(int userWorkPlaceId)
+        public async Task<ActionResult<UserWorkPlaceForManipulationDTO>> GetUserWorkPlace(int userWorkPlaceId)
         {
             if (!await userWorkPlacesService.UserWorkPlaceExistsAsync(userWorkPlaceId))
             {

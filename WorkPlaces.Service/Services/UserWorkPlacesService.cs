@@ -61,15 +61,14 @@ namespace WorkPlaces.Service.Services
             };
         }
 
-        public async Task<UserWorkPlaceDTO> GetUserWorkPlaceAsync(int userWorkPlaceId)
+        public async Task<UserWorkPlaceForManipulationDTO> GetUserWorkPlaceAsync(int userWorkPlaceId)
         {
             var userWorkPlaceEntity = await userWorkPlacesRepository.GetAsync(userWorkPlaceId);
 
-            return new UserWorkPlaceDTO
+            return new UserWorkPlaceForManipulationDTO
             {
-                Id = userWorkPlaceEntity.Id,
-                User = userWorkPlaceEntity.User.FullName,
-                WorkPlace = userWorkPlaceEntity.WorkPlace.Name,
+                UserId = userWorkPlaceEntity.UserId,
+                WorkPlaceId = userWorkPlaceEntity.WorkPlaceId,
                 FromDate = userWorkPlaceEntity.FromDate,
                 ToDate = userWorkPlaceEntity.ToDate
             };
