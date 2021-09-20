@@ -30,16 +30,16 @@ namespace WorkPlaces.Service.Services
             }).ToList();
         }
 
-        public async Task<UserDTO> GetUserAsync(int userId)
+        public async Task<UserForManipulationDTO> GetUserAsync(int userId)
         {
             var userEntity = await usersRepository.GetAsync(userId);
 
-            return new UserDTO
+            return new UserForManipulationDTO
             {
-                Id = userEntity.Id,
-                Name = userEntity.FullName,
+                FirstName = userEntity.FirstName,
+                LastName = userEntity.LastName,
                 Email = userEntity.Email,
-                Age = userEntity.Age
+                DateOfBirth = userEntity.DateOfBirth
             };
         }
 

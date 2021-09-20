@@ -8,7 +8,7 @@ namespace WorkPlaces.Service.Interfaces
     {
         IEnumerable<UserDTO> GetUsers();
 
-        Task<UserDTO> GetUserAsync(int userId);
+        Task<UserForManipulationDTO> GetUserAsync(int userId);
 
         Task<UserDTO> CreateUserAsync(UserForManipulationDTO user);
 
