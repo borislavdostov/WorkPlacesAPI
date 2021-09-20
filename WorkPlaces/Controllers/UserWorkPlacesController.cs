@@ -37,6 +37,18 @@ namespace WorkPlaces.Controllers
         }
 
         /// <summary>
+        /// Gets all options for user work place
+        /// </summary>
+        /// <returns>All options for user work place(without deleted)</returns>
+        /// <response code="200">All options for user work place(without deleted) or empty collection</response>
+        [HttpGet("options")]
+        public ActionResult<UserWorkPlaceOptionsDTO> GetUserWorkPlaceOptions()
+        {
+            var userWorkPlaceOptions = userWorkPlacesService.GetUserWorkPlaceOptions();
+            return Ok(userWorkPlaceOptions);
+        }
+
+        /// <summary>
         /// Gets specific user workplace
         /// </summary>
         /// <param name="userWorkPlaceId">Id of the user workplace</param>

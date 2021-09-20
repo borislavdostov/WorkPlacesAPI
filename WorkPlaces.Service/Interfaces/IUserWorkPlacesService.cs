@@ -8,6 +8,8 @@ namespace WorkPlaces.Service.Interfaces
     {
         IEnumerable<UserWorkPlaceDTO> GetUserWorkPlaces();
 
+        UserWorkPlaceOptionsDTO GetUserWorkPlaceOptions();
+
         Task<UserWorkPlaceDTO> GetUserWorkPlaceAsync(int userWorkPlaceId);
 
         Task<UserWorkPlaceDTO> CreateUserWorkPlaceAsync(UserWorkPlaceForManipulationDTO userWorkPlace);

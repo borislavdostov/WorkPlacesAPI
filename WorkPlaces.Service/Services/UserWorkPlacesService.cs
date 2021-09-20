@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using WorkPlaces.Data.Entities;
+using WorkPlaces.Data.Interfaces;
 using WorkPlaces.Data.Repositories;
 using WorkPlaces.DataModel.Models;
 using WorkPlaces.Service.Interfaces;
@@ -11,10 +12,17 @@ namespace WorkPlaces.Service.Services
     public class UserWorkPlacesService : IUserWorkPlacesService
     {
         private readonly IUserWorkPlacesRepository userWorkPlacesRepository;
+        private readonly IUsersRepository usersRepository;
+        private readonly IWorkPlacesRepository workPlacesRepository;
 
-        public UserWorkPlacesService(IUserWorkPlacesRepository userWorkPlacesRepository)
+        public UserWorkPlacesService(
+            IUserWorkPlacesRepository userWorkPlacesRepository,
+            IUsersRepository usersRepository,
+            IWorkPlacesRepository workPlacesRepository)
         {
             this.userWorkPlacesRepository = userWorkPlacesRepository;
+            this.usersRepository = usersRepository;
+            this.workPlacesRepository = workPlacesRepository;
         }
 
         public IEnumerable<UserWorkPlaceDTO> GetUserWorkPlaces()
@@ -29,6 +37,28 @@ namespace WorkPlaces.Service.Services
                 FromDate = uwp.FromDate,
                 ToDate = uwp.ToDate
             }).ToList();
+        }
+
+        public UserWorkPlaceOptionsDTO GetUserWorkPlaceOptions()
+        {
+            var users = usersRepository.GetAll().Select(u => new UserDropdownDTO
+            {
+                Id = u.Id,
+                Name = u.FullName
+            }).ToList();
+
+            var workPlaces = workPlacesRepository.GetAll().Select(wp => new WorkPlaceDropdownDTO
+            {
+                Id = wp.Id,
+                Name = wp.Name
+            }).ToList();
+
+
+            return new UserWorkPlaceOptionsDTO
+            {
+                Users = users,
+                WorkPlaces = workPlaces
+            };
         }
 
         public async Task<UserWorkPlaceDTO> GetUserWorkPlaceAsync(int userWorkPlaceId)

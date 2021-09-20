@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using WorkPlaces.Data.Entities;
 
@@ -14,6 +15,11 @@ namespace WorkPlaces.Data.Repositories
         {
             this.context = context ?? throw new ArgumentNullException(nameof(context));
             dbSet = context.Set<WorkPlace>();
+        }
+
+        public IQueryable<WorkPlace> GetAll()
+        {
+            return dbSet;
         }
 
         public Task<bool> ExistsAsync(int workPlaceId)
