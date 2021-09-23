@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using WorkPlaces.Common.ValidationAttributes;
 using WorkPlaces.DataModel.ValidationAttributes;
 
 namespace WorkPlaces.DataModel.Models
