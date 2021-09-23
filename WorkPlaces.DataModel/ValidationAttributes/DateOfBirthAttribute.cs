@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using WorkPlaces.DataModel.Models;
 
-namespace WorkPlaces.Common.ValidationAttributes
+namespace WorkPlaces.DataModel.ValidationAttributes
 {
     public class DateOfBirthAttribute : ValidationAttribute
     {
