@@ -61,25 +61,25 @@ namespace WorkPlaces.Service.Services
             };
         }
 
-        public async Task<UserWorkPlaceForManipulationDTO> GetUserWorkPlaceAsync(int userWorkPlaceId)
+        public async Task<UserWorkplaceForManipulationDTO> GetUserWorkPlaceAsync(int userWorkPlaceId)
         {
             var userWorkPlaceEntity = await userWorkPlacesRepository.GetAsync(userWorkPlaceId);
 
-            return new UserWorkPlaceForManipulationDTO
+            return new UserWorkplaceForManipulationDTO
             {
                 UserId = userWorkPlaceEntity.UserId,
-                WorkPlaceId = userWorkPlaceEntity.WorkplaceId,
+                WorkplaceId = userWorkPlaceEntity.WorkplaceId,
                 FromDate = userWorkPlaceEntity.FromDate,
                 ToDate = userWorkPlaceEntity.ToDate
             };
         }
 
-        public async Task<UserWorkPlaceDTO> CreateUserWorkPlaceAsync(UserWorkPlaceForManipulationDTO userWorkPlace)
+        public async Task<UserWorkPlaceDTO> CreateUserWorkPlaceAsync(UserWorkplaceForManipulationDTO userWorkPlace)
         {
             var userWorkPlaceEntity = new UserWorkplace
             {
                 UserId = userWorkPlace.UserId,
-                WorkplaceId = userWorkPlace.WorkPlaceId,
+                WorkplaceId = userWorkPlace.WorkplaceId,
                 FromDate = userWorkPlace.FromDate,
                 ToDate = userWorkPlace.ToDate
             };
@@ -100,12 +100,12 @@ namespace WorkPlaces.Service.Services
             };
         }
 
-        public async Task UpdateUserWorkPlaceAsync(int userWorkPlaceId, UserWorkPlaceForManipulationDTO userWorkPlace)
+        public async Task UpdateUserWorkPlaceAsync(int userWorkPlaceId, UserWorkplaceForManipulationDTO userWorkPlace)
         {
             var userWorkPlaceEntity = await userWorkPlacesRepository.GetAsync(userWorkPlaceId);
 
             userWorkPlaceEntity.UserId = userWorkPlace.UserId;
-            userWorkPlaceEntity.WorkplaceId = userWorkPlace.WorkPlaceId;
+            userWorkPlaceEntity.WorkplaceId = userWorkPlace.WorkplaceId;
             userWorkPlaceEntity.FromDate = userWorkPlace.FromDate;
             userWorkPlaceEntity.ToDate = userWorkPlace.ToDate;
 

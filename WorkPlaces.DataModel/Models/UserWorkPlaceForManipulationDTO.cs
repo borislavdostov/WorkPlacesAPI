@@ -3,13 +3,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WorkPlaces.DataModel.Models
 {
-    public class UserWorkPlaceForManipulationDTO
+    public class UserWorkplaceForManipulationDTO
     {
         [Required]
         public int UserId { get; set; }
 
         [Required]
-        public int WorkPlaceId { get; set; }
+        public int WorkplaceId { get; set; }
 
         [Required]
         public DateTime FromDate { get; set; }

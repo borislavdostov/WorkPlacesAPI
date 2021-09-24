@@ -56,7 +56,7 @@ namespace WorkPlaces.Controllers
         /// <response code="200">Returns a user workplace with the given Id</response>
         /// <response code="404">If a user workplace with the given id does not exist</response>
         [HttpGet("{userWorkPlaceId}")]
-        public async Task<ActionResult<UserWorkPlaceForManipulationDTO>> GetUserWorkPlace(int userWorkPlaceId)
+        public async Task<ActionResult<UserWorkplaceForManipulationDTO>> GetUserWorkPlace(int userWorkPlaceId)
         {
             if (!await userWorkPlacesService.UserWorkPlaceExistsAsync(userWorkPlaceId))
             {
@@ -74,10 +74,10 @@ namespace WorkPlaces.Controllers
         /// <returns>A newly created user workplace</returns>
         /// <response code="201">Returns the newly created user workplace</response>
         [HttpPost]
-        public async Task<ActionResult<UserWorkPlaceDTO>> CreateUserWorkPlace(UserWorkPlaceForManipulationDTO userWorkPlace)
+        public async Task<ActionResult<UserWorkPlaceDTO>> CreateUserWorkPlace(UserWorkplaceForManipulationDTO userWorkPlace)
         {
             if (!await usersService.UserExistsAsync(userWorkPlace.UserId) ||
-                !await workPlacesService.WorkPlaceExistsAsync(userWorkPlace.WorkPlaceId))
+                !await workPlacesService.WorkPlaceExistsAsync(userWorkPlace.WorkplaceId))
             {
                 return NotFound();
             }
@@ -96,11 +96,11 @@ namespace WorkPlaces.Controllers
         /// <response code="204">If the user workplace is updated successfully</response>
         /// <response code="404">If a user workplace, user or workplace with the given id does not exist</response>
         [HttpPut("{userWorkPlaceId}")]
-        public async Task<IActionResult> UpdateUserWorkPlace(int userWorkPlaceId, UserWorkPlaceForManipulationDTO userWorkPlace)
+        public async Task<IActionResult> UpdateUserWorkPlace(int userWorkPlaceId, UserWorkplaceForManipulationDTO userWorkPlace)
         {
             if (!await userWorkPlacesService.UserWorkPlaceExistsAsync(userWorkPlaceId) ||
                 !await usersService.UserExistsAsync(userWorkPlace.UserId) ||
-                !await workPlacesService.WorkPlaceExistsAsync(userWorkPlace.WorkPlaceId))
+                !await workPlacesService.WorkPlaceExistsAsync(userWorkPlace.WorkplaceId))
             {
                 return NotFound();
             }
