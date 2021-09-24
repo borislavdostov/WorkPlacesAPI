@@ -24,7 +24,7 @@ namespace WorkPlaces.Data.Repositories
 
         public Task<bool> ExistsAsync(int workplaceId)
         {
-            return dbSet.AnyAsync(wp => wp.Id == workplaceId && wp.DeletedAt == null);
+            return dbSet.AnyAsync(w => w.Id == workplaceId && w.DeletedAt == null);
         }
 
         public void Dispose()
