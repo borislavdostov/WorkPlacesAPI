@@ -27,15 +27,15 @@ namespace WorkPlaces.Service.Services
 
         public IEnumerable<UserWorkplaceDTO> GetUserWorkplaces()
         {
-            var userWorkPlaces = userWorkplacesRepository.GetAll();
+            var userWorkplaces = userWorkplacesRepository.GetAll();
 
-            return userWorkPlaces.Select(uwp => new UserWorkplaceDTO
+            return userWorkplaces.Select(uw => new UserWorkplaceDTO
             {
-                Id = uwp.Id,
-                User = uwp.User.FullName,
-                Workplace = uwp.Workplace.Name,
-                FromDate = uwp.FromDate,
-                ToDate = uwp.ToDate
+                Id = uw.Id,
+                User = uw.User.FullName,
+                Workplace = uw.Workplace.Name,
+                FromDate = uw.FromDate,
+                ToDate = uw.ToDate
             }).ToList();
         }
 
@@ -47,69 +47,69 @@ namespace WorkPlaces.Service.Services
                 Name = u.FullName
             }).ToList();
 
-            var workPlaces = workplacesRepository.GetAll().Select(wp => new WorkplaceDropdownDTO
+            var workplaces = workplacesRepository.GetAll().Select(w => new WorkplaceDropdownDTO
             {
-                Id = wp.Id,
-                Name = wp.Name
+                Id = w.Id,
+                Name = w.Name
             }).ToList();
 
 
             return new UserWorkplaceOptionsDTO
             {
                 Users = users,
-                Workplaces = workPlaces
+                Workplaces = workplaces
             };
         }
 
-        public async Task<UserWorkplaceForManipulationDTO> GetUserWorkplaceAsync(int userWorkPlaceId)
+        public async Task<UserWorkplaceForManipulationDTO> GetUserWorkplaceAsync(int userWorkplaceId)
         {
-            var userWorkPlaceEntity = await userWorkplacesRepository.GetAsync(userWorkPlaceId);
+            var userWorkplaceEntity = await userWorkplacesRepository.GetAsync(userWorkplaceId);
 
             return new UserWorkplaceForManipulationDTO
             {
-                UserId = userWorkPlaceEntity.UserId,
-                WorkplaceId = userWorkPlaceEntity.WorkplaceId,
-                FromDate = userWorkPlaceEntity.FromDate,
-                ToDate = userWorkPlaceEntity.ToDate
+                UserId = userWorkplaceEntity.UserId,
+                WorkplaceId = userWorkplaceEntity.WorkplaceId,
+                FromDate = userWorkplaceEntity.FromDate,
+                ToDate = userWorkplaceEntity.ToDate
             };
         }
 
-        public async Task<UserWorkplaceDTO> CreateUserWorkplaceAsync(UserWorkplaceForManipulationDTO userWorkPlace)
+        public async Task<UserWorkplaceDTO> CreateUserWorkplaceAsync(UserWorkplaceForManipulationDTO userWorkplace)
         {
-            var userWorkPlaceEntity = new UserWorkplace
+            var userWorkplaceEntity = new UserWorkplace
             {
-                UserId = userWorkPlace.UserId,
-                WorkplaceId = userWorkPlace.WorkplaceId,
-                FromDate = userWorkPlace.FromDate,
-                ToDate = userWorkPlace.ToDate
+                UserId = userWorkplace.UserId,
+                WorkplaceId = userWorkplace.WorkplaceId,
+                FromDate = userWorkplace.FromDate,
+                ToDate = userWorkplace.ToDate
             };
 
-            await userWorkplacesRepository.AddAsync(userWorkPlaceEntity);
+            await userWorkplacesRepository.AddAsync(userWorkplaceEntity);
             await userWorkplacesRepository.SaveChangesAsync();
 
             //TODO: Load relations instead of loading the added entity
-            var addedUserWorkPlaceEntity = await userWorkplacesRepository.GetAsync(userWorkPlaceEntity.Id);
+            var addedUserWorkplaceEntity = await userWorkplacesRepository.GetAsync(userWorkplaceEntity.Id);
 
             return new UserWorkplaceDTO
             {
-                Id = userWorkPlaceEntity.Id,
-                User = addedUserWorkPlaceEntity.User.FullName,
-                Workplace = addedUserWorkPlaceEntity.Workplace.Name,
-                FromDate = userWorkPlace.FromDate,
-                ToDate = userWorkPlace.ToDate
+                Id = userWorkplaceEntity.Id,
+                User = addedUserWorkplaceEntity.User.FullName,
+                Workplace = addedUserWorkplaceEntity.Workplace.Name,
+                FromDate = userWorkplace.FromDate,
+                ToDate = userWorkplace.ToDate
             };
         }
 
-        public async Task UpdateUserWorkplaceAsync(int userWorkPlaceId, UserWorkplaceForManipulationDTO userWorkPlace)
+        public async Task UpdateUserWorkplaceAsync(int userWorkplaceId, UserWorkplaceForManipulationDTO userWorkplace)
         {
-            var userWorkPlaceEntity = await userWorkplacesRepository.GetAsync(userWorkPlaceId);
+            var userWorkplaceEntity = await userWorkplacesRepository.GetAsync(userWorkplaceId);
 
-            userWorkPlaceEntity.UserId = userWorkPlace.UserId;
-            userWorkPlaceEntity.WorkplaceId = userWorkPlace.WorkplaceId;
-            userWorkPlaceEntity.FromDate = userWorkPlace.FromDate;
-            userWorkPlaceEntity.ToDate = userWorkPlace.ToDate;
+            userWorkplaceEntity.UserId = userWorkplace.UserId;
+            userWorkplaceEntity.WorkplaceId = userWorkplace.WorkplaceId;
+            userWorkplaceEntity.FromDate = userWorkplace.FromDate;
+            userWorkplaceEntity.ToDate = userWorkplace.ToDate;
 
-            userWorkplacesRepository.Update(userWorkPlaceEntity);
+            userWorkplacesRepository.Update(userWorkplaceEntity);
             await userWorkplacesRepository.SaveChangesAsync();
         }
 
@@ -121,9 +121,9 @@ namespace WorkPlaces.Service.Services
             await userWorkplacesRepository.SaveChangesAsync();
         }
 
-        public async Task<bool> UserWorkplaceExistsAsync(int userWorkPlaceId)
+        public async Task<bool> UserWorkplaceExistsAsync(int userWorkplaceId)
         {
-            return await userWorkplacesRepository.ExistsAsync(userWorkPlaceId);
+            return await userWorkplacesRepository.ExistsAsync(userWorkplaceId);
         }
     }
 }
