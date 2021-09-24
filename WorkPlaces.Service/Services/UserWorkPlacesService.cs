@@ -115,9 +115,9 @@ namespace WorkPlaces.Service.Services
 
         public async Task DeleteUserWorkplaceAsync(int userId)
         {
-            var userWorkPlaceEntity = await userWorkplacesRepository.GetAsync(userId);
+            var userWorkplaceEntity = await userWorkplacesRepository.GetAsync(userId);
 
-            userWorkplacesRepository.Delete(userWorkPlaceEntity);
+            userWorkplacesRepository.Delete(userWorkplaceEntity);
             await userWorkplacesRepository.SaveChangesAsync();
         }
 
