@@ -8,13 +8,13 @@ namespace WorkPlaces.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class UserWorkPlacesController : ControllerBase
+    public class UserWorkplacesController : ControllerBase
     {
         private readonly IUserWorkPlacesService userWorkPlacesService;
         private readonly IUsersService usersService;
         private readonly IWorkPlacesService workPlacesService;
 
-        public UserWorkPlacesController(
+        public UserWorkplacesController(
             IUserWorkPlacesService userWorkPlacesService,
             IUsersService usersService,
             IWorkPlacesService workPlacesService)
