@@ -33,7 +33,7 @@ namespace WorkPlaces.Service.Services
             {
                 Id = uwp.Id,
                 User = uwp.User.FullName,
-                WorkPlace = uwp.WorkPlace.Name,
+                WorkPlace = uwp.Workplace.Name,
                 FromDate = uwp.FromDate,
                 ToDate = uwp.ToDate
             }).ToList();
@@ -68,7 +68,7 @@ namespace WorkPlaces.Service.Services
             return new UserWorkPlaceForManipulationDTO
             {
                 UserId = userWorkPlaceEntity.UserId,
-                WorkPlaceId = userWorkPlaceEntity.WorkPlaceId,
+                WorkPlaceId = userWorkPlaceEntity.WorkplaceId,
                 FromDate = userWorkPlaceEntity.FromDate,
                 ToDate = userWorkPlaceEntity.ToDate
             };
@@ -79,7 +79,7 @@ namespace WorkPlaces.Service.Services
             var userWorkPlaceEntity = new UserWorkplace
             {
                 UserId = userWorkPlace.UserId,
-                WorkPlaceId = userWorkPlace.WorkPlaceId,
+                WorkplaceId = userWorkPlace.WorkPlaceId,
                 FromDate = userWorkPlace.FromDate,
                 ToDate = userWorkPlace.ToDate
             };
@@ -94,7 +94,7 @@ namespace WorkPlaces.Service.Services
             {
                 Id = userWorkPlaceEntity.Id,
                 User = addedUserWorkPlaceEntity.User.FullName,
-                WorkPlace = addedUserWorkPlaceEntity.WorkPlace.Name,
+                WorkPlace = addedUserWorkPlaceEntity.Workplace.Name,
                 FromDate = userWorkPlace.FromDate,
                 ToDate = userWorkPlace.ToDate
             };
@@ -105,7 +105,7 @@ namespace WorkPlaces.Service.Services
             var userWorkPlaceEntity = await userWorkPlacesRepository.GetAsync(userWorkPlaceId);
 
             userWorkPlaceEntity.UserId = userWorkPlace.UserId;
-            userWorkPlaceEntity.WorkPlaceId = userWorkPlace.WorkPlaceId;
+            userWorkPlaceEntity.WorkplaceId = userWorkPlace.WorkPlaceId;
             userWorkPlaceEntity.FromDate = userWorkPlace.FromDate;
             userWorkPlaceEntity.ToDate = userWorkPlace.ToDate;
 

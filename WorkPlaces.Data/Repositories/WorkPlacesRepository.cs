@@ -9,15 +9,15 @@ namespace WorkPlaces.Data.Repositories
     public class WorkPlacesRepository : IWorkPlacesRepository
     {
         private readonly ApplicationDbContext context;
-        private readonly DbSet<WorkPlace> dbSet;
+        private readonly DbSet<Workplace> dbSet;
 
         public WorkPlacesRepository(ApplicationDbContext context)
         {
             this.context = context ?? throw new ArgumentNullException(nameof(context));
-            dbSet = context.Set<WorkPlace>();
+            dbSet = context.Set<Workplace>();
         }
 
-        public IQueryable<WorkPlace> GetAll()
+        public IQueryable<Workplace> GetAll()
         {
             return dbSet;
         }

@@ -4,9 +4,9 @@ using WorkPlaces.Data.Common;
 
 namespace WorkPlaces.Data.Entities
 {
-    public class WorkPlace : BaseModel
+    public class Workplace : BaseModel
     {
-        public WorkPlace()
+        public Workplace()
         {
             Users = new HashSet<UserWorkplace>();
         }

@@ -21,7 +21,7 @@ namespace WorkPlaces.Data.Repositories
         {
             return dbSet
                 .Include(u => u.User)
-                .Include(u => u.WorkPlace)
+                .Include(u => u.Workplace)
                 .Where(u => u.DeletedAt == null);
         }
 
@@ -29,7 +29,7 @@ namespace WorkPlaces.Data.Repositories
         {
             return dbSet
                 .Include(u => u.User)
-                .Include(u => u.WorkPlace)
+                .Include(u => u.Workplace)
                 .FirstOrDefaultAsync(u => u.Id == userWorkPlaceId && u.DeletedAt == null);
         }
 

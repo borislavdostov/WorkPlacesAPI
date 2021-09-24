@@ -12,7 +12,7 @@ namespace WorkPlaces.Data
 
         public DbSet<User> Users { get; set; }
 
-        public DbSet<WorkPlace> WorkPlaces { get; set; }
+        public DbSet<Workplace> WorkPlaces { get; set; }
 
         public DbSet<UserWorkplace> UserWorkPlaces { get; set; }
     }

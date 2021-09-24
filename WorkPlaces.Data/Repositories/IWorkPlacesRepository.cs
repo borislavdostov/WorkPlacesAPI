@@ -7,7 +7,7 @@ namespace WorkPlaces.Data.Repositories
 {
     public interface IWorkPlacesRepository : IDisposable
     {
-        IQueryable<WorkPlace> GetAll();
+        IQueryable<Workplace> GetAll();
 
         Task<bool> ExistsAsync(int workPlaceId);
     }

@@ -12,9 +12,9 @@ namespace WorkPlaces.Data.Entities
         public virtual User User { get; set; }
 
         [Required]
-        public int WorkPlaceId { get; set; }
+        public int WorkplaceId { get; set; }
 
-        public virtual WorkPlace WorkPlace { get; set; }
+        public virtual Workplace Workplace { get; set; }
 
         [Required]
         public DateTime FromDate { get; set; }
