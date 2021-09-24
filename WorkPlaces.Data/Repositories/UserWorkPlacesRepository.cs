@@ -9,15 +9,15 @@ namespace WorkPlaces.Data.Repositories
     public class UserWorkPlacesRepository : IUserWorkPlacesRepository
     {
         private readonly ApplicationDbContext context;
-        private readonly DbSet<UserWorkPlace> dbSet;
+        private readonly DbSet<UserWorkplace> dbSet;
 
         public UserWorkPlacesRepository(ApplicationDbContext context)
         {
             this.context = context ?? throw new ArgumentNullException(nameof(context));
-            dbSet = context.Set<UserWorkPlace>();
+            dbSet = context.Set<UserWorkplace>();
         }
 
-        public IQueryable<UserWorkPlace> GetAll()
+        public IQueryable<UserWorkplace> GetAll()
         {
             return dbSet
                 .Include(u => u.User)
@@ -25,7 +25,7 @@ namespace WorkPlaces.Data.Repositories
                 .Where(u => u.DeletedAt == null);
         }
 
-        public Task<UserWorkPlace> GetAsync(int userWorkPlaceId)
+        public Task<UserWorkplace> GetAsync(int userWorkPlaceId)
         {
             return dbSet
                 .Include(u => u.User)
@@ -33,13 +33,13 @@ namespace WorkPlaces.Data.Repositories
                 .FirstOrDefaultAsync(u => u.Id == userWorkPlaceId && u.DeletedAt == null);
         }
 
-        public Task AddAsync(UserWorkPlace userWorkPlace)
+        public Task AddAsync(UserWorkplace userWorkPlace)
         {
             userWorkPlace.CreatedAt = DateTime.Now;
             return dbSet.AddAsync(userWorkPlace).AsTask();
         }
 
-        public void Update(UserWorkPlace userWorkPlace)
+        public void Update(UserWorkplace userWorkPlace)
         {
             var entry = context.Entry(userWorkPlace);
             if (entry.State == EntityState.Detached)
@@ -51,7 +51,7 @@ namespace WorkPlaces.Data.Repositories
             entry.State = EntityState.Modified;
         }
 
-        public void Delete(UserWorkPlace userWorkPlace)
+        public void Delete(UserWorkplace userWorkPlace)
         {
             userWorkPlace.DeletedAt = DateTime.Now;
             Update(userWorkPlace);

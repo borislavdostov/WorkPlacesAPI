@@ -76,7 +76,7 @@ namespace WorkPlaces.Service.Services
 
         public async Task<UserWorkPlaceDTO> CreateUserWorkPlaceAsync(UserWorkPlaceForManipulationDTO userWorkPlace)
         {
-            var userWorkPlaceEntity = new UserWorkPlace
+            var userWorkPlaceEntity = new UserWorkplace
             {
                 UserId = userWorkPlace.UserId,
                 WorkPlaceId = userWorkPlace.WorkPlaceId,

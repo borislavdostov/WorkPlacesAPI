@@ -4,7 +4,7 @@ using WorkPlaces.Data.Common;
 
 namespace WorkPlaces.Data.Entities
 {
-    public class UserWorkPlace : BaseModel
+    public class UserWorkplace : BaseModel
     {
         [Required]
         public int UserId { get; set; }

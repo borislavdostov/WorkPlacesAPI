@@ -8,13 +8,13 @@ namespace WorkPlaces.Data.Entities
     {
         public WorkPlace()
         {
-            Users = new HashSet<UserWorkPlace>();
+            Users = new HashSet<UserWorkplace>();
         }
 
         [Required]
         [MinLength(5), MaxLength(100)]
         public string Name { get; set; }
 
-        public ICollection<UserWorkPlace> Users { get; set; }
+        public ICollection<UserWorkplace> Users { get; set; }
     }
 }

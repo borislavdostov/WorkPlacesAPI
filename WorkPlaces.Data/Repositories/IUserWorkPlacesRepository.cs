@@ -7,15 +7,15 @@ namespace WorkPlaces.Data.Repositories
 {
     public interface IUserWorkPlacesRepository : IDisposable
     {
-        IQueryable<UserWorkPlace> GetAll();
+        IQueryable<UserWorkplace> GetAll();
 
-        Task<UserWorkPlace> GetAsync(int userWorkPlaceId);
+        Task<UserWorkplace> GetAsync(int userWorkPlaceId);
 
-        Task AddAsync(UserWorkPlace userWorkPlace);
+        Task AddAsync(UserWorkplace userWorkPlace);
 
-        void Update(UserWorkPlace userWorkPlace);
+        void Update(UserWorkplace userWorkPlace);
 
-        void Delete(UserWorkPlace userWorkPlace);
+        void Delete(UserWorkplace userWorkPlace);
 
         Task<bool> ExistsAsync(int userWorkPlaceId);
 

@@ -14,6 +14,6 @@ namespace WorkPlaces.Data
 
         public DbSet<WorkPlace> WorkPlaces { get; set; }
 
-        public DbSet<UserWorkPlace> UserWorkPlaces { get; set; }
+        public DbSet<UserWorkplace> UserWorkPlaces { get; set; }
     }
 }
