@@ -13,9 +13,9 @@ namespace WorkPlaces.Service.Services
             this.workplacesRepository = workplacesRepository;
         }
 
-        public async Task<bool> WorkplaceExistsAsync(int workPlaceId)
+        public async Task<bool> WorkplaceExistsAsync(int workplaceId)
         {
-            return await workplacesRepository.ExistsAsync(workPlaceId);
+            return await workplacesRepository.ExistsAsync(workplaceId);
         }
     }
 }
