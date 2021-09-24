@@ -9,7 +9,7 @@ using WorkPlaces.Service.Interfaces;
 
 namespace WorkPlaces.Service.Services
 {
-    public class UserWorkPlacesService : IUserWorkPlacesService
+    public class UserWorkPlacesService : IUserWorkplacesService
     {
         private readonly IUserWorkplacesRepository userWorkPlacesRepository;
         private readonly IUsersRepository usersRepository;
