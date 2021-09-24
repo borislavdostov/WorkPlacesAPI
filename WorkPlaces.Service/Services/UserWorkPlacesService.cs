@@ -11,12 +11,12 @@ namespace WorkPlaces.Service.Services
 {
     public class UserWorkPlacesService : IUserWorkPlacesService
     {
-        private readonly IUserWorkPlacesRepository userWorkPlacesRepository;
+        private readonly IUserWorkplacesRepository userWorkPlacesRepository;
         private readonly IUsersRepository usersRepository;
         private readonly IWorkPlacesRepository workPlacesRepository;
 
         public UserWorkPlacesService(
-            IUserWorkPlacesRepository userWorkPlacesRepository,
+            IUserWorkplacesRepository userWorkPlacesRepository,
             IUsersRepository usersRepository,
             IWorkPlacesRepository workPlacesRepository)
         {

@@ -6,7 +6,7 @@ using WorkPlaces.Data.Entities;
 
 namespace WorkPlaces.Data.Repositories
 {
-    public class UserWorkPlacesRepository : IUserWorkPlacesRepository
+    public class UserWorkPlacesRepository : IUserWorkplacesRepository
     {
         private readonly ApplicationDbContext context;
         private readonly DbSet<UserWorkplace> dbSet;

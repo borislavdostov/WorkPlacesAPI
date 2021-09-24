@@ -5,7 +5,7 @@ using WorkPlaces.Data.Entities;
 
 namespace WorkPlaces.Data.Repositories
 {
-    public interface IUserWorkPlacesRepository : IDisposable
+    public interface IUserWorkplacesRepository : IDisposable
     {
         IQueryable<UserWorkplace> GetAll();
 
