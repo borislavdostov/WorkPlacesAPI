@@ -25,41 +25,41 @@ namespace WorkPlaces.Data.Repositories
                 .Where(u => u.DeletedAt == null);
         }
 
-        public Task<UserWorkplace> GetAsync(int userWorkPlaceId)
+        public Task<UserWorkplace> GetAsync(int userWorkplaceId)
         {
             return dbSet
                 .Include(u => u.User)
                 .Include(u => u.Workplace)
-                .FirstOrDefaultAsync(u => u.Id == userWorkPlaceId && u.DeletedAt == null);
+                .FirstOrDefaultAsync(u => u.Id == userWorkplaceId && u.DeletedAt == null);
         }
 
-        public Task AddAsync(UserWorkplace userWorkPlace)
+        public Task AddAsync(UserWorkplace userWorkplace)
         {
-            userWorkPlace.CreatedAt = DateTime.Now;
-            return dbSet.AddAsync(userWorkPlace).AsTask();
+            userWorkplace.CreatedAt = DateTime.Now;
+            return dbSet.AddAsync(userWorkplace).AsTask();
         }
 
-        public void Update(UserWorkplace userWorkPlace)
+        public void Update(UserWorkplace userWorkplace)
         {
-            var entry = context.Entry(userWorkPlace);
+            var entry = context.Entry(userWorkplace);
             if (entry.State == EntityState.Detached)
             {
-                dbSet.Attach(userWorkPlace);
+                dbSet.Attach(userWorkplace);
             }
 
-            userWorkPlace.UpdatedAt = DateTime.Now;
+            userWorkplace.UpdatedAt = DateTime.Now;
             entry.State = EntityState.Modified;
         }
 
-        public void Delete(UserWorkplace userWorkPlace)
+        public void Delete(UserWorkplace userWorkplace)
         {
-            userWorkPlace.DeletedAt = DateTime.Now;
-            Update(userWorkPlace);
+            userWorkplace.DeletedAt = DateTime.Now;
+            Update(userWorkplace);
         }
 
-        public Task<bool> ExistsAsync(int userWorkPlaceId)
+        public Task<bool> ExistsAsync(int userWorkplaceId)
         {
-            return dbSet.AnyAsync(uwp => uwp.Id == userWorkPlaceId && uwp.DeletedAt == null);
+            return dbSet.AnyAsync(uw => uw.Id == userWorkplaceId && uw.DeletedAt == null);
         }
 
         public Task SaveChangesAsync()
