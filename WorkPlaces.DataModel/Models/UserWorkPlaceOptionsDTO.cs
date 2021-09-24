@@ -2,9 +2,9 @@
 
 namespace WorkPlaces.DataModel.Models
 {
-    public class UserWorkPlaceOptionsDTO
+    public class UserWorkplaceOptionsDTO
     {
         public IEnumerable<UserDropdownDTO> Users { get; set; }
-        public IEnumerable<WorkPlaceDropdownDTO> WorkPlaces { get; set; }
+        public IEnumerable<WorkplaceDropdownDTO> Workplaces { get; set; }
     }
 }

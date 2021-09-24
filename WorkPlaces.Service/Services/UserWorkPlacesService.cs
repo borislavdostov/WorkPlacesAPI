@@ -39,7 +39,7 @@ namespace WorkPlaces.Service.Services
             }).ToList();
         }
 
-        public UserWorkPlaceOptionsDTO GetUserWorkPlaceOptions()
+        public UserWorkplaceOptionsDTO GetUserWorkPlaceOptions()
         {
             var users = usersRepository.GetAll().Select(u => new UserDropdownDTO
             {
@@ -47,17 +47,17 @@ namespace WorkPlaces.Service.Services
                 Name = u.FullName
             }).ToList();
 
-            var workPlaces = workPlacesRepository.GetAll().Select(wp => new WorkPlaceDropdownDTO
+            var workPlaces = workPlacesRepository.GetAll().Select(wp => new WorkplaceDropdownDTO
             {
                 Id = wp.Id,
                 Name = wp.Name
             }).ToList();
 
 
-            return new UserWorkPlaceOptionsDTO
+            return new UserWorkplaceOptionsDTO
             {
                 Users = users,
-                WorkPlaces = workPlaces
+                Workplaces = workPlaces
             };
         }
 

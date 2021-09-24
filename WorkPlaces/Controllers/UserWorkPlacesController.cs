@@ -42,7 +42,7 @@ namespace WorkPlaces.Controllers
         /// <returns>All options for user work place(without deleted)</returns>
         /// <response code="200">All options for user work place(without deleted) or empty collection</response>
         [HttpGet("options")]
-        public ActionResult<UserWorkPlaceOptionsDTO> GetUserWorkPlaceOptions()
+        public ActionResult<UserWorkplaceOptionsDTO> GetUserWorkPlaceOptions()
         {
             var userWorkPlaceOptions = userWorkPlacesService.GetUserWorkPlaceOptions();
             return Ok(userWorkPlaceOptions);
