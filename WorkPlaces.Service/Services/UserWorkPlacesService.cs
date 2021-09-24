@@ -33,7 +33,7 @@ namespace WorkPlaces.Service.Services
             {
                 Id = uwp.Id,
                 User = uwp.User.FullName,
-                WorkPlace = uwp.Workplace.Name,
+                Workplace = uwp.Workplace.Name,
                 FromDate = uwp.FromDate,
                 ToDate = uwp.ToDate
             }).ToList();
@@ -94,7 +94,7 @@ namespace WorkPlaces.Service.Services
             {
                 Id = userWorkPlaceEntity.Id,
                 User = addedUserWorkPlaceEntity.User.FullName,
-                WorkPlace = addedUserWorkPlaceEntity.Workplace.Name,
+                Workplace = addedUserWorkPlaceEntity.Workplace.Name,
                 FromDate = userWorkPlace.FromDate,
                 ToDate = userWorkPlace.ToDate
             };

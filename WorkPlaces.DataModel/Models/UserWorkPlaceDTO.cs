@@ -8,7 +8,7 @@ namespace WorkPlaces.DataModel.Models
 
         public string User { get; set; }
 
-        public string WorkPlace { get; set; }
+        public string Workplace { get; set; }
 
         public DateTime FromDate { get; set; }
 
