@@ -4,7 +4,7 @@ using WorkPlaces.Service.Interfaces;
 
 namespace WorkPlaces.Service.Services
 {
-    public class WorkPlacesService : IWorkPlacesService
+    public class WorkPlacesService : IWorkplacesService
     {
         private readonly IWorkplacesRepository workPlacesRepository;
 
@@ -13,7 +13,7 @@ namespace WorkPlaces.Service.Services
             this.workPlacesRepository = workPlacesRepository;
         }
 
-        public async Task<bool> WorkPlaceExistsAsync(int workPlaceId)
+        public async Task<bool> WorkplaceExistsAsync(int workPlaceId)
         {
             return await workPlacesRepository.ExistsAsync(workPlaceId);
         }

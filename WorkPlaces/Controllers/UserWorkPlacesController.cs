@@ -12,12 +12,12 @@ namespace WorkPlaces.Controllers
     {
         private readonly IUserWorkplacesService userWorkPlacesService;
         private readonly IUsersService usersService;
-        private readonly IWorkPlacesService workPlacesService;
+        private readonly IWorkplacesService workPlacesService;
 
         public UserWorkplacesController(
             IUserWorkplacesService userWorkPlacesService,
             IUsersService usersService,
-            IWorkPlacesService workPlacesService)
+            IWorkplacesService workPlacesService)
         {
             this.userWorkPlacesService = userWorkPlacesService;
             this.usersService = usersService;
@@ -77,7 +77,7 @@ namespace WorkPlaces.Controllers
         public async Task<ActionResult<UserWorkplaceDTO>> CreateUserWorkPlace(UserWorkplaceForManipulationDTO userWorkPlace)
         {
             if (!await usersService.UserExistsAsync(userWorkPlace.UserId) ||
-                !await workPlacesService.WorkPlaceExistsAsync(userWorkPlace.WorkplaceId))
+                !await workPlacesService.WorkplaceExistsAsync(userWorkPlace.WorkplaceId))
             {
                 return NotFound();
             }
@@ -100,7 +100,7 @@ namespace WorkPlaces.Controllers
         {
             if (!await userWorkPlacesService.UserWorkPlaceExistsAsync(userWorkPlaceId) ||
                 !await usersService.UserExistsAsync(userWorkPlace.UserId) ||
-                !await workPlacesService.WorkPlaceExistsAsync(userWorkPlace.WorkplaceId))
+                !await workPlacesService.WorkplaceExistsAsync(userWorkPlace.WorkplaceId))
             {
                 return NotFound();
             }

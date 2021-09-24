@@ -65,7 +65,7 @@ namespace WorkPlaces
             services.AddScoped<IUserWorkplacesRepository, UserWorkplacesRepository>();
 
             services.AddTransient<IUsersService, UsersService>();
-            services.AddTransient<IWorkPlacesService, WorkPlacesService>();
+            services.AddTransient<IWorkplacesService, WorkPlacesService>();
             services.AddTransient<IUserWorkplacesService, UserWorkPlacesService>();
         }
 

@@ -2,8 +2,8 @@
 
 namespace WorkPlaces.Service.Interfaces
 {
-    public interface IWorkPlacesService
+    public interface IWorkplacesService
     {
-        Task<bool> WorkPlaceExistsAsync(int workPlaceId);
+        Task<bool> WorkplaceExistsAsync(int workplaceId);
     }
 }

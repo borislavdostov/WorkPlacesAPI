@@ -70,7 +70,7 @@
             <response code="200">Returns a user workplace with the given Id</response>
             <response code="404">If a user workplace with the given id does not exist</response>
         </member>
-        <member name="M:WorkPlaces.Controllers.UserWorkplacesController.CreateUserWorkPlace(WorkPlaces.DataModel.Models.UserWorkPlaceForManipulationDTO)">
+        <member name="M:WorkPlaces.Controllers.UserWorkplacesController.CreateUserWorkPlace(WorkPlaces.DataModel.Models.UserWorkplaceForManipulationDTO)">
             <summary>
             Creates new user workplace
             </summary>
@@ -78,7 +78,7 @@
             <returns>A newly created user workplace</returns>
             <response code="201">Returns the newly created user workplace</response>
         </member>
-        <member name="M:WorkPlaces.Controllers.UserWorkplacesController.UpdateUserWorkPlace(System.Int32,WorkPlaces.DataModel.Models.UserWorkPlaceForManipulationDTO)">
+        <member name="M:WorkPlaces.Controllers.UserWorkplacesController.UpdateUserWorkPlace(System.Int32,WorkPlaces.DataModel.Models.UserWorkplaceForManipulationDTO)">
             <summary>
             Updates user workplace
             </summary>
