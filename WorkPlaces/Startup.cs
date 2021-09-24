@@ -66,7 +66,7 @@ namespace WorkPlaces
 
             services.AddTransient<IUsersService, UsersService>();
             services.AddTransient<IWorkplacesService, WorkPlacesService>();
-            services.AddTransient<IUserWorkplacesService, UserWorkPlacesService>();
+            services.AddTransient<IUserWorkplacesService, UserWorkplacesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

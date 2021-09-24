@@ -9,25 +9,25 @@ using WorkPlaces.Service.Interfaces;
 
 namespace WorkPlaces.Service.Services
 {
-    public class UserWorkPlacesService : IUserWorkplacesService
+    public class UserWorkplacesService : IUserWorkplacesService
     {
-        private readonly IUserWorkplacesRepository userWorkPlacesRepository;
+        private readonly IUserWorkplacesRepository userWorkplacesRepository;
         private readonly IUsersRepository usersRepository;
-        private readonly IWorkplacesRepository workPlacesRepository;
+        private readonly IWorkplacesRepository workplacesRepository;
 
-        public UserWorkPlacesService(
-            IUserWorkplacesRepository userWorkPlacesRepository,
+        public UserWorkplacesService(
+            IUserWorkplacesRepository userWorkplacesRepository,
             IUsersRepository usersRepository,
-            IWorkplacesRepository workPlacesRepository)
+            IWorkplacesRepository workplacesRepository)
         {
-            this.userWorkPlacesRepository = userWorkPlacesRepository;
+            this.userWorkplacesRepository = userWorkplacesRepository;
             this.usersRepository = usersRepository;
-            this.workPlacesRepository = workPlacesRepository;
+            this.workplacesRepository = workplacesRepository;
         }
 
         public IEnumerable<UserWorkplaceDTO> GetUserWorkPlaces()
         {
-            var userWorkPlaces = userWorkPlacesRepository.GetAll();
+            var userWorkPlaces = userWorkplacesRepository.GetAll();
 
             return userWorkPlaces.Select(uwp => new UserWorkplaceDTO
             {
@@ -47,7 +47,7 @@ namespace WorkPlaces.Service.Services
                 Name = u.FullName
             }).ToList();
 
-            var workPlaces = workPlacesRepository.GetAll().Select(wp => new WorkplaceDropdownDTO
+            var workPlaces = workplacesRepository.GetAll().Select(wp => new WorkplaceDropdownDTO
             {
                 Id = wp.Id,
                 Name = wp.Name
@@ -63,7 +63,7 @@ namespace WorkPlaces.Service.Services
 
         public async Task<UserWorkplaceForManipulationDTO> GetUserWorkPlaceAsync(int userWorkPlaceId)
         {
-            var userWorkPlaceEntity = await userWorkPlacesRepository.GetAsync(userWorkPlaceId);
+            var userWorkPlaceEntity = await userWorkplacesRepository.GetAsync(userWorkPlaceId);
 
             return new UserWorkplaceForManipulationDTO
             {
@@ -84,11 +84,11 @@ namespace WorkPlaces.Service.Services
                 ToDate = userWorkPlace.ToDate
             };
 
-            await userWorkPlacesRepository.AddAsync(userWorkPlaceEntity);
-            await userWorkPlacesRepository.SaveChangesAsync();
+            await userWorkplacesRepository.AddAsync(userWorkPlaceEntity);
+            await userWorkplacesRepository.SaveChangesAsync();
 
             //TODO: Load relations instead of loading the added entity
-            var addedUserWorkPlaceEntity = await userWorkPlacesRepository.GetAsync(userWorkPlaceEntity.Id);
+            var addedUserWorkPlaceEntity = await userWorkplacesRepository.GetAsync(userWorkPlaceEntity.Id);
 
             return new UserWorkplaceDTO
             {
@@ -102,28 +102,28 @@ namespace WorkPlaces.Service.Services
 
         public async Task UpdateUserWorkPlaceAsync(int userWorkPlaceId, UserWorkplaceForManipulationDTO userWorkPlace)
         {
-            var userWorkPlaceEntity = await userWorkPlacesRepository.GetAsync(userWorkPlaceId);
+            var userWorkPlaceEntity = await userWorkplacesRepository.GetAsync(userWorkPlaceId);
 
             userWorkPlaceEntity.UserId = userWorkPlace.UserId;
             userWorkPlaceEntity.WorkplaceId = userWorkPlace.WorkplaceId;
             userWorkPlaceEntity.FromDate = userWorkPlace.FromDate;
             userWorkPlaceEntity.ToDate = userWorkPlace.ToDate;
 
-            userWorkPlacesRepository.Update(userWorkPlaceEntity);
-            await userWorkPlacesRepository.SaveChangesAsync();
+            userWorkplacesRepository.Update(userWorkPlaceEntity);
+            await userWorkplacesRepository.SaveChangesAsync();
         }
 
         public async Task DeleteUserWorkPlaceAsync(int userId)
         {
-            var userWorkPlaceEntity = await userWorkPlacesRepository.GetAsync(userId);
+            var userWorkPlaceEntity = await userWorkplacesRepository.GetAsync(userId);
 
-            userWorkPlacesRepository.Delete(userWorkPlaceEntity);
-            await userWorkPlacesRepository.SaveChangesAsync();
+            userWorkplacesRepository.Delete(userWorkPlaceEntity);
+            await userWorkplacesRepository.SaveChangesAsync();
         }
 
         public async Task<bool> UserWorkPlaceExistsAsync(int userWorkPlaceId)
         {
-            return await userWorkPlacesRepository.ExistsAsync(userWorkPlaceId);
+            return await userWorkplacesRepository.ExistsAsync(userWorkPlaceId);
         }
     }
 }
