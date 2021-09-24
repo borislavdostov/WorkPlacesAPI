@@ -6,12 +6,12 @@ using WorkPlaces.Data.Entities;
 
 namespace WorkPlaces.Data.Repositories
 {
-    public class WorkPlacesRepository : IWorkplacesRepository
+    public class WorkplacesRepository : IWorkplacesRepository
     {
         private readonly ApplicationDbContext context;
         private readonly DbSet<Workplace> dbSet;
 
-        public WorkPlacesRepository(ApplicationDbContext context)
+        public WorkplacesRepository(ApplicationDbContext context)
         {
             this.context = context ?? throw new ArgumentNullException(nameof(context));
             dbSet = context.Set<Workplace>();
@@ -22,9 +22,9 @@ namespace WorkPlaces.Data.Repositories
             return dbSet;
         }
 
-        public Task<bool> ExistsAsync(int workPlaceId)
+        public Task<bool> ExistsAsync(int workplaceId)
         {
-            return dbSet.AnyAsync(wp => wp.Id == workPlaceId && wp.DeletedAt == null);
+            return dbSet.AnyAsync(wp => wp.Id == workplaceId && wp.DeletedAt == null);
         }
 
         public void Dispose()
