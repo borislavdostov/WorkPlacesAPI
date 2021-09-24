@@ -21,14 +21,14 @@ namespace WorkPlaces.Data.Repositories
         public IQueryable<User> GetAll()
         {
             return dbSet
-                .Include(u => u.WorkPlaces)
+                .Include(u => u.Workplaces)
                 .Where(u => u.DeletedAt == null);
         }
 
         public Task<User> GetAsync(int userId)
         {
             return dbSet
-                .Include(u => u.WorkPlaces)
+                .Include(u => u.Workplaces)
                 .FirstOrDefaultAsync(u => u.Id == userId && u.DeletedAt == null);
         }
 

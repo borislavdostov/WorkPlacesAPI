@@ -10,7 +10,7 @@ namespace WorkPlaces.Data.Entities
     {
         public User()
         {
-            WorkPlaces = new HashSet<UserWorkplace>();
+            Workplaces = new HashSet<UserWorkplace>();
         }
 
         [Required]
@@ -32,6 +32,6 @@ namespace WorkPlaces.Data.Entities
         [Required]
         public DateTime DateOfBirth { get; set; }
 
-        public ICollection<UserWorkplace> WorkPlaces { get; set; }
+        public ICollection<UserWorkplace> Workplaces { get; set; }
     }
 }
