@@ -13,12 +13,12 @@ namespace WorkPlaces.Service.Services
     {
         private readonly IUserWorkplacesRepository userWorkPlacesRepository;
         private readonly IUsersRepository usersRepository;
-        private readonly IWorkPlacesRepository workPlacesRepository;
+        private readonly IWorkplacesRepository workPlacesRepository;
 
         public UserWorkPlacesService(
             IUserWorkplacesRepository userWorkPlacesRepository,
             IUsersRepository usersRepository,
-            IWorkPlacesRepository workPlacesRepository)
+            IWorkplacesRepository workPlacesRepository)
         {
             this.userWorkPlacesRepository = userWorkPlacesRepository;
             this.usersRepository = usersRepository;

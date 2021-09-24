@@ -5,10 +5,10 @@ using WorkPlaces.Data.Entities;
 
 namespace WorkPlaces.Data.Repositories
 {
-    public interface IWorkPlacesRepository : IDisposable
+    public interface IWorkplacesRepository : IDisposable
     {
         IQueryable<Workplace> GetAll();
 
-        Task<bool> ExistsAsync(int workPlaceId);
+        Task<bool> ExistsAsync(int workplaceId);
     }
 }

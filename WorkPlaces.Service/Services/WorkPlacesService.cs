@@ -6,9 +6,9 @@ namespace WorkPlaces.Service.Services
 {
     public class WorkPlacesService : IWorkPlacesService
     {
-        private readonly IWorkPlacesRepository workPlacesRepository;
+        private readonly IWorkplacesRepository workPlacesRepository;
 
-        public WorkPlacesService(IWorkPlacesRepository workPlacesRepository)
+        public WorkPlacesService(IWorkplacesRepository workPlacesRepository)
         {
             this.workPlacesRepository = workPlacesRepository;
         }

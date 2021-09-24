@@ -9,15 +9,15 @@ namespace WorkPlaces.Data.Repositories
     {
         IQueryable<UserWorkplace> GetAll();
 
-        Task<UserWorkplace> GetAsync(int userWorkPlaceId);
+        Task<UserWorkplace> GetAsync(int userWorkplaceId);
 
-        Task AddAsync(UserWorkplace userWorkPlace);
+        Task AddAsync(UserWorkplace userWorkplace);
 
-        void Update(UserWorkplace userWorkPlace);
+        void Update(UserWorkplace userWorkplace);
 
-        void Delete(UserWorkplace userWorkPlace);
+        void Delete(UserWorkplace userWorkplace);
 
-        Task<bool> ExistsAsync(int userWorkPlaceId);
+        Task<bool> ExistsAsync(int userWorkplaceId);
 
         Task SaveChangesAsync();
     }
