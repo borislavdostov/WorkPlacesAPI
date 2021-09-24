@@ -6,12 +6,12 @@ using WorkPlaces.Data.Entities;
 
 namespace WorkPlaces.Data.Repositories
 {
-    public class UserWorkPlacesRepository : IUserWorkplacesRepository
+    public class UserWorkplacesRepository : IUserWorkplacesRepository
     {
         private readonly ApplicationDbContext context;
         private readonly DbSet<UserWorkplace> dbSet;
 
-        public UserWorkPlacesRepository(ApplicationDbContext context)
+        public UserWorkplacesRepository(ApplicationDbContext context)
         {
             this.context = context ?? throw new ArgumentNullException(nameof(context));
             dbSet = context.Set<UserWorkplace>();
