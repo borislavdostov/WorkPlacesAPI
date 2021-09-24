@@ -6,18 +6,18 @@ namespace WorkPlaces.Service.Interfaces
 {
     public interface IUserWorkplacesService
     {
-        IEnumerable<UserWorkplaceDTO> GetUserWorkPlaces();
+        IEnumerable<UserWorkplaceDTO> GetUserWorkplaces();
 
-        UserWorkplaceOptionsDTO GetUserWorkPlaceOptions();
+        UserWorkplaceOptionsDTO GetUserWorkplaceOptions();
 
-        Task<UserWorkplaceForManipulationDTO> GetUserWorkPlaceAsync(int userWorkplaceId);
+        Task<UserWorkplaceForManipulationDTO> GetUserWorkplaceAsync(int userWorkplaceId);
 
-        Task<UserWorkplaceDTO> CreateUserWorkPlaceAsync(UserWorkplaceForManipulationDTO userWorkplace);
+        Task<UserWorkplaceDTO> CreateUserWorkplaceAsync(UserWorkplaceForManipulationDTO userWorkplace);
 
-        Task UpdateUserWorkPlaceAsync(int userWorkplaceId, UserWorkplaceForManipulationDTO userWorkplace);
+        Task UpdateUserWorkplaceAsync(int userWorkplaceId, UserWorkplaceForManipulationDTO userWorkplace);
 
-        Task DeleteUserWorkPlaceAsync(int userWorkplaceId);
+        Task DeleteUserWorkplaceAsync(int userWorkplaceId);
 
-        Task<bool> UserWorkPlaceExistsAsync(int userWorkplaceId);
+        Task<bool> UserWorkplaceExistsAsync(int userWorkplaceId);
     }
 }

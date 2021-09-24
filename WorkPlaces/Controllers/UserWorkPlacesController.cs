@@ -32,7 +32,7 @@ namespace WorkPlaces.Controllers
         [HttpGet(Name = nameof(GetUserWorkPlaces))]
         public ActionResult<IEnumerable<UserWorkplaceDTO>> GetUserWorkPlaces()
         {
-            var userWorkPlaces = userWorkPlacesService.GetUserWorkPlaces();
+            var userWorkPlaces = userWorkPlacesService.GetUserWorkplaces();
             return Ok(userWorkPlaces);
         }
 
@@ -44,7 +44,7 @@ namespace WorkPlaces.Controllers
         [HttpGet("options")]
         public ActionResult<UserWorkplaceOptionsDTO> GetUserWorkPlaceOptions()
         {
-            var userWorkPlaceOptions = userWorkPlacesService.GetUserWorkPlaceOptions();
+            var userWorkPlaceOptions = userWorkPlacesService.GetUserWorkplaceOptions();
             return Ok(userWorkPlaceOptions);
         }
 
@@ -58,12 +58,12 @@ namespace WorkPlaces.Controllers
         [HttpGet("{userWorkPlaceId}")]
         public async Task<ActionResult<UserWorkplaceForManipulationDTO>> GetUserWorkPlace(int userWorkPlaceId)
         {
-            if (!await userWorkPlacesService.UserWorkPlaceExistsAsync(userWorkPlaceId))
+            if (!await userWorkPlacesService.UserWorkplaceExistsAsync(userWorkPlaceId))
             {
                 return NotFound();
             }
 
-            var userWorkPlace = await userWorkPlacesService.GetUserWorkPlaceAsync(userWorkPlaceId);
+            var userWorkPlace = await userWorkPlacesService.GetUserWorkplaceAsync(userWorkPlaceId);
             return Ok(userWorkPlace);
         }
 
@@ -82,7 +82,7 @@ namespace WorkPlaces.Controllers
                 return NotFound();
             }
 
-            var userWorkPlaceToReturn = await userWorkPlacesService.CreateUserWorkPlaceAsync(userWorkPlace);
+            var userWorkPlaceToReturn = await userWorkPlacesService.CreateUserWorkplaceAsync(userWorkPlace);
             return CreatedAtRoute(nameof(GetUserWorkPlaces),
                 new { userWorkPlaceId = userWorkPlaceToReturn.Id }, userWorkPlaceToReturn);
         }
@@ -98,14 +98,14 @@ namespace WorkPlaces.Controllers
         [HttpPut("{userWorkPlaceId}")]
         public async Task<IActionResult> UpdateUserWorkPlace(int userWorkPlaceId, UserWorkplaceForManipulationDTO userWorkPlace)
         {
-            if (!await userWorkPlacesService.UserWorkPlaceExistsAsync(userWorkPlaceId) ||
+            if (!await userWorkPlacesService.UserWorkplaceExistsAsync(userWorkPlaceId) ||
                 !await usersService.UserExistsAsync(userWorkPlace.UserId) ||
                 !await workPlacesService.WorkplaceExistsAsync(userWorkPlace.WorkplaceId))
             {
                 return NotFound();
             }
 
-            await userWorkPlacesService.UpdateUserWorkPlaceAsync(userWorkPlaceId, userWorkPlace);
+            await userWorkPlacesService.UpdateUserWorkplaceAsync(userWorkPlaceId, userWorkPlace);
             return NoContent();
         }
 
@@ -119,12 +119,12 @@ namespace WorkPlaces.Controllers
         [HttpDelete("{userWorkPlaceId}")]
         public async Task<IActionResult> DeleteUserWorkPlace(int userWorkPlaceId)
         {
-            if (!await userWorkPlacesService.UserWorkPlaceExistsAsync(userWorkPlaceId))
+            if (!await userWorkPlacesService.UserWorkplaceExistsAsync(userWorkPlaceId))
             {
                 return NotFound();
             }
 
-            await userWorkPlacesService.DeleteUserWorkPlaceAsync(userWorkPlaceId);
+            await userWorkPlacesService.DeleteUserWorkplaceAsync(userWorkPlaceId);
             return NoContent();
         }
     }

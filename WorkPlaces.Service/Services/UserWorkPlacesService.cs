@@ -25,7 +25,7 @@ namespace WorkPlaces.Service.Services
             this.workplacesRepository = workplacesRepository;
         }
 
-        public IEnumerable<UserWorkplaceDTO> GetUserWorkPlaces()
+        public IEnumerable<UserWorkplaceDTO> GetUserWorkplaces()
         {
             var userWorkPlaces = userWorkplacesRepository.GetAll();
 
@@ -39,7 +39,7 @@ namespace WorkPlaces.Service.Services
             }).ToList();
         }
 
-        public UserWorkplaceOptionsDTO GetUserWorkPlaceOptions()
+        public UserWorkplaceOptionsDTO GetUserWorkplaceOptions()
         {
             var users = usersRepository.GetAll().Select(u => new UserDropdownDTO
             {
@@ -61,7 +61,7 @@ namespace WorkPlaces.Service.Services
             };
         }
 
-        public async Task<UserWorkplaceForManipulationDTO> GetUserWorkPlaceAsync(int userWorkPlaceId)
+        public async Task<UserWorkplaceForManipulationDTO> GetUserWorkplaceAsync(int userWorkPlaceId)
         {
             var userWorkPlaceEntity = await userWorkplacesRepository.GetAsync(userWorkPlaceId);
 
@@ -74,7 +74,7 @@ namespace WorkPlaces.Service.Services
             };
         }
 
-        public async Task<UserWorkplaceDTO> CreateUserWorkPlaceAsync(UserWorkplaceForManipulationDTO userWorkPlace)
+        public async Task<UserWorkplaceDTO> CreateUserWorkplaceAsync(UserWorkplaceForManipulationDTO userWorkPlace)
         {
             var userWorkPlaceEntity = new UserWorkplace
             {
@@ -100,7 +100,7 @@ namespace WorkPlaces.Service.Services
             };
         }
 
-        public async Task UpdateUserWorkPlaceAsync(int userWorkPlaceId, UserWorkplaceForManipulationDTO userWorkPlace)
+        public async Task UpdateUserWorkplaceAsync(int userWorkPlaceId, UserWorkplaceForManipulationDTO userWorkPlace)
         {
             var userWorkPlaceEntity = await userWorkplacesRepository.GetAsync(userWorkPlaceId);
 
@@ -113,7 +113,7 @@ namespace WorkPlaces.Service.Services
             await userWorkplacesRepository.SaveChangesAsync();
         }
 
-        public async Task DeleteUserWorkPlaceAsync(int userId)
+        public async Task DeleteUserWorkplaceAsync(int userId)
         {
             var userWorkPlaceEntity = await userWorkplacesRepository.GetAsync(userId);
 
@@ -121,7 +121,7 @@ namespace WorkPlaces.Service.Services
             await userWorkplacesRepository.SaveChangesAsync();
         }
 
-        public async Task<bool> UserWorkPlaceExistsAsync(int userWorkPlaceId)
+        public async Task<bool> UserWorkplaceExistsAsync(int userWorkPlaceId)
         {
             return await userWorkplacesRepository.ExistsAsync(userWorkPlaceId);
         }

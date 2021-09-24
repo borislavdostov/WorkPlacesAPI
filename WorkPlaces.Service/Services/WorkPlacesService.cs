@@ -4,18 +4,18 @@ using WorkPlaces.Service.Interfaces;
 
 namespace WorkPlaces.Service.Services
 {
-    public class WorkPlacesService : IWorkplacesService
+    public class WorkplacesService : IWorkplacesService
     {
-        private readonly IWorkplacesRepository workPlacesRepository;
+        private readonly IWorkplacesRepository workplacesRepository;
 
-        public WorkPlacesService(IWorkplacesRepository workPlacesRepository)
+        public WorkplacesService(IWorkplacesRepository workplacesRepository)
         {
-            this.workPlacesRepository = workPlacesRepository;
+            this.workplacesRepository = workplacesRepository;
         }
 
         public async Task<bool> WorkplaceExistsAsync(int workPlaceId)
         {
-            return await workPlacesRepository.ExistsAsync(workPlaceId);
+            return await workplacesRepository.ExistsAsync(workPlaceId);
         }
     }
 }
