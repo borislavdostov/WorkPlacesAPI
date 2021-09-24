@@ -25,11 +25,11 @@ namespace WorkPlaces.Service.Services
             this.workPlacesRepository = workPlacesRepository;
         }
 
-        public IEnumerable<UserWorkPlaceDTO> GetUserWorkPlaces()
+        public IEnumerable<UserWorkplaceDTO> GetUserWorkPlaces()
         {
             var userWorkPlaces = userWorkPlacesRepository.GetAll();
 
-            return userWorkPlaces.Select(uwp => new UserWorkPlaceDTO
+            return userWorkPlaces.Select(uwp => new UserWorkplaceDTO
             {
                 Id = uwp.Id,
                 User = uwp.User.FullName,
@@ -74,7 +74,7 @@ namespace WorkPlaces.Service.Services
             };
         }
 
-        public async Task<UserWorkPlaceDTO> CreateUserWorkPlaceAsync(UserWorkplaceForManipulationDTO userWorkPlace)
+        public async Task<UserWorkplaceDTO> CreateUserWorkPlaceAsync(UserWorkplaceForManipulationDTO userWorkPlace)
         {
             var userWorkPlaceEntity = new UserWorkplace
             {
@@ -90,7 +90,7 @@ namespace WorkPlaces.Service.Services
             //TODO: Load relations instead of loading the added entity
             var addedUserWorkPlaceEntity = await userWorkPlacesRepository.GetAsync(userWorkPlaceEntity.Id);
 
-            return new UserWorkPlaceDTO
+            return new UserWorkplaceDTO
             {
                 Id = userWorkPlaceEntity.Id,
                 User = addedUserWorkPlaceEntity.User.FullName,

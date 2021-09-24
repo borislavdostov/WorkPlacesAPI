@@ -2,7 +2,7 @@
 
 namespace WorkPlaces.DataModel.Models
 {
-    public class UserWorkPlaceDTO
+    public class UserWorkplaceDTO
     {
         public int Id { get; set; }
 

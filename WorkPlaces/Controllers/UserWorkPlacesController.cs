@@ -30,7 +30,7 @@ namespace WorkPlaces.Controllers
         /// <returns>All user work places(without deleted)</returns>
         /// <response code="200">Returns all user work places(without deleted) or empty collection</response>
         [HttpGet(Name = nameof(GetUserWorkPlaces))]
-        public ActionResult<IEnumerable<UserWorkPlaceDTO>> GetUserWorkPlaces()
+        public ActionResult<IEnumerable<UserWorkplaceDTO>> GetUserWorkPlaces()
         {
             var userWorkPlaces = userWorkPlacesService.GetUserWorkPlaces();
             return Ok(userWorkPlaces);
@@ -74,7 +74,7 @@ namespace WorkPlaces.Controllers
         /// <returns>A newly created user workplace</returns>
         /// <response code="201">Returns the newly created user workplace</response>
         [HttpPost]
-        public async Task<ActionResult<UserWorkPlaceDTO>> CreateUserWorkPlace(UserWorkplaceForManipulationDTO userWorkPlace)
+        public async Task<ActionResult<UserWorkplaceDTO>> CreateUserWorkPlace(UserWorkplaceForManipulationDTO userWorkPlace)
         {
             if (!await usersService.UserExistsAsync(userWorkPlace.UserId) ||
                 !await workPlacesService.WorkPlaceExistsAsync(userWorkPlace.WorkplaceId))
