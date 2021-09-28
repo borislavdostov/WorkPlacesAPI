@@ -96,7 +96,7 @@ namespace WorkPlaces.Controllers
         /// <response code="204">If the user workplace is updated successfully</response>
         /// <response code="404">If a user workplace, user or workplace with the given id does not exist</response>
         [HttpPut("{userWorkplaceId}")]
-        public async Task<IActionResult> UpdateUserWorkPlace(int userWorkplaceId, UserWorkplaceForManipulationDTO userWorkplace)
+        public async Task<IActionResult> UpdateUserWorkplace(int userWorkplaceId, UserWorkplaceForManipulationDTO userWorkplace)
         {
             if (!await userWorkplacesService.UserWorkplaceExistsAsync(userWorkplaceId) ||
                 !await usersService.UserExistsAsync(userWorkplace.UserId) ||
