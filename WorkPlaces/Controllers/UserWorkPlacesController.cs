@@ -117,7 +117,7 @@ namespace WorkPlaces.Controllers
         /// <response code="204">If the user workplace is deleted successfully</response>
         /// <response code="404">If a user workplace with the given id does not exist</response>
         [HttpDelete("{userWorkplaceId}")]
-        public async Task<IActionResult> DeleteUserWorkPlace(int userWorkplaceId)
+        public async Task<IActionResult> DeleteUserWorkplace(int userWorkplaceId)
         {
             if (!await userWorkplacesService.UserWorkplaceExistsAsync(userWorkplaceId))
             {
