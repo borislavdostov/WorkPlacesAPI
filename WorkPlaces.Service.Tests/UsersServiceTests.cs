@@ -80,9 +80,9 @@ namespace WorkPlaces.Service.Tests
         public void CreateUserAsyncMethod_UserAdded_ShouldIncrementUserCount()
         {
             usersService.CreateUserAsync(new UserForManipulationDTO());
-            var actualresult = usersFromRepository.Count();
+            var actualResult = usersFromRepository.Count();
 
-            Assert.AreEqual(1, actualresult);
+            Assert.AreEqual(1, actualResult);
         }
 
         [Test]
@@ -91,9 +91,9 @@ namespace WorkPlaces.Service.Tests
             usersFromRepository.Add(new User { Id = 3 });
 
             usersService.DeleteUserAsync(3);
-            var actualresult = usersFromRepository.Count();
+            var actualResult = usersFromRepository.Count();
 
-            Assert.AreEqual(0, actualresult);
+            Assert.AreEqual(0, actualResult);
         }
     }
 }
