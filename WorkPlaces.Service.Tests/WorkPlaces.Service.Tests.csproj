@@ -14,4 +14,10 @@
     <PackageReference Include="coverlet.collector" Version="3.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WorkPlaces.DataModel\WorkPlaces.DataModel.csproj" />
+    <ProjectReference Include="..\WorkPlaces.Data\WorkPlaces.Data.csproj" />
+    <ProjectReference Include="..\WorkPlaces.Service\WorkPlaces.Service.csproj" />
+  </ItemGroup>
+
 </Project>
