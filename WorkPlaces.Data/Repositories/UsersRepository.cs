@@ -2,10 +2,10 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using WorkPlaces.Data.Entities;
-using WorkPlaces.Data.Interfaces;
+using Workplaces.Data.Entities;
+using Workplaces.Data.Interfaces;
 
-namespace WorkPlaces.Data.Repositories
+namespace Workplaces.Data.Repositories
 {
     public class UsersRepository : IUsersRepository
     {

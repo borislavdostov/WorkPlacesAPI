@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace WorkPlaces.Data.Migrations
+namespace Workplaces.Data.Migrations
 {
     public partial class InitialMigration : Migration
     {

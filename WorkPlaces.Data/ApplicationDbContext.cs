@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WorkPlaces.Data.Entities;
+using Workplaces.Data.Entities;
 
-namespace WorkPlaces.Data
+namespace Workplaces.Data
 {
     public class ApplicationDbContext : DbContext
     {

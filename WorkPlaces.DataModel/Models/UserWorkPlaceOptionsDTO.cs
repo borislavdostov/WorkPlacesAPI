@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WorkPlaces.DataModel.Models
+namespace Workplaces.DataModel.Models
 {
     public class UserWorkplaceOptionsDTO
     {

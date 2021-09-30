@@ -18,8 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WorkPlaces.Data\WorkPlaces.Data.csproj" />
-    <ProjectReference Include="..\WorkPlaces.Service\WorkPlaces.Service.csproj" />
+    <ProjectReference Include="..\WorkPlaces.Data\Workplaces.Data.csproj" />
+    <ProjectReference Include="..\WorkPlaces.Service\Workplaces.Service.csproj" />
   </ItemGroup>
 
 

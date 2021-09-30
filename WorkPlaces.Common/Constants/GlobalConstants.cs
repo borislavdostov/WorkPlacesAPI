@@ -1,4 +1,4 @@
-﻿namespace WorkPlaces.Common.Constants
+﻿namespace Workplaces.Common.Constants
 {
     public class GlobalConstants
     {

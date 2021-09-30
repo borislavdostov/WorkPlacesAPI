@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using WorkPlaces.Data.Repositories;
-using WorkPlaces.Service.Interfaces;
+using Workplaces.Data.Repositories;
+using Workplaces.Service.Interfaces;
 
-namespace WorkPlaces.Service.Services
+namespace Workplaces.Service.Services
 {
     public class WorkplacesService : IWorkplacesService
     {

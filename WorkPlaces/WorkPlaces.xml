@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>WorkPlaces</name>
+        <name>Workplaces</name>
     </assembly>
     <members>
-        <member name="M:WorkPlaces.Controllers.UsersController.GetUsers">
+        <member name="M:Workplaces.Controllers.UsersController.GetUsers">
             <summary>
             Gets all users
             </summary>
             <returns>All users(without deleted)</returns>
             <response code="200">Returns all users(without deleted) or empty collection</response>
         </member>
-        <member name="M:WorkPlaces.Controllers.UsersController.GetUser(System.Int32)">
+        <member name="M:Workplaces.Controllers.UsersController.GetUser(System.Int32)">
             <summary>
             Gets specific user
             </summary>
@@ -20,7 +20,7 @@
             <response code="200">Returns a user with the given Id</response>
             <response code="404">If a user with the given id does not exist</response>
         </member>
-        <member name="M:WorkPlaces.Controllers.UsersController.CreateUser(WorkPlaces.DataModel.Models.UserForManipulationDTO)">
+        <member name="M:Workplaces.Controllers.UsersController.CreateUser(Workplaces.DataModel.Models.UserForManipulationDTO)">
             <summary>
             Creates new user
             </summary>
@@ -28,7 +28,7 @@
             <returns>A newly created user</returns>
             <response code="201">Returns the newly created user</response>
         </member>
-        <member name="M:WorkPlaces.Controllers.UsersController.UpdateUser(System.Int32,WorkPlaces.DataModel.Models.UserForManipulationDTO)">
+        <member name="M:Workplaces.Controllers.UsersController.UpdateUser(System.Int32,Workplaces.DataModel.Models.UserForManipulationDTO)">
             <summary>
             Updates user 
             </summary>
@@ -38,7 +38,7 @@
             <response code="204">If the user is updated successfully</response>
             <response code="404">If a user with the given id does not exist</response>
         </member>
-        <member name="M:WorkPlaces.Controllers.UsersController.DeleteUser(System.Int32)">
+        <member name="M:Workplaces.Controllers.UsersController.DeleteUser(System.Int32)">
             <summary>
             Deletes user
             </summary>
@@ -47,21 +47,21 @@
             <response code="204">If the user is deleted successfully</response>
             <response code="404">If a user with the given id does not exist</response>
         </member>
-        <member name="M:WorkPlaces.Controllers.UserWorkplacesController.GetUserWorkplaces">
+        <member name="M:Workplaces.Controllers.UserWorkplacesController.GetUserWorkplaces">
             <summary>
             Gets all user workplaces
             </summary>
             <returns>All user work places(without deleted)</returns>
             <response code="200">Returns all user work places(without deleted) or empty collection</response>
         </member>
-        <member name="M:WorkPlaces.Controllers.UserWorkplacesController.GetUserWorkplaceOptions">
+        <member name="M:Workplaces.Controllers.UserWorkplacesController.GetUserWorkplaceOptions">
             <summary>
             Gets all options for user work place
             </summary>
             <returns>All options for user work place(without deleted)</returns>
             <response code="200">All options for user work place(without deleted) or empty collection</response>
         </member>
-        <member name="M:WorkPlaces.Controllers.UserWorkplacesController.GetUserWorkplace(System.Int32)">
+        <member name="M:Workplaces.Controllers.UserWorkplacesController.GetUserWorkplace(System.Int32)">
             <summary>
             Gets specific user workplace
             </summary>
@@ -70,7 +70,7 @@
             <response code="200">Returns a user workplace with the given Id</response>
             <response code="404">If a user workplace with the given id does not exist</response>
         </member>
-        <member name="M:WorkPlaces.Controllers.UserWorkplacesController.CreateUserWorkplace(WorkPlaces.DataModel.Models.UserWorkplaceForManipulationDTO)">
+        <member name="M:Workplaces.Controllers.UserWorkplacesController.CreateUserWorkplace(Workplaces.DataModel.Models.UserWorkplaceForManipulationDTO)">
             <summary>
             Creates new user workplace
             </summary>
@@ -78,7 +78,7 @@
             <returns>A newly created user workplace</returns>
             <response code="201">Returns the newly created user workplace</response>
         </member>
-        <member name="M:WorkPlaces.Controllers.UserWorkplacesController.UpdateUserWorkplace(System.Int32,WorkPlaces.DataModel.Models.UserWorkplaceForManipulationDTO)">
+        <member name="M:Workplaces.Controllers.UserWorkplacesController.UpdateUserWorkplace(System.Int32,Workplaces.DataModel.Models.UserWorkplaceForManipulationDTO)">
             <summary>
             Updates user workplace
             </summary>
@@ -88,7 +88,7 @@
             <response code="204">If the user workplace is updated successfully</response>
             <response code="404">If a user workplace, user or workplace with the given id does not exist</response>
         </member>
-        <member name="M:WorkPlaces.Controllers.UserWorkplacesController.DeleteUserWorkplace(System.Int32)">
+        <member name="M:Workplaces.Controllers.UserWorkplacesController.DeleteUserWorkplace(System.Int32)">
             <summary>
             Deletes user workplace
             </summary>

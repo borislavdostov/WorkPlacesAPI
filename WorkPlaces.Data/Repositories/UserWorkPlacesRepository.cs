@@ -2,9 +2,9 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using WorkPlaces.Data.Entities;
+using Workplaces.Data.Entities;
 
-namespace WorkPlaces.Data.Repositories
+namespace Workplaces.Data.Repositories
 {
     public class UserWorkplacesRepository : IUserWorkplacesRepository
     {

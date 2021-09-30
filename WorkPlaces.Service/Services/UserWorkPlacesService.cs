@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WorkPlaces.Data.Entities;
-using WorkPlaces.Data.Interfaces;
-using WorkPlaces.Data.Repositories;
-using WorkPlaces.DataModel.Models;
-using WorkPlaces.Service.Interfaces;
+using Workplaces.Data.Entities;
+using Workplaces.Data.Interfaces;
+using Workplaces.Data.Repositories;
+using Workplaces.DataModel.Models;
+using Workplaces.Service.Interfaces;
 
-namespace WorkPlaces.Service.Services
+namespace Workplaces.Service.Services
 {
     public class UserWorkplacesService : IUserWorkplacesService
     {

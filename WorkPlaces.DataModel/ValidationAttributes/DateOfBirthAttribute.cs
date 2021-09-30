@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using WorkPlaces.DataModel.Models;
+using Workplaces.DataModel.Models;
 
-namespace WorkPlaces.DataModel.ValidationAttributes
+namespace Workplaces.DataModel.ValidationAttributes
 {
     public class DateOfBirthAttribute : ValidationAttribute
     {

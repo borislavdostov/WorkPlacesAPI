@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WorkPlaces.Data.Common
+namespace Workplaces.Data.Common
 {
     public abstract class BaseModel : IBaseModel
     {

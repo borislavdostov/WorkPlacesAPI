@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WorkPlaces.Data;
+using Workplaces.Data;
 
-namespace WorkPlaces.Data.Migrations
+namespace Workplaces.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20210924134225_InitialMigration")]

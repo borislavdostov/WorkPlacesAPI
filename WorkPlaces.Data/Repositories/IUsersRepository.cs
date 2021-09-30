@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using WorkPlaces.Data.Entities;
+using Workplaces.Data.Entities;
 
-namespace WorkPlaces.Data.Interfaces
+namespace Workplaces.Data.Interfaces
 {
     public interface IUsersRepository : IDisposable
     {

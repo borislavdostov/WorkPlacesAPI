@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace WorkPlaces.Data.Common
+namespace Workplaces.Data.Common
 {
     public interface IBaseModel
     {

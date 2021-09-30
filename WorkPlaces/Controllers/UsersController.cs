@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using WorkPlaces.DataModel.Models;
-using WorkPlaces.Service.Interfaces;
+using Workplaces.DataModel.Models;
+using Workplaces.Service.Interfaces;
 
-namespace WorkPlaces.Controllers
+namespace Workplaces.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

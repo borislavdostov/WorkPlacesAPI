@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using WorkPlaces.DataModel.ValidationAttributes;
+using Workplaces.DataModel.ValidationAttributes;
 
-namespace WorkPlaces.DataModel.Models
+namespace Workplaces.DataModel.Models
 {
     public class UserForManipulationDTO
     {

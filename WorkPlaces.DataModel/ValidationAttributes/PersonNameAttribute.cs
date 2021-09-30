@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
-namespace WorkPlaces.DataModel.ValidationAttributes
+namespace Workplaces.DataModel.ValidationAttributes
 {
     public class PersonNameAttribute : ValidationAttribute
     {

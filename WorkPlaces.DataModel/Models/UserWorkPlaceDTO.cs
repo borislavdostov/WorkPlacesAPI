@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WorkPlaces.DataModel.Models
+namespace Workplaces.DataModel.Models
 {
     public class UserWorkplaceDTO
     {

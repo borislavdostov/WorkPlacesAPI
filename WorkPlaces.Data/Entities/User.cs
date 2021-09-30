@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using WorkPlaces.Data.Common;
-using WorkPlaces.Extensions;
+using Workplaces.Data.Common;
+using Workplaces.Extensions;
 
-namespace WorkPlaces.Data.Entities
+namespace Workplaces.Data.Entities
 {
     public class User : BaseModel
     {

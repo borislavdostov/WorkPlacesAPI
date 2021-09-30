@@ -3,13 +3,13 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using WorkPlaces.Data.Entities;
-using WorkPlaces.Data.Interfaces;
-using WorkPlaces.DataModel.Models;
-using WorkPlaces.Service.Interfaces;
-using WorkPlaces.Service.Services;
+using Workplaces.Data.Entities;
+using Workplaces.Data.Interfaces;
+using Workplaces.DataModel.Models;
+using Workplaces.Service.Interfaces;
+using Workplaces.Service.Services;
 
-namespace WorkPlaces.Service.Tests
+namespace Workplaces.Service.Tests
 {
     [TestFixture]
     public class UsersServiceTests

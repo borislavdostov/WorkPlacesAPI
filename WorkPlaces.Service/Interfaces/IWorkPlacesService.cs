@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace WorkPlaces.Service.Interfaces
+namespace Workplaces.Service.Interfaces
 {
     public interface IWorkplacesService
     {

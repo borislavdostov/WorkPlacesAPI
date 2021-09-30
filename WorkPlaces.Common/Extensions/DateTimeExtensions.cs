@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WorkPlaces.Extensions
+namespace Workplaces.Extensions
 {
     public static class DateTimeExtensions
     {

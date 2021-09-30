@@ -1,12 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WorkPlaces.DataModel\WorkPlaces.DataModel.csproj" />
-    <ProjectReference Include="..\WorkPlaces.Data\WorkPlaces.Data.csproj" />
+    <ProjectReference Include="..\WorkPlaces.DataModel\Workplaces.DataModel.csproj" />
+    <ProjectReference Include="..\WorkPlaces.Data\Workplaces.Data.csproj" />
   </ItemGroup>
 
 </Project>

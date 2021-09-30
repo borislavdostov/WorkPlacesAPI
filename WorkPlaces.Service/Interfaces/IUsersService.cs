@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using WorkPlaces.DataModel.Models;
+using Workplaces.DataModel.Models;
 
-namespace WorkPlaces.Service.Interfaces
+namespace Workplaces.Service.Interfaces
 {
     public interface IUsersService
     {

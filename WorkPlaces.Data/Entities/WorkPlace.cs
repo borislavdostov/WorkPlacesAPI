@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using WorkPlaces.Data.Common;
+using Workplaces.Data.Common;
 
-namespace WorkPlaces.Data.Entities
+namespace Workplaces.Data.Entities
 {
     public class Workplace : BaseModel
     {

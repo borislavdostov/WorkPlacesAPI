@@ -9,14 +9,14 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.IO;
 using System.Linq;
-using WorkPlaces.Common.Constants;
-using WorkPlaces.Data;
-using WorkPlaces.Data.Interfaces;
-using WorkPlaces.Data.Repositories;
-using WorkPlaces.Service.Interfaces;
-using WorkPlaces.Service.Services;
+using Workplaces.Common.Constants;
+using Workplaces.Data;
+using Workplaces.Data.Interfaces;
+using Workplaces.Data.Repositories;
+using Workplaces.Service.Interfaces;
+using Workplaces.Service.Services;
 
-namespace WorkPlaces
+namespace Workplaces
 {
     public class Startup
     {
