@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WorkPlaces.Data.Entities;
@@ -20,9 +21,9 @@ namespace WorkPlaces.Service.Services
             IUsersRepository usersRepository,
             IWorkplacesRepository workplacesRepository)
         {
-            this.userWorkplacesRepository = userWorkplacesRepository;
-            this.usersRepository = usersRepository;
-            this.workplacesRepository = workplacesRepository;
+            this.userWorkplacesRepository = userWorkplacesRepository ?? throw new ArgumentNullException();
+            this.usersRepository = usersRepository ?? throw new ArgumentNullException();
+            this.workplacesRepository = workplacesRepository ?? throw new ArgumentNullException();
         }
 
         public IEnumerable<UserWorkplaceDTO> GetUserWorkplaces()

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using WorkPlaces.Data.Repositories;
 using WorkPlaces.Service.Interfaces;
 
@@ -10,7 +11,7 @@ namespace WorkPlaces.Service.Services
 
         public WorkplacesService(IWorkplacesRepository workplacesRepository)
         {
-            this.workplacesRepository = workplacesRepository;
+            this.workplacesRepository = workplacesRepository ?? throw new ArgumentNullException();
         }
 
         public async Task<bool> WorkplaceExistsAsync(int workplaceId)
