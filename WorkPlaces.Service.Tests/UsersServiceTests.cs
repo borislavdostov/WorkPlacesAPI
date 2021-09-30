@@ -28,8 +28,12 @@ namespace WorkPlaces.Service.Tests
                 .ReturnsAsync((int id) => usersFromRepository.FirstOrDefault(u => u.Id == id));
             mockUsersRepository.Setup(r => r.AddAsync(It.IsAny<User>()))
                 .Callback<User>(u => usersFromRepository.Add(u));
+            //        mockUsersRepository.Setup(r => r.Update(It.IsAny<User>()))
+            //.Callback<User>(u => usersFromRepository.Add(u));
             mockUsersRepository.Setup(r => r.Delete(It.IsAny<User>()))
                 .Callback<User>(u => usersFromRepository.Remove(u));
+            mockUsersRepository.Setup(r => r.ExistsAsync(It.IsAny<int>()))
+                .ReturnsAsync((int id) => usersFromRepository.Any(u => u.Id == id));
             usersService = new UsersService(mockUsersRepository.Object);
         }
 
@@ -52,7 +56,7 @@ namespace WorkPlaces.Service.Tests
         }
 
         [Test]
-        public void GetUsersMethod_WithOneUser_ShouldReturnUserIdOne()
+        public void GetUsersMethod_WithOneUser_ShouldReturnCorrectUsers()
         {
             usersFromRepository.Add(new User { Id = 1 });
 
@@ -63,7 +67,7 @@ namespace WorkPlaces.Service.Tests
         }
 
         [Test]
-        public void GetUserAsyncMethod_UserFound_ShouldReturnNonNullUser()
+        public void GetUserAsyncMethod_WithExistingUser_ShouldReturnNonNullUser()
         {
             usersFromRepository.Add(new User { Id = 5 });
 
@@ -82,7 +86,7 @@ namespace WorkPlaces.Service.Tests
         }
 
         [Test]
-        public void DeleteUserAsyncMethod_ExistingUser_ShouldDecrementUsersCount()
+        public void DeleteUserAsyncMethod_WithExistingUser_ShouldDecrementUsersCount()
         {
             usersFromRepository.Add(new User { Id = 3 });
 
