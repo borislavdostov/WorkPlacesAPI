@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WorkPlaces.DataModel\Workplaces.DataModel.csproj" />
-    <ProjectReference Include="..\WorkPlaces.Data\Workplaces.Data.csproj" />
+    <ProjectReference Include="..\Workplaces.DataModel\Workplaces.DataModel.csproj" />
+    <ProjectReference Include="..\Workplaces.Data\Workplaces.Data.csproj" />
   </ItemGroup>
 
 </Project>

@@ -15,9 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WorkPlaces.DataModel\Workplaces.DataModel.csproj" />
-    <ProjectReference Include="..\WorkPlaces.Data\Workplaces.Data.csproj" />
-    <ProjectReference Include="..\WorkPlaces.Service\Workplaces.Service.csproj" />
+    <ProjectReference Include="..\Workplaces.DataModel\Workplaces.DataModel.csproj" />
+    <ProjectReference Include="..\Workplaces.Data\Workplaces.Data.csproj" />
+    <ProjectReference Include="..\Workplaces.Service\Workplaces.Service.csproj" />
   </ItemGroup>
 
 </Project>

@@ -19,7 +19,7 @@ namespace Workplaces.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.9")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("WorkPlaces.Data.Entities.User", b =>
+            modelBuilder.Entity("Workplaces.Data.Entities.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -58,7 +58,7 @@ namespace Workplaces.Data.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("WorkPlaces.Data.Entities.UserWorkplace", b =>
+            modelBuilder.Entity("Workplaces.Data.Entities.UserWorkplace", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -95,7 +95,7 @@ namespace Workplaces.Data.Migrations
                     b.ToTable("UserWorkplaces");
                 });
 
-            modelBuilder.Entity("WorkPlaces.Data.Entities.Workplace", b =>
+            modelBuilder.Entity("Workplaces.Data.Entities.Workplace", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -121,15 +121,15 @@ namespace Workplaces.Data.Migrations
                     b.ToTable("Workplaces");
                 });
 
-            modelBuilder.Entity("WorkPlaces.Data.Entities.UserWorkplace", b =>
+            modelBuilder.Entity("Workplaces.Data.Entities.UserWorkplace", b =>
                 {
-                    b.HasOne("WorkPlaces.Data.Entities.User", "User")
+                    b.HasOne("Workplaces.Data.Entities.User", "User")
                         .WithMany("Workplaces")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WorkPlaces.Data.Entities.Workplace", "Workplace")
+                    b.HasOne("Workplaces.Data.Entities.Workplace", "Workplace")
                         .WithMany("Users")
                         .HasForeignKey("WorkplaceId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -140,12 +140,12 @@ namespace Workplaces.Data.Migrations
                     b.Navigation("Workplace");
                 });
 
-            modelBuilder.Entity("WorkPlaces.Data.Entities.User", b =>
+            modelBuilder.Entity("Workplaces.Data.Entities.User", b =>
                 {
                     b.Navigation("Workplaces");
                 });
 
-            modelBuilder.Entity("WorkPlaces.Data.Entities.Workplace", b =>
+            modelBuilder.Entity("Workplaces.Data.Entities.Workplace", b =>
                 {
                     b.Navigation("Users");
                 });
