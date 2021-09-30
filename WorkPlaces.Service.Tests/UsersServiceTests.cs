@@ -17,14 +17,13 @@ namespace WorkPlaces.Service.Tests
         private List<User> usersFromRepository;
         private Mock<IUsersRepository> mockUsersRepository;
         private IUsersRepository usersRepository;
-        private IQueryable<User> QueryableUsers => usersFromRepository.AsQueryable();
 
         [SetUp]
         public void Initialize()
         {
             usersFromRepository = new List<User>();
             mockUsersRepository = new Mock<IUsersRepository>();
-            mockUsersRepository.Setup(r => r.GetAll()).Returns(QueryableUsers);
+            mockUsersRepository.Setup(r => r.GetAll()).Returns(usersFromRepository.AsQueryable());
             usersRepository = mockUsersRepository.Object;
             usersService = new UsersService(usersRepository);
         }
