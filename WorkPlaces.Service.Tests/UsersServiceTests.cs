@@ -29,22 +29,30 @@ namespace WorkPlaces.Service.Tests
         [Test]
         public void GetUsers_EmptyCollection_ShouldReturnCountZero()
         {
-            var expectedResult = new List<UserDTO>();
+            var actualResult = usersService.GetUsers().Count();
 
-            var actualUsers = usersService.GetUsers();
-
-            Assert.AreEqual(expectedResult.Count, actualUsers.Count());
+            Assert.AreEqual(0, actualResult);
         }
 
         [Test]
         public void GetUsers_WithOneUser_ShouldReturnCountOne()
         {
             usersFromRepository.Add(new User());
-            var expectedResult = new List<UserDTO> { new UserDTO() };
 
-            var actualUsers = usersService.GetUsers();
+            var actualResult = usersService.GetUsers().Count();
 
-            Assert.AreEqual(expectedResult.Count, actualUsers.Count());
+            Assert.AreEqual(1, actualResult);
+        }
+
+        [Test]
+        public void GetUsers_WithOneUser_ShouldReturnCorrectUsers()
+        {
+            usersFromRepository.Add(new User { Id = 1 });
+
+            var users = usersService.GetUsers();
+            var actualResult = users.First().Id;
+
+            Assert.AreEqual(1, actualResult);
         }
     }
 }
