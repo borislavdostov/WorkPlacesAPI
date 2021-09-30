@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using WorkPlaces.Data.Entities;
 using WorkPlaces.Data.Interfaces;
-using WorkPlaces.DataModel.Models;
 using WorkPlaces.Service.Interfaces;
 using WorkPlaces.Service.Services;
 
