@@ -14,9 +14,8 @@ namespace WorkPlaces.Service.Tests
     public class UsersServiceTests
     {
         private IUsersService usersService;
-        private List<User> usersFromRepository;
         private Mock<IUsersRepository> mockUsersRepository;
-        private IUsersRepository usersRepository;
+        private List<User> usersFromRepository;
 
         [SetUp]
         public void Initialize()
@@ -24,19 +23,28 @@ namespace WorkPlaces.Service.Tests
             usersFromRepository = new List<User>();
             mockUsersRepository = new Mock<IUsersRepository>();
             mockUsersRepository.Setup(r => r.GetAll()).Returns(usersFromRepository.AsQueryable());
-            usersRepository = mockUsersRepository.Object;
-            usersService = new UsersService(usersRepository);
+            usersService = new UsersService(mockUsersRepository.Object);
         }
 
         [Test]
-        public void GetUsers_WithOneUser_ShouldReturnUsersCorrectly()
+        public void GetUsers_EmptyCollection_ShouldReturnCountZero()
+        {
+            var expectedResult = new List<UserDTO>();
+
+            var actualUsers = usersService.GetUsers();
+
+            Assert.AreEqual(expectedResult.Count, actualUsers.Count());
+        }
+
+        [Test]
+        public void GetUsers_WithOneUser_ShouldReturnCountOne()
         {
             usersFromRepository.Add(new User());
             var expectedResult = new List<UserDTO> { new UserDTO() };
 
-            var users = usersService.GetUsers();
+            var actualUsers = usersService.GetUsers();
 
-            Assert.AreEqual(expectedResult.Count, users.Count());
+            Assert.AreEqual(expectedResult.Count, actualUsers.Count());
         }
     }
 }
