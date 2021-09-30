@@ -21,7 +21,12 @@ namespace WorkPlaces.Service.Tests
         {
             usersFromRepository = new List<User>();
             mockUsersRepository = new Mock<IUsersRepository>();
-            mockUsersRepository.Setup(r => r.GetAll()).Returns(usersFromRepository.AsQueryable());
+            mockUsersRepository.Setup(r => r.GetAll())
+                .Returns(usersFromRepository.AsQueryable());
+            mockUsersRepository.Setup(r => r.GetAsync(It.IsAny<int>()))
+                .ReturnsAsync((int id) => usersFromRepository.FirstOrDefault(u => u.Id == id));
+            mockUsersRepository.Setup(r => r.Delete(It.IsAny<User>()))
+                .Callback<User>(u => usersFromRepository.Remove(u));
             usersService = new UsersService(mockUsersRepository.Object);
         }
 
@@ -41,6 +46,16 @@ namespace WorkPlaces.Service.Tests
             var actualResult = usersService.GetUsers().Count();
 
             Assert.AreEqual(1, actualResult);
+        }
+
+        [Test]
+        public void GetUserAsync_UserFound_ShouldReturnCorrectUser()
+        {
+            usersFromRepository.Add(new User { Id = 5 });
+
+            var actualResult = usersService.GetUserAsync(5).Result;
+
+            Assert.IsNotNull(actualResult);
         }
 
         [Test]
