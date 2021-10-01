@@ -166,7 +166,7 @@ namespace Workplaces.Service.Tests
 
             var actualResult = usersService.UserExistsAsync(3).Result;
 
-            Assert.AreEqual(true, actualResult);
+            Assert.IsTrue(actualResult);
         }
 
         [Test]
@@ -174,7 +174,7 @@ namespace Workplaces.Service.Tests
         {
             var actualResult = usersService.UserExistsAsync(3).Result;
 
-            Assert.AreEqual(false, actualResult);
+            Assert.IsFalse(actualResult);
         }
     }
 }
