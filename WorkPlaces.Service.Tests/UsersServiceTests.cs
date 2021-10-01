@@ -31,15 +31,6 @@ namespace Workplaces.Service.Tests
                 .ReturnsAsync((int id) => usersFromRepository.FirstOrDefault(u => u.Id == id));
             mockUsersRepository.Setup(r => r.AddAsync(It.IsAny<User>()))
                 .Callback<User>(u => usersFromRepository.Add(u));
-            mockUsersRepository.Setup(r => r.Update(It.IsAny<User>()))
-                .Callback<User>(u =>
-                {
-                    var user = usersFromRepository.FirstOrDefault(x => x.Id == u.Id);
-                    user.FirstName = u.FirstName;
-                    user.LastName = u.LastName;
-                    user.DateOfBirth = u.DateOfBirth;
-                    user.Email = u.Email;
-                });
             mockUsersRepository.Setup(r => r.Delete(It.IsAny<User>()))
                 .Callback<User>(u => usersFromRepository.Remove(u));
             mockUsersRepository.Setup(r => r.ExistsAsync(It.IsAny<int>()))
@@ -86,9 +77,9 @@ namespace Workplaces.Service.Tests
         [Test]
         public void GetUserAsyncMethod_WithExistingUser_ShouldReturnNonNullUser()
         {
-            usersFromRepository.Add(new User { Id = 5 });
+            usersFromRepository.Add(new User { Id = 1 });
 
-            var actualResult = usersService.GetUserAsync(5).Result;
+            var actualResult = usersService.GetUserAsync(1).Result;
 
             Assert.IsNotNull(actualResult);
         }
@@ -118,10 +109,10 @@ namespace Workplaces.Service.Tests
         [Test]
         public void UpdateUserAsyncMethod_WithExistingUser_ShouldChangeUsersName()
         {
-            var user = new User { Id = 2, FirstName = "Nikolay", LastName = "Nikolov" };
+            var user = new User { Id = 1, FirstName = "Nikolay", LastName = "Nikolov" };
             usersFromRepository.Add(user);
 
-            usersService.UpdateUserAsync(2, new UserForManipulationDTO { FirstName = "John", LastName = "Doe" });
+            usersService.UpdateUserAsync(1, new UserForManipulationDTO { FirstName = "John", LastName = "Doe" });
             var updatedUser = usersFromRepository.FirstOrDefault();
             var actualResult = $"{updatedUser.FirstName} {updatedUser.LastName}";
 
@@ -131,9 +122,9 @@ namespace Workplaces.Service.Tests
         [Test]
         public void DeleteUserAsyncMethod_WithExistingUser_ShouldDecrementUsersCount()
         {
-            usersFromRepository.Add(new User { Id = 3 });
+            usersFromRepository.Add(new User { Id = 1 });
 
-            usersService.DeleteUserAsync(3);
+            usersService.DeleteUserAsync(1);
             var actualResult = usersFromRepository.Count();
 
             Assert.AreEqual(0, actualResult);
@@ -142,9 +133,9 @@ namespace Workplaces.Service.Tests
         [Test]
         public void DeleteUserAsyncMethod_WithNonExistingUser_ShouldNotReflectOnUsersCount()
         {
-            usersFromRepository.Add(new User { Id = 3 });
+            usersFromRepository.Add(new User { Id = 1 });
 
-            usersService.DeleteUserAsync(1);
+            usersService.DeleteUserAsync(2);
             var actualResult = usersFromRepository.Count();
 
             Assert.AreEqual(1, actualResult);
@@ -153,9 +144,9 @@ namespace Workplaces.Service.Tests
         [Test]
         public void UserExistsAsyncMethod_WithExistingUser_ShouldReturnTrue()
         {
-            usersFromRepository.Add(new User { Id = 3 });
+            usersFromRepository.Add(new User { Id = 1 });
 
-            var actualResult = usersService.UserExistsAsync(3).Result;
+            var actualResult = usersService.UserExistsAsync(1).Result;
 
             Assert.IsTrue(actualResult);
         }
@@ -163,7 +154,7 @@ namespace Workplaces.Service.Tests
         [Test]
         public void UserExistsAsyncMethod_WithNonExistingUser_ShouldReturnFalse()
         {
-            var actualResult = usersService.UserExistsAsync(3).Result;
+            var actualResult = usersService.UserExistsAsync(1).Result;
 
             Assert.IsFalse(actualResult);
         }
