@@ -29,8 +29,15 @@ namespace Workplaces.Service.Tests
                 .ReturnsAsync((int id) => usersFromRepository.FirstOrDefault(u => u.Id == id));
             mockUsersRepository.Setup(r => r.AddAsync(It.IsAny<User>()))
                 .Callback<User>(u => usersFromRepository.Add(u));
-            //        mockUsersRepository.Setup(r => r.Update(It.IsAny<User>()))
-            //.Callback<User>(u => usersFromRepository.Add(u));
+            mockUsersRepository.Setup(r => r.Update(It.IsAny<User>()))
+                .Callback<User>(u =>
+                {
+                    var user = usersFromRepository.FirstOrDefault(x => x.Id == u.Id);
+                    user.FirstName = u.FirstName;
+                    user.LastName = u.LastName;
+                    user.DateOfBirth = u.DateOfBirth;
+                    user.Email = u.Email;
+                });
             mockUsersRepository.Setup(r => r.Delete(It.IsAny<User>()))
                 .Callback<User>(u => usersFromRepository.Remove(u));
             mockUsersRepository.Setup(r => r.ExistsAsync(It.IsAny<int>()))
@@ -111,6 +118,19 @@ namespace Workplaces.Service.Tests
             usersService.CreateUserAsync(new UserForManipulationDTO { FirstName = "John", LastName = "Doe" });
             var user = usersFromRepository.FirstOrDefault();
             var actualResult = $"{user.FirstName} {user.LastName}";
+
+            Assert.AreEqual("John Doe", actualResult);
+        }
+
+        [Test]
+        public void UpdateUserAsyncMethod_WithExistingUser_ShouldChangeUsersName()
+        {
+            var user = new User { Id = 2, FirstName = "Nikolay", LastName = "Nikolov" };
+            usersFromRepository.Add(user);
+
+            usersService.UpdateUserAsync(2, new UserForManipulationDTO { FirstName = "John", LastName = "Doe" });
+            var updatedUser = usersFromRepository.FirstOrDefault();
+            var actualResult = $"{updatedUser.FirstName} {updatedUser.LastName}";
 
             Assert.AreEqual("John Doe", actualResult);
         }
