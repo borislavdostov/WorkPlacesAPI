@@ -214,7 +214,27 @@ namespace Workplaces.Service.Tests
             Assert.AreEqual(1, actualResult);
         }
 
-        //Update Tests
+        [Test]
+        public void UpdateUserWorkplaceAsyncMethod_WithExistingUser_ShouldChangeUserIdCorrectly()
+        {
+            userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1, UserId = 1 });
+
+            userWorkplacesService.UpdateUserWorkplaceAsync(1, new UserWorkplaceForManipulationDTO { UserId = 2 });
+            var actualResult = userWorkplacesFromRepository.FirstOrDefault().UserId;
+
+            Assert.AreEqual(2, actualResult);
+        }
+
+        [Test]
+        public void UpdateUserWorkplaceAsyncMethod_WithExistingUser_ShouldChangeWorkplaceIdCorrectly()
+        {
+            userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1, WorkplaceId = 1 });
+
+            userWorkplacesService.UpdateUserWorkplaceAsync(1, new UserWorkplaceForManipulationDTO { WorkplaceId = 2 });
+            var actualResult = userWorkplacesFromRepository.FirstOrDefault().WorkplaceId;
+
+            Assert.AreEqual(2, actualResult);
+        }
 
         //Delete Tests
 
