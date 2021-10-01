@@ -33,7 +33,7 @@ namespace Workplaces.DataModel.Tests
         {
             var dateOfBirth = DateTime.Now.AddDays(1);
 
-            var validationResult = dateOfBirthAttribute.GetValidationResult(user, new ValidationContext(user));
+            var validationResult = dateOfBirthAttribute.GetValidationResult(dateOfBirth, new ValidationContext(dateOfBirth));
             var actualResult = validationResult == ValidationResult.Success;
 
             Assert.IsFalse(actualResult);
