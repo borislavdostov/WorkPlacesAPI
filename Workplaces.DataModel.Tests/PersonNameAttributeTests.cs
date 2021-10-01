@@ -18,7 +18,7 @@ namespace Workplaces.DataModel.Tests
         [TestCase("Peter")]
         [TestCase("O'Riley")]
         [TestCase("McDonald")]
-        [TestCase("Jan  van")]
+        [TestCase("Jan van")]
         public void IsValidMethod_WithCorrectName_ShouldReturnTrue(string name)
         {
             var validationResult = personNameAttribute.GetValidationResult(name, new ValidationContext(name));
