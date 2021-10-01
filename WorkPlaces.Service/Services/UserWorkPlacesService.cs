@@ -54,7 +54,6 @@ namespace Workplaces.Service.Services
                 Name = w.Name
             }).ToList();
 
-
             return new UserWorkplaceOptionsDTO
             {
                 Users = users,
