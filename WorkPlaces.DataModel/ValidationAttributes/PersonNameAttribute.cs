@@ -9,7 +9,7 @@ namespace Workplaces.DataModel.ValidationAttributes
         {
             var name = value as string;
 
-            if (!Regex.IsMatch(name, @"^[A-Z][A-Za-z]*"))
+            if (!Regex.IsMatch(name, @"^[A-Z][A-Za-z\'\s]*$"))
             {
                 return new ValidationResult(
                 "Name should start with a capital letter and cannot contain numbers or any special symbols.");
