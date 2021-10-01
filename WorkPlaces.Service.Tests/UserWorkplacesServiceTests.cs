@@ -215,5 +215,11 @@ namespace Workplaces.Service.Tests
 
             Assert.AreEqual(1, actualResult);
         }
+
+        //Update Tests
+
+        //Delete Tests
+
+        //Exists Tests
     }
 }
