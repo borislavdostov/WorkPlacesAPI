@@ -23,6 +23,7 @@ namespace Workplaces.Service.Tests
         {
             usersFromRepository = new List<User>();
             mockUsersRepository = new Mock<IUsersRepository>();
+
             mockUsersRepository.Setup(r => r.GetAll())
                 .Returns(usersFromRepository.AsQueryable());
             mockUsersRepository.Setup(r => r.GetAsync(It.IsAny<int>()))
@@ -42,6 +43,7 @@ namespace Workplaces.Service.Tests
                 .Callback<User>(u => usersFromRepository.Remove(u));
             mockUsersRepository.Setup(r => r.ExistsAsync(It.IsAny<int>()))
                 .ReturnsAsync((int id) => usersFromRepository.Any(u => u.Id == id));
+
             usersService = new UsersService(mockUsersRepository.Object);
         }
 
