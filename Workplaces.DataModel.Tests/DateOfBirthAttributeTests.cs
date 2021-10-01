@@ -53,10 +53,9 @@ namespace Workplaces.DataModel.Tests
         [Test]
         public void IsValidMethod_WithBiggerDateThanToday_ShouldReturnErrorMessage()
         {
-            var user = new UserForManipulationDTO { DateOfBirth = DateTime.Now.AddDays(1) };
-            var dateOfBirth = new DateTime(1995, 5, 23);
+            var dateOfBirth = DateTime.Now.AddDays(1);
 
-            var validationResult = dateOfBirthAttribute.GetValidationResult(user, new ValidationContext(user));
+            var validationResult = dateOfBirthAttribute.GetValidationResult(dateOfBirth, new ValidationContext(dateOfBirth));
             var actualResult = validationResult.ErrorMessage;
 
             Assert.AreEqual("Date of birth should be lower than today's date.", actualResult);
