@@ -10,7 +10,7 @@ namespace Workplaces.Common.Tests
         [Test]
         public void GetAgeMethod_WithAgeTwentyFive_ShouldReturnAgeCorrectly()
         {
-            var date = new DateTime(1996, 4, 27);
+            var date = new DateTime(1996, 2, 17);
 
             var actualResult = date.GetAge();
 
