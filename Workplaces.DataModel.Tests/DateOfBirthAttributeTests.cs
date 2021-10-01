@@ -31,6 +31,8 @@ namespace Workplaces.DataModel.Tests
         [Test]
         public void IsValidMethod_WithBiggerDateThanToday_ShouldReturnFalse()
         {
+            var user = new UserForManipulationDTO { DateOfBirth = DateTime.Now.AddDays(1) };
+
             var validationResult = dateOfBirthAttribute.GetValidationResult(user, new ValidationContext(user));
             var actualResult = validationResult == ValidationResult.Success;
 
