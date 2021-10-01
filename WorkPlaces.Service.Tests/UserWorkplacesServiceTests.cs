@@ -6,6 +6,7 @@ using System.Linq;
 using Workplaces.Data.Entities;
 using Workplaces.Data.Interfaces;
 using Workplaces.Data.Repositories;
+using Workplaces.DataModel.Models;
 using Workplaces.Service.Interfaces;
 using Workplaces.Service.Services;
 
@@ -39,6 +40,8 @@ namespace Workplaces.Service.Tests
                 .Returns(userWorkplacesFromRepository.AsQueryable());
             mockUserWorkplacesRepository.Setup(r => r.GetAsync(It.IsAny<int>()))
                 .ReturnsAsync((int id) => userWorkplacesFromRepository.FirstOrDefault(uw => uw.Id == id));
+            mockUserWorkplacesRepository.Setup(r => r.AddAsync(It.IsAny<UserWorkplace>()))
+                .Callback<UserWorkplace>(uw => userWorkplacesFromRepository.Add(uw));
 
             mockUsersRepository = new Mock<IUsersRepository>();
             usersRepository = mockUsersRepository.Object;
@@ -182,6 +185,15 @@ namespace Workplaces.Service.Tests
             var actualResult = userWorkplacesService.GetUserWorkplaceAsync(1).Result.WorkplaceId;
 
             Assert.AreEqual(2, actualResult);
+        }
+
+        [Test]
+        public void CreateUserWorkplaceAsyncMethod_UserWorkPlaceAdded_ShouldIncrementUserWorkplacesCount()
+        {
+            userWorkplacesService.CreateUserWorkplaceAsync(new UserWorkplaceForManipulationDTO());
+            var actualResult = userWorkplacesFromRepository.Count;
+
+            Assert.AreEqual(1, actualResult);
         }
     }
 }

@@ -107,7 +107,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void CreateUserAsyncMethod_UserAdded_ShouldIncrementUserCount()
+        public void CreateUserAsyncMethod_UserAdded_ShouldIncrementUsersCount()
         {
             usersService.CreateUserAsync(new UserForManipulationDTO());
             var actualResult = usersFromRepository.Count();
