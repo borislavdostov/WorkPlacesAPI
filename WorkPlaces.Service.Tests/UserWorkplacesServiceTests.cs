@@ -78,5 +78,15 @@ namespace Workplaces.Service.Tests
 
             Assert.AreEqual(0, actualResult);
         }
+
+        [Test]
+        public void GetUserWorkplacesMethod_WithOneUserWorkplace_ShouldReturnCountOne()
+        {
+            userWorkplacesFromRepository.Add(new UserWorkplace { User = new User(), Workplace = new Workplace() });
+
+            var actualResult = userWorkplacesService.GetUserWorkplaces().Count();
+
+            Assert.AreEqual(1, actualResult);
+        }
     }
 }
