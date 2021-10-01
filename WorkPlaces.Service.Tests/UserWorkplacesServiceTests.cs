@@ -40,11 +40,12 @@ namespace Workplaces.Service.Tests
             mockUsersRepository = new Mock<IUsersRepository>();
             usersRepository = mockUsersRepository.Object;
             usersFromRepository = new List<User>();
+            mockUsersRepository.Setup(r => r.GetAll()).Returns(usersFromRepository.AsQueryable());
 
             mockWorkplacesRepository = new Mock<IWorkplacesRepository>();
             workplacesRepository = mockWorkplacesRepository.Object;
             workplacesFromRepository = new List<Workplace>();
-
+            mockWorkplacesRepository.Setup(r => r.GetAll()).Returns(workplacesFromRepository.AsQueryable());
 
             userWorkplacesService = new UserWorkplacesService(
                 mockUserWorkplacesRepository.Object, mockUsersRepository.Object, mockWorkplacesRepository.Object);
@@ -96,6 +97,34 @@ namespace Workplaces.Service.Tests
 
             var userWorkplaces = userWorkplacesService.GetUserWorkplaces();
             var actualResult = userWorkplaces.First().Id;
+
+            Assert.AreEqual(1, actualResult);
+        }
+
+        [Test]
+        public void GetUserWorkplaceOptionsAsyncMethod_WithEmptyCollection_ShouldReturnNonNullOption()
+        {
+            var actualResult = userWorkplacesService.GetUserWorkplaceOptions();
+
+            Assert.IsNotNull(actualResult);
+        }
+
+        [Test]
+        public void GetUserWorkplaceOptionsAsyncMethod_WithOneUserWorkPlaceOption_ShouldReturnUserOptionsCountOne()
+        {
+            usersFromRepository.Add(new User());
+
+            var actualResult = userWorkplacesService.GetUserWorkplaceOptions().Users.Count();
+
+            Assert.AreEqual(1, actualResult);
+        }
+
+        [Test]
+        public void GetUserWorkplaceOptionsAsyncMethod_WithOneUserWorkPlaceOption_ShouldReturnWorkplaceOptionsCountOne()
+        {
+            workplacesFromRepository.Add(new Workplace());
+
+            var actualResult = userWorkplacesService.GetUserWorkplaceOptions().Workplaces.Count();
 
             Assert.AreEqual(1, actualResult);
         }
