@@ -44,5 +44,13 @@ namespace Workplaces.Service.Tests
 
             Assert.IsTrue(actualResult);
         }
+
+        [Test]
+        public void WorkplaceExistsAsync_WithNonExistingWorkplace_ShouldReturnFalse()
+        {
+            var actualResult = workplacesService.WorkplaceExistsAsync(1).Result;
+
+            Assert.IsFalse(actualResult);
+        }
     }
 }
