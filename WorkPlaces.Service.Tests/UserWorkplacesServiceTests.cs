@@ -195,5 +195,25 @@ namespace Workplaces.Service.Tests
 
             Assert.AreEqual(1, actualResult);
         }
+
+        [Test]
+        public void CreateUserWorkplaceAsyncMethod_UserAdded_ShouldAddUserIdCorrectly()
+        {
+            userWorkplacesService.CreateUserWorkplaceAsync(
+                new UserWorkplaceForManipulationDTO { UserId = 1 });
+            var actualResult = userWorkplacesFromRepository.FirstOrDefault().UserId;
+
+            Assert.AreEqual(1, actualResult);
+        }
+
+        [Test]
+        public void CreateUserWorkplaceAsyncMethod_UserAdded_ShouldAddWorkplaceIdCorrectly()
+        {
+            userWorkplacesService.CreateUserWorkplaceAsync(
+                new UserWorkplaceForManipulationDTO { WorkplaceId = 1 });
+            var actualResult = userWorkplacesFromRepository.FirstOrDefault().WorkplaceId;
+
+            Assert.AreEqual(1, actualResult);
+        }
     }
 }
