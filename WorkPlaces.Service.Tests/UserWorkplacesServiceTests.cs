@@ -90,7 +90,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUserWorkplacesMethod_WithOneUserWorkplace_ShouldReturnCorrectUserWorkplace()
+        public void GetUserWorkplacesMethod_WithOneUserWorkplace_ShouldReturnUserWorkplacesCorrectly()
         {
             userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1, User = new User(), Workplace = new Workplace() });
 

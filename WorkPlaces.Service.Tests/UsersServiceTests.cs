@@ -73,7 +73,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUsersMethod_WithOneUser_ShouldReturnCorrectUsers()
+        public void GetUsersMethod_WithOneUser_ShouldReturnUsersCorrectly()
         {
             usersFromRepository.Add(new User { Id = 1 });
 
@@ -94,7 +94,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUserAsyncMethod_WithExistingUser_ShouldReturnCorrectUser()
+        public void GetUserAsyncMethod_WithExistingUser_ShouldReturnUserCorrectly()
         {
             usersFromRepository.Add(new User { Id = 1, FirstName = "Ivan", LastName = "Ivanov" });
             usersFromRepository.Add(new User { Id = 2, FirstName = "John", LastName = "Doe" });
