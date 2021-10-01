@@ -30,7 +30,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void Constructor_NullArgument_ShouldThrowArgumentNullException()
+        public void Constructor_WithNullWorkplacesRepository_ShouldThrowArgumentNullException()
         {
             Assert.Throws<ArgumentNullException>(() => workplacesService = new WorkplacesService(null));
         }

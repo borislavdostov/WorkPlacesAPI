@@ -15,6 +15,7 @@ namespace Workplaces.Service.Tests
     public class UsersServiceTests
     {
         private IUsersService usersService;
+
         private Mock<IUsersRepository> mockUsersRepository;
         private List<User> usersFromRepository;
 
@@ -48,7 +49,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void Constructor_NullArgument_ShouldThrowArgumentNullException()
+        public void Constructor_WithNullUsersRepository_ShouldThrowArgumentNullException()
         {
             Assert.Throws<ArgumentNullException>(() => usersService = new UsersService(null));
         }
