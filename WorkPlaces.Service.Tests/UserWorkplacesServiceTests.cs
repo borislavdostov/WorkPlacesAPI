@@ -98,15 +98,17 @@ namespace Workplaces.Service.Tests
             Assert.AreEqual(1, actualResult);
         }
 
-        [Test]
-        public void GetUserWorkplacesMethod_WithOneUserWorkplace_ShouldReturnUserWorkplacesCorrectly()
+        [TestCase(1)]
+        [TestCase(2)]
+        [TestCase(3)]
+        public void GetUserWorkplacesMethod_WithOneUserWorkplace_ShouldReturnUserWorkplacesCorrectly(int userId)
         {
-            userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1, User = new User(), Workplace = new Workplace() });
+            userWorkplacesFromRepository.Add(new UserWorkplace { Id = userId, User = new User(), Workplace = new Workplace() });
 
             var userWorkplaces = userWorkplacesService.GetUserWorkplaces();
             var actualResult = userWorkplaces.First().Id;
 
-            Assert.AreEqual(1, actualResult);
+            Assert.AreEqual(userId, actualResult);
         }
 
         [Test]
@@ -197,41 +199,12 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void CreateUserWorkplaceAsyncMethod_UserAdded_ShouldAddUserIdCorrectly()
-        {
-            userWorkplacesService.CreateUserWorkplaceAsync(new UserWorkplaceForManipulationDTO { UserId = 1 });
-            var actualResult = userWorkplacesFromRepository.FirstOrDefault().UserId;
-
-            Assert.AreEqual(1, actualResult);
-        }
-
-        [Test]
-        public void CreateUserWorkplaceAsyncMethod_UserAdded_ShouldAddWorkplaceIdCorrectly()
-        {
-            userWorkplacesService.CreateUserWorkplaceAsync(new UserWorkplaceForManipulationDTO { WorkplaceId = 1 });
-            var actualResult = userWorkplacesFromRepository.FirstOrDefault().WorkplaceId;
-
-            Assert.AreEqual(1, actualResult);
-        }
-
-        [Test]
         public void UpdateUserWorkplaceAsyncMethod_WithExistingUser_ShouldChangeUserIdCorrectly()
         {
             userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1, UserId = 1 });
 
             userWorkplacesService.UpdateUserWorkplaceAsync(1, new UserWorkplaceForManipulationDTO { UserId = 2 });
             var actualResult = userWorkplacesFromRepository.FirstOrDefault().UserId;
-
-            Assert.AreEqual(2, actualResult);
-        }
-
-        [Test]
-        public void UpdateUserWorkplaceAsyncMethod_WithExistingUser_ShouldChangeWorkplaceIdCorrectly()
-        {
-            userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1, WorkplaceId = 1 });
-
-            userWorkplacesService.UpdateUserWorkplaceAsync(1, new UserWorkplaceForManipulationDTO { WorkplaceId = 2 });
-            var actualResult = userWorkplacesFromRepository.FirstOrDefault().WorkplaceId;
 
             Assert.AreEqual(2, actualResult);
         }

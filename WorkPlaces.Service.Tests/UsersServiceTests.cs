@@ -116,16 +116,6 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void CreateUserAsyncMethod_UserAdded_ShouldAddUserCorrectly()
-        {
-            usersService.CreateUserAsync(new UserForManipulationDTO { FirstName = "John", LastName = "Doe" });
-            var user = usersFromRepository.FirstOrDefault();
-            var actualResult = $"{user.FirstName} {user.LastName}";
-
-            Assert.AreEqual("John Doe", actualResult);
-        }
-
-        [Test]
         public void UpdateUserAsyncMethod_WithExistingUser_ShouldChangeUsersName()
         {
             var user = new User { Id = 2, FirstName = "Nikolay", LastName = "Nikolov" };
