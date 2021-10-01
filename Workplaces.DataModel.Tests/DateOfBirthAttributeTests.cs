@@ -31,7 +31,7 @@ namespace Workplaces.DataModel.Tests
         [Test]
         public void IsValidMethod_WithBiggerDateThanToday_ShouldReturnFalse()
         {
-            var user = new UserForManipulationDTO { DateOfBirth = DateTime.Now.AddDays(1) };
+            var dateOfBirth = DateTime.Now.AddDays(1);
 
             var validationResult = dateOfBirthAttribute.GetValidationResult(user, new ValidationContext(user));
             var actualResult = validationResult == ValidationResult.Success;
@@ -43,6 +43,7 @@ namespace Workplaces.DataModel.Tests
         public void IsValidMethod_WithDateLessThanEighteenYears_ShouldReturnFalse()
         {
             var user = new UserForManipulationDTO { DateOfBirth = DateTime.Now.AddYears(-1) };
+            var dateOfBirth = new DateTime(1995, 5, 23);
 
             var validationResult = dateOfBirthAttribute.GetValidationResult(user, new ValidationContext(user));
             var actualResult = validationResult == ValidationResult.Success;
@@ -54,6 +55,7 @@ namespace Workplaces.DataModel.Tests
         public void IsValidMethod_WithBiggerDateThanToday_ShouldReturnErrorMessage()
         {
             var user = new UserForManipulationDTO { DateOfBirth = DateTime.Now.AddDays(1) };
+            var dateOfBirth = new DateTime(1995, 5, 23);
 
             var validationResult = dateOfBirthAttribute.GetValidationResult(user, new ValidationContext(user));
             var actualResult = validationResult.ErrorMessage;
@@ -65,6 +67,7 @@ namespace Workplaces.DataModel.Tests
         public void IsValidMethod_WithDateLessThanEighteenYears_ShouldReturnErrorMessage()
         {
             var user = new UserForManipulationDTO { DateOfBirth = DateTime.Now.AddYears(-1) };
+            var dateOfBirth = new DateTime(1995, 5, 23);
 
             var validationResult = dateOfBirthAttribute.GetValidationResult(user, new ValidationContext(user));
             var actualResult = validationResult.ErrorMessage;
