@@ -20,9 +20,9 @@ namespace Workplaces.DataModel.Tests
         [Test]
         public void IsValidMethod_WithCorrectDateOfBirth_ShouldReturnTrue()
         {
-            var user = new UserForManipulationDTO { DateOfBirth = new DateTime(1995, 5, 23) };
+            var dateOfBirth = new DateTime(1995, 5, 23);
 
-            var validationResult = dateOfBirthAttribute.GetValidationResult(user, new ValidationContext(user));
+            var validationResult = dateOfBirthAttribute.GetValidationResult(dateOfBirth, new ValidationContext(dateOfBirth));
             var actualResult = validationResult == ValidationResult.Success;
 
             Assert.IsTrue(actualResult);

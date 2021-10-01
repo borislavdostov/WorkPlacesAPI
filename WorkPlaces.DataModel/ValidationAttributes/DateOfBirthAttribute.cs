@@ -8,14 +8,15 @@ namespace Workplaces.DataModel.ValidationAttributes
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            var user = (UserForManipulationDTO)validationContext.ObjectInstance;
+            //var user = (UserForManipulationDTO)validationContext.ObjectInstance;
+            var dateOfBirth = Convert.ToDateTime(value);
 
-            if (user.DateOfBirth > DateTime.Now)
+            if (dateOfBirth > DateTime.Now)
             {
                 return new ValidationResult("Date of birth should be lower than today's date.");
             }
 
-            if (DateTime.Now.Year - user.DateOfBirth.Year < 18)
+            if (DateTime.Now.Year - dateOfBirth.Year < 18)
             {
                 return new ValidationResult("User is not old enough to work.");
             }
