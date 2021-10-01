@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Workplaces.Data.Entities;
 using Workplaces.Data.Interfaces;
 using Workplaces.Data.Repositories;
@@ -34,6 +35,7 @@ namespace Workplaces.Service.Tests
             mockUserWorkplacesRepository = new Mock<IUserWorkplacesRepository>();
             userWorkplacesRepository = mockUserWorkplacesRepository.Object;
             userWorkplacesFromRepository = new List<UserWorkplace>();
+            mockUserWorkplacesRepository.Setup(r => r.GetAll()).Returns(userWorkplacesFromRepository.AsQueryable());
 
             mockUsersRepository = new Mock<IUsersRepository>();
             usersRepository = mockUsersRepository.Object;
@@ -67,6 +69,14 @@ namespace Workplaces.Service.Tests
         {
             Assert.Throws<ArgumentNullException>(
                 () => userWorkplacesService = new UserWorkplacesService(userWorkplacesRepository, usersRepository, null));
+        }
+
+        [Test]
+        public void GetUserWorkplacesMethod_EmptyCollection_ShouldReturnCountZero()
+        {
+            var actualResult = userWorkplacesService.GetUserWorkplaces().Count();
+
+            Assert.AreEqual(0, actualResult);
         }
     }
 }
