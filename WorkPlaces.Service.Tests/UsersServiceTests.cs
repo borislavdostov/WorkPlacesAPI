@@ -106,6 +106,16 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
+        public void CreateUserAsyncMethod_UserAdded_ShouldAddUserCorrectly()
+        {
+            usersService.CreateUserAsync(new UserForManipulationDTO { FirstName = "John", LastName = "Doe" });
+            var user = usersFromRepository.FirstOrDefault();
+            var actualResult = $"{user.FirstName} {user.LastName}";
+
+            Assert.AreEqual("John Doe", actualResult);
+        }
+
+        [Test]
         public void DeleteUserAsyncMethod_WithExistingUser_ShouldDecrementUsersCount()
         {
             usersFromRepository.Add(new User { Id = 3 });
@@ -114,6 +124,17 @@ namespace Workplaces.Service.Tests
             var actualResult = usersFromRepository.Count();
 
             Assert.AreEqual(0, actualResult);
+        }
+
+        [Test]
+        public void DeleteUserAsyncMethod_WithNonExistingUser_ShouldNotReflectOnUsersCount()
+        {
+            usersFromRepository.Add(new User { Id = 3 });
+
+            usersService.DeleteUserAsync(1);
+            var actualResult = usersFromRepository.Count();
+
+            Assert.AreEqual(1, actualResult);
         }
 
         [Test]
