@@ -88,5 +88,16 @@ namespace Workplaces.Service.Tests
 
             Assert.AreEqual(1, actualResult);
         }
+
+        [Test]
+        public void GetUserWorkplacesMethod_WithOneUserWorkplace_ShouldReturnCorrectUserWorkplace()
+        {
+            userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1, User = new User(), Workplace = new Workplace() });
+
+            var userWorkplaces = userWorkplacesService.GetUserWorkplaces();
+            var actualResult = userWorkplaces.First().Id;
+
+            Assert.AreEqual(1, actualResult);
+        }
     }
 }
