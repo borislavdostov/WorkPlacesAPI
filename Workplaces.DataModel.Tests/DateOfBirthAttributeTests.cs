@@ -42,10 +42,9 @@ namespace Workplaces.DataModel.Tests
         [Test]
         public void IsValidMethod_WithDateLessThanEighteenYears_ShouldReturnFalse()
         {
-            var user = new UserForManipulationDTO { DateOfBirth = DateTime.Now.AddYears(-1) };
-            var dateOfBirth = new DateTime(1995, 5, 23);
+            var dateOfBirth = DateTime.Now.AddYears(-1);
 
-            var validationResult = dateOfBirthAttribute.GetValidationResult(user, new ValidationContext(user));
+            var validationResult = dateOfBirthAttribute.GetValidationResult(dateOfBirth, new ValidationContext(dateOfBirth));
             var actualResult = validationResult == ValidationResult.Success;
 
             Assert.IsFalse(actualResult);
