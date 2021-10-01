@@ -102,5 +102,23 @@ namespace Workplaces.Service.Tests
 
             Assert.AreEqual(0, actualResult);
         }
+
+        [Test]
+        public void UserExistsAsyncMethod_WithExistingUser_ShouldReturnTrue()
+        {
+            usersFromRepository.Add(new User { Id = 3 });
+
+            var actualResult = usersService.UserExistsAsync(3).Result;
+
+            Assert.AreEqual(true, actualResult);
+        }
+
+        [Test]
+        public void UserExistsAsyncMethod_WithNonExistingUser_ShouldReturnFalse()
+        {
+            var actualResult = usersService.UserExistsAsync(3).Result;
+
+            Assert.AreEqual(false, actualResult);
+        }
     }
 }
