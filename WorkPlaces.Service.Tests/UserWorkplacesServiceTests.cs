@@ -223,7 +223,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void DeleteUserWorkplaceAsyncMethod_WithNonExistingUserWorkplace_ShouldNotReflectOnUserWorkplacesCount()
+        public void DeleteUserWorkplaceAsyncMethod_WithNonExistingUser_ShouldNotReflectOnUserWorkplacesCount()
         {
             userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1 });
 
@@ -241,7 +241,7 @@ namespace Workplaces.Service.Tests
             userWorkplacesService.DeleteUserWorkplaceAsync(1);
             var actualResult = userWorkplacesFromRepository.FirstOrDefault(uw => uw.Id == 1);
 
-            Assert.Isnu(actualResult);
+            Assert.IsNull(actualResult);
         }
 
         [Test]
