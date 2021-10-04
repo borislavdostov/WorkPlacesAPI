@@ -163,7 +163,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void UserExistsAsyncMethod_WithNonExistingUser_ShouldReturnFalse()
+        public void UserExistsAsync_WithNonExistingUser_ShouldReturnFalse()
         {
             var actualResult = usersService.UserExistsAsync(1).Result;
 
