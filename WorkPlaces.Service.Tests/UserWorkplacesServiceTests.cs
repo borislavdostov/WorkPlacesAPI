@@ -203,7 +203,7 @@ namespace Workplaces.Service.Tests
         [Test]
         public void UpdateUserWorkplaceAsyncMethod_WithExistingUser_ShouldChangeUserIdCorrectly()
         {
-            userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1, UserId = 1 });
+            userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1, UserId = 1, WorkplaceId = 1 });
 
             userWorkplacesService.UpdateUserWorkplaceAsync(1, new UserWorkplaceForManipulationDTO { UserId = 2, WorkplaceId = 3 });
             var user = userWorkplacesFromRepository.FirstOrDefault();
