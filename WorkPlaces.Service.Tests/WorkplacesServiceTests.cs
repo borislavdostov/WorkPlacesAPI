@@ -36,7 +36,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void WorkplaceExistsAsyncMethod_WithExistingWorkplace_ShouldReturnTrue()
+        public void WorkplaceExistsAsync_WithExistingWorkplace_ShouldReturnTrue()
         {
             workplacesFromRepository.Add(new Workplace { Id = 1 });
 
