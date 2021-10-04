@@ -120,7 +120,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void DeleteUserAsyncMethod_WithExistingUser_ShouldDecrementUsersCount()
+        public void DeleteUserAsync_WithExistingUser_ShouldDecrementUsersCount()
         {
             usersFromRepository.Add(new User { Id = 1 });
 
@@ -131,7 +131,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void DeleteUserAsyncMethod_WithNonExistingUser_ShouldNotReflectOnUsersCount()
+        public void DeleteUserAsync_WithNonExistingUser_ShouldNotReflectOnUsersCount()
         {
             usersFromRepository.Add(new User { Id = 1 });
 
@@ -142,7 +142,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void DeleteUserAsyncMethod_WithExistingUser_ShouldDeleteCorrectUser()
+        public void DeleteUserAsync_WithExistingUser_ShouldDeleteCorrectUser()
         {
             usersFromRepository.Add(new User { Id = 1 });
 
@@ -153,7 +153,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void UserExistsAsyncMethod_WithExistingUser_ShouldReturnTrue()
+        public void UserExistsAsync_WithExistingUser_ShouldReturnTrue()
         {
             usersFromRepository.Add(new User { Id = 1 });
 
