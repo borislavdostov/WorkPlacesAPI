@@ -74,5 +74,13 @@ namespace Workplaces.Tests
 
             Assert.IsInstanceOf<OkObjectResult>(actualResult);
         }
+
+        [Test]
+        public void GetUserMethod_WithNonExistingUser_ShouldReturnNotFound()
+        {
+            var actualResult = usersController.GetUser(1).Result.Result;
+
+            Assert.IsInstanceOf<NotFoundResult>(actualResult);
+        }
     }
 }
