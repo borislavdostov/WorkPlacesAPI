@@ -82,5 +82,11 @@ namespace Workplaces.Tests
 
             Assert.IsInstanceOf<NotFoundResult>(actualResult);
         }
+
+        //Create User
+
+        //Update User
+
+        //Delete User
     }
 }
