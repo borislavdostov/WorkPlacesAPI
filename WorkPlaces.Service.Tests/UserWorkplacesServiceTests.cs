@@ -234,7 +234,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void DeleteUserWorkplaceAsyncMethod_WithExistingUserWorkplace_ShouldDeleteCorrectUserWorkplace()
+        public void DeleteUserWorkplaceAsync_WithExistingUserWorkplace_ShouldDeleteCorrectUserWorkplace()
         {
             userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1 });
 
@@ -245,7 +245,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void UserWorkplaceExistsAsyncMethod_WithExistingUserWorkplace_ShouldReturnTrue()
+        public void UserWorkplaceExistsAsync_WithExistingUserWorkplace_ShouldReturnTrue()
         {
             userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1 });
 
@@ -255,7 +255,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void UserWorkplaceExistsAsyncMethod_WithNonExistingUserWorkplace_ShouldReturnFalse()
+        public void UserWorkplaceExistsAsync_WithNonExistingUserWorkplace_ShouldReturnFalse()
         {
             var actualResult = userWorkplacesService.UserWorkplaceExistsAsync(1).Result;
 
