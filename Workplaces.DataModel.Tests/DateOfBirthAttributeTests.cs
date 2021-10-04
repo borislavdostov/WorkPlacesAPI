@@ -1,7 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
 using System.ComponentModel.DataAnnotations;
-using Workplaces.DataModel.Models;
 using Workplaces.DataModel.ValidationAttributes;
 
 namespace Workplaces.DataModel.Tests
