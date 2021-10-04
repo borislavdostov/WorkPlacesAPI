@@ -84,7 +84,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUserWorkplacesMethod_EmptyCollection_ShouldReturnCountZero()
+        public void GetUserWorkplaces_EmptyCollection_ShouldReturnCountZero()
         {
             var actualResult = userWorkplacesService.GetUserWorkplaces().Count();
 
@@ -92,7 +92,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUserWorkplacesMethod_WithOneUserWorkplace_ShouldReturnCountOne()
+        public void GetUserWorkplaces_WithOneUserWorkplace_ShouldReturnCountOne()
         {
             userWorkplacesFromRepository.Add(new UserWorkplace { User = new User(), Workplace = new Workplace() });
 
@@ -102,7 +102,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUserWorkplacesMethod_WithOneUserWorkplace_ShouldReturnUserWorkplacesCorrectly()
+        public void GetUserWorkplaces_WithOneUserWorkplace_ShouldReturnUserWorkplacesCorrectly()
         {
             userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1, User = new User(), Workplace = new Workplace() });
 
@@ -113,7 +113,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUserWorkplaceOptionsAsyncMethod_WithEmptyCollection_ShouldReturnNonNullOption()
+        public void GetUserWorkplaceOptionsAsync_WithEmptyCollection_ShouldReturnNonNullOption()
         {
             var actualResult = userWorkplacesService.GetUserWorkplaceOptions();
 
@@ -121,7 +121,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUserWorkplaceOptionsAsyncMethod_WithOneUserWorkPlaceOption_ShouldReturnUserOptionsCountOne()
+        public void GetUserWorkplaceOptionsAsync_WithOneUserWorkPlaceOption_ShouldReturnUserOptionsCountOne()
         {
             usersFromRepository.Add(new User());
 
@@ -131,7 +131,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUserWorkplaceOptionsAsyncMethod_WithOneUserWorkPlaceOption_ShouldReturnWorkplaceOptionsCountOne()
+        public void GetUserWorkplaceOptionsAsync_WithOneUserWorkPlaceOption_ShouldReturnWorkplaceOptionsCountOne()
         {
             workplacesFromRepository.Add(new Workplace());
 
@@ -141,7 +141,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUserWorkplaceOptionsAsyncMethod_WithOneUserWorkPlaceOption_ShouldReturnUserOptionsCorrectly()
+        public void GetUserWorkplaceOptionsAsync_WithOneUserWorkPlaceOption_ShouldReturnUserOptionsCorrectly()
         {
             usersFromRepository.Add(new User { Id = 1 });
 
@@ -151,7 +151,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUserWorkplaceOptionsAsyncMethod_WithOneUserWorkPlaceOption_ShouldReturnWorkplaceOptionsCorrectly()
+        public void GetUserWorkplaceOptionsAsync_WithOneUserWorkPlaceOption_ShouldReturnWorkplaceOptionsCorrectly()
         {
             workplacesFromRepository.Add(new Workplace { Id = 1 });
 
@@ -161,7 +161,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUserWorkplaceAsyncMethod_WithExistingUserWorkplace_ShouldReturnNonNullUserWorkplace()
+        public void GetUserWorkplaceAsync_WithExistingUserWorkplace_ShouldReturnNonNullUserWorkplace()
         {
             userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1 });
 
@@ -171,7 +171,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUserWorkplaceAsyncMethod_WithExistingUserWorkplace_ShouldReturnUserIdCorrectly()
+        public void GetUserWorkplaceAsync_WithExistingUserWorkplace_ShouldReturnUserIdCorrectly()
         {
             userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1, UserId = 2 });
 
