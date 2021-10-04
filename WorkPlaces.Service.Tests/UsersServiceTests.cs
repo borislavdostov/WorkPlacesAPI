@@ -85,7 +85,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUserAsyncMethod_WithExistingUser_ShouldReturnUserCorrectly()
+        public void GetUserAsync_WithExistingUser_ShouldReturnUserCorrectly()
         {
             usersFromRepository.Add(new User { Id = 1, FirstName = "Ivan", LastName = "Ivanov" });
             usersFromRepository.Add(new User { Id = 2, FirstName = "John", LastName = "Doe" });
@@ -98,7 +98,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void CreateUserAsyncMethod_UserAdded_ShouldIncrementUsersCount()
+        public void CreateUserAsync_UserAdded_ShouldIncrementUsersCount()
         {
             usersService.CreateUserAsync(new UserForManipulationDTO());
             var actualResult = usersFromRepository.Count();
@@ -107,7 +107,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void UpdateUserAsyncMethod_WithExistingUser_ShouldChangeUsersName()
+        public void UpdateUserAsync_WithExistingUser_ShouldChangeUsersName()
         {
             var user = new User { Id = 1, FirstName = "Nikolay", LastName = "Nikolov" };
             usersFromRepository.Add(user);
