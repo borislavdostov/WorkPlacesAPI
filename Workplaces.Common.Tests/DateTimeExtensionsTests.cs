@@ -8,7 +8,7 @@ namespace Workplaces.Common.Tests
     public class DateTimeExtensionsTests
     {
         [Test]
-        public void GetAgeMethod_WithAgeTwentyFive_ShouldReturnAgeCorrectly()
+        public void GetAge_WithAgeTwentyFive_ShouldReturnAgeCorrectly()
         {
             var date = DateTime.Now.AddYears(-25);
 
