@@ -50,7 +50,7 @@ namespace Workplaces.DataModel.Tests
         }
 
         [Test]
-        public void IsValidMethod_WithBiggerDateThanToday_ShouldReturnErrorMessage()
+        public void IsValid_WithBiggerDateThanToday_ShouldReturnErrorMessage()
         {
             var dateOfBirth = DateTime.Now.AddDays(1);
 
@@ -61,7 +61,7 @@ namespace Workplaces.DataModel.Tests
         }
 
         [Test]
-        public void IsValidMethod_WithDateLessThanEighteenYears_ShouldReturnErrorMessage()
+        public void IsValid_WithDateLessThanEighteenYears_ShouldReturnErrorMessage()
         {
             var dateOfBirth = DateTime.Now.AddYears(-1);
 
