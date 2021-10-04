@@ -181,7 +181,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUserWorkplaceAsyncMethod_WithExistingUserWorkplace_ShouldReturnWorkplaceIdCorrectly()
+        public void GetUserWorkplaceAsync_WithExistingUserWorkplace_ShouldReturnWorkplaceIdCorrectly()
         {
             userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1, WorkplaceId = 2 });
 
@@ -191,7 +191,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void CreateUserWorkplaceAsyncMethod_UserWorkPlaceAdded_ShouldIncrementUserWorkplacesCount()
+        public void CreateUserWorkplaceAsync_UserWorkPlaceAdded_ShouldIncrementUserWorkplacesCount()
         {
             userWorkplacesService.CreateUserWorkplaceAsync(new UserWorkplaceForManipulationDTO());
             var actualResult = userWorkplacesFromRepository.Count;
@@ -200,7 +200,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void UpdateUserWorkplaceAsyncMethod_WithExistingUserWorkplace_ShouldChangeUserIdCorrectly()
+        public void UpdateUserWorkplaceAsync_WithExistingUserWorkplace_ShouldChangeUserIdCorrectly()
         {
             userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1, UserId = 1, WorkplaceId = 1 });
 
@@ -212,7 +212,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void DeleteUserWorkplaceAsyncMethod_WithExistingUserWorkplace_ShouldDecrementUserWorkplacesCount()
+        public void DeleteUserWorkplaceAsync_WithExistingUserWorkplace_ShouldDecrementUserWorkplacesCount()
         {
             userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1 });
 
@@ -223,7 +223,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void DeleteUserWorkplaceAsyncMethod_WithNonExistingUser_ShouldNotReflectOnUserWorkplacesCount()
+        public void DeleteUserWorkplaceAsync_WithNonExistingUser_ShouldNotReflectOnUserWorkplacesCount()
         {
             userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1 });
 
