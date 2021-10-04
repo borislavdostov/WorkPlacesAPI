@@ -19,7 +19,7 @@ namespace Workplaces.DataModel.Tests
         [TestCase("O'Riley")]
         [TestCase("McDonald")]
         [TestCase("Jan van")]
-        public void IsValidMethod_WithCorrectName_ShouldReturnTrue(string name)
+        public void IsValid_WithCorrectName_ShouldReturnTrue(string name)
         {
             var validationResult = personNameAttribute.GetValidationResult(name, new ValidationContext(name));
             var actualResult = validationResult == ValidationResult.Success;
@@ -36,7 +36,7 @@ namespace Workplaces.DataModel.Tests
         [TestCase("'Peter")]
         [TestCase("Peter1")]
         //[TestCase("Jan  van")]
-        public void IsValidMethod_WithIncorrectName_ShouldReturnFalse(string name)
+        public void IsValid_WithIncorrectName_ShouldReturnFalse(string name)
         {
             var validationResult = personNameAttribute.GetValidationResult(name, new ValidationContext(name));
             var actualResult = validationResult == ValidationResult.Success;
