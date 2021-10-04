@@ -46,7 +46,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUsersMethod_EmptyCollection_ShouldReturnCountZero()
+        public void GetUsers_EmptyCollection_ShouldReturnCountZero()
         {
             var actualResult = usersService.GetUsers().Count();
 
@@ -54,7 +54,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUsersMethod_WithOneUser_ShouldReturnCountOne()
+        public void GetUsers_WithOneUser_ShouldReturnCountOne()
         {
             usersFromRepository.Add(new User());
 
@@ -64,7 +64,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUsersMethod_WithOneUser_ShouldReturnUsersCorrectly()
+        public void GetUsers_WithOneUser_ShouldReturnUsersCorrectly()
         {
             usersFromRepository.Add(new User { Id = 1 });
 
@@ -75,7 +75,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUserAsyncMethod_WithExistingUser_ShouldReturnNonNullUser()
+        public void GetUserAsync_WithExistingUser_ShouldReturnNonNullUser()
         {
             usersFromRepository.Add(new User { Id = 1 });
 
