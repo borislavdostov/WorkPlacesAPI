@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Workplaces.Tests
+﻿namespace Workplaces.Tests
 {
-    class UsersControllerTests
+    public class UsersControllerTests
     {
     }
 }
