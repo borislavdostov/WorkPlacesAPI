@@ -45,7 +45,7 @@ namespace Workplaces.DataModel.Tests
         }
 
         [Test]
-        public void IsValidMethod_WithIncorrectName_ShouldReturnErrorMessage()
+        public void IsValid_WithIncorrectName_ShouldReturnErrorMessage()
         {
             var name = "john";
 
