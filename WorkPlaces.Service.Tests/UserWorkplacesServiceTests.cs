@@ -205,10 +205,11 @@ namespace Workplaces.Service.Tests
         {
             userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1, UserId = 1 });
 
-            userWorkplacesService.UpdateUserWorkplaceAsync(1, new UserWorkplaceForManipulationDTO { UserId = 2 });
-            var actualResult = userWorkplacesFromRepository.FirstOrDefault().UserId;
+            userWorkplacesService.UpdateUserWorkplaceAsync(1, new UserWorkplaceForManipulationDTO { UserId = 2, WorkplaceId = 3 });
+            var user = userWorkplacesFromRepository.FirstOrDefault();
 
-            Assert.AreEqual(2, actualResult);
+            Assert.AreEqual(2, user.UserId);
+            Assert.AreEqual(3, user.WorkplaceId);
         }
 
         [Test]
