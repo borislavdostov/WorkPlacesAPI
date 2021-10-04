@@ -142,7 +142,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void DeleteUserAsyncMethod_WithExistingUSer_ShouldDeleteCorrectUser()
+        public void DeleteUserAsyncMethod_WithExistingUser_ShouldDeleteCorrectUser()
         {
             usersFromRepository.Add(new User { Id = 1 });
 
