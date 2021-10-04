@@ -46,7 +46,7 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void GetUsersMethod_WithZeroUsers_ShouldReturnOk()
+        public void GetUsers_WithZeroUsers_ShouldReturnOk()
         {
             var actualResult = usersController.GetUsers().Result;
 
@@ -54,7 +54,7 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void GetUsersMethod_WithTwoUsers_ShouldReturnOk()
+        public void GetUsers_WithTwoUsers_ShouldReturnOk()
         {
             usersFromService.Add(new User { Id = 1 });
             usersFromService.Add(new User { Id = 2 });
@@ -65,7 +65,7 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void GetUserMethod_WithExistingUser_ShouldReturnOk()
+        public void GetUser_WithExistingUser_ShouldReturnOk()
         {
             usersFromService.Add(new User { Id = 1 });
 
@@ -75,7 +75,7 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void GetUserMethod_WithEmptyCollection_ShouldReturnNotFound()
+        public void GetUser_WithEmptyCollection_ShouldReturnNotFound()
         {
             var actualResult = usersController.GetUser(1).Result.Result;
 
@@ -83,7 +83,7 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void GetUserMethod_WithNonExistingUser_ShouldReturnNotFound()
+        public void GetUser_WithNonExistingUser_ShouldReturnNotFound()
         {
             usersFromService.Add(new User { Id = 1 });
 
