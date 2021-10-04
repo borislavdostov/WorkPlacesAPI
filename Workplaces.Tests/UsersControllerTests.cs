@@ -93,7 +93,7 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void CreateUserMethod_AddUser_ShouldReturnCreatedAtRoute()
+        public void CreateUser_AddUser_ShouldReturnCreatedAtRoute()
         {
             var actualResult = usersController.CreateUser(new UserForManipulationDTO()).Result.Result;
 
