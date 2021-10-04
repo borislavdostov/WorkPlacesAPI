@@ -55,6 +55,14 @@ namespace Workplaces.Tests
         }
 
         [Test]
+        public void GetUsersMethod_WithZeroUsers_ShouldReturnOK()
+        {
+            var actualResult = usersController.GetUsers().Result;
+
+            Assert.IsInstanceOf<OkObjectResult>(actualResult);
+        }
+
+        [Test]
         public void GetUsersMethod_WithTwoUsers_ShouldReturnOK()
         {
             usersFromService.Add(new User { Id = 1 });
