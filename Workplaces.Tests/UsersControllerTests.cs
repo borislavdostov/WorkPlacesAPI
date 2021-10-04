@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using System;
 using Workplaces.Controllers;
+using Workplaces.DataModel.Models;
 using Workplaces.Service.Interfaces;
 
 namespace Workplaces.Tests
@@ -12,6 +13,7 @@ namespace Workplaces.Tests
         private UsersController usersController;
 
         private Mock<IUsersService> mockUsersService;
+        private List<UserDTO> usersFromService;
 
         [SetUp]
         public void Initialize()
@@ -25,5 +27,7 @@ namespace Workplaces.Tests
         {
             Assert.Throws<ArgumentNullException>(() => usersController = new UsersController(null));
         }
+
+
     }
 }
