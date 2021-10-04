@@ -21,8 +21,8 @@ namespace Workplaces.Controllers
             IWorkplacesService workplacesService)
         {
             this.userWorkplacesService = userWorkplacesService ?? throw new ArgumentNullException();
-            this.usersService = usersService;
-            this.workplacesService = workplacesService;
+            this.usersService = usersService ?? throw new ArgumentNullException();
+            this.workplacesService = workplacesService ?? throw new ArgumentNullException();
         }
 
         /// <summary>
