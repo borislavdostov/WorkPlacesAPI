@@ -200,7 +200,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void UpdateUserWorkplaceAsyncMethod_WithExistingUser_ShouldChangeUserIdCorrectly()
+        public void UpdateUserWorkplaceAsyncMethod_WithExistingUserWorkplace_ShouldChangeUserIdCorrectly()
         {
             userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1, UserId = 1, WorkplaceId = 1 });
 
@@ -212,7 +212,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void DeleteUserWorkplaceAsyncMethod_WithExistingUser_ShouldDecrementUserWorkplacesCount()
+        public void DeleteUserWorkplaceAsyncMethod_WithExistingUserWorkplace_ShouldDecrementUserWorkplacesCount()
         {
             userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1 });
 
@@ -223,7 +223,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void DeleteUserWorkplaceAsyncMethod_WithNonExistingUser_ShouldNotReflectOnUserWorkplacesCount()
+        public void DeleteUserWorkplaceAsyncMethod_WithNonExistingUserWorkplace_ShouldNotReflectOnUserWorkplacesCount()
         {
             userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1 });
 
@@ -231,6 +231,17 @@ namespace Workplaces.Service.Tests
             var actualResult = userWorkplacesFromRepository.Count();
 
             Assert.AreEqual(1, actualResult);
+        }
+
+        [Test]
+        public void DeleteUserWorkplaceAsyncMethod_WithExistingUserWorkplace_ShouldDeleteCorrectUserWorkplace()
+        {
+            userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1 });
+
+            userWorkplacesService.DeleteUserWorkplaceAsync(1);
+            var actualResult = userWorkplacesFromRepository.FirstOrDefault(uw => uw.Id == 1);
+
+            Assert.Isnu(actualResult);
         }
 
         [Test]
