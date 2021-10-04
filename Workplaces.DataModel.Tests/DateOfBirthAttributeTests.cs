@@ -17,7 +17,7 @@ namespace Workplaces.DataModel.Tests
         }
 
         [Test]
-        public void IsValidMethod_WithCorrectDateOfBirth_ShouldReturnTrue()
+        public void IsValid_WithCorrectDateOfBirth_ShouldReturnTrue()
         {
             var dateOfBirth = DateTime.Now.AddYears(-20);
 
