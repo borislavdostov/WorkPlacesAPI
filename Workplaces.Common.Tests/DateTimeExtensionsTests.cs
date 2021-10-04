@@ -18,16 +18,6 @@ namespace Workplaces.Common.Tests
         }
 
         [Test]
-        public void GetAgeMethod_WithLeapYear_ShouldReturnAgeCorrectly()
-        {
-            var date = new DateTime(2004, 2, 29);
-
-            var actualResult = date.GetAge();
-
-            Assert.AreEqual(17, actualResult);
-        }
-
-        [Test]
         public void GetAgeMethod_WithAgeZero_ShouldReturnZeroAge()
         {
             var date = DateTime.Now;
