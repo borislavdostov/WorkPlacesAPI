@@ -87,14 +87,14 @@ namespace Workplaces.Service.Tests
         [Test]
         public void GetUserAsyncMethod_WithExistingUser_ShouldReturnUserCorrectly()
         {
-            usersFromRepository.Add(new User { Id = 1, FirstName = "Ivan", LastName = "Ivanov" });
+            usersFromRepository.Add(new User { Id = 1, FirstName = "Ivan", LastName = "Ivanov"});
             usersFromRepository.Add(new User { Id = 2, FirstName = "John", LastName = "Doe" });
             usersFromRepository.Add(new User { Id = 3, FirstName = "Dimitar", LastName = "Dimitrov" });
 
             var user = usersService.GetUserAsync(2).Result;
-            var actualResult = $"{user.FirstName} {user.LastName}";
 
-            Assert.IsNotNull("John Doe", actualResult);
+            Assert.AreEqual("John", user.FirstName);
+            Assert.AreEqual("Doe", user.LastName);
         }
 
         [Test]
