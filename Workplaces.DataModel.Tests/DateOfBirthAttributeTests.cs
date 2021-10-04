@@ -19,7 +19,7 @@ namespace Workplaces.DataModel.Tests
         [Test]
         public void IsValidMethod_WithCorrectDateOfBirth_ShouldReturnTrue()
         {
-            var dateOfBirth = new DateTime(1995, 1, 1);
+            var dateOfBirth = DateTime.Now.AddYears(-20);
 
             var validationResult = dateOfBirthAttribute.GetValidationResult(dateOfBirth, new ValidationContext(dateOfBirth));
             var actualResult = validationResult == ValidationResult.Success;
