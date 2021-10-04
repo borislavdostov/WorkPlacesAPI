@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Workplaces.DataModel.Models;
@@ -14,7 +15,7 @@ namespace Workplaces.Controllers
 
         public UsersController(IUsersService usersService)
         {
-            this.usersService = usersService;
+            this.usersService = usersService ?? throw new ArgumentNullException();
         }
 
         /// <summary>
