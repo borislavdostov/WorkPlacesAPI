@@ -28,7 +28,7 @@ namespace Workplaces.Common.Tests
         }
 
         [Test]
-        public void GetAgeMethod_WithNegativeAge_ShouldReturnNegativeAge()
+        public void GetAge_WithNegativeAge_ShouldReturnNegativeAge()
         {
             var date = DateTime.Now.AddYears(1);
 
