@@ -1,6 +1,8 @@
-﻿using NUnit.Framework;
+﻿using Moq;
+using NUnit.Framework;
 using System;
 using Workplaces.Controllers;
+using Workplaces.Service.Interfaces;
 
 namespace Workplaces.Tests
 {
@@ -9,10 +11,13 @@ namespace Workplaces.Tests
     {
         private UsersController usersController;
 
+        private Mock<IUsersService> mockUsersService;
+
         [SetUp]
         public void Initialize()
         {
-            //usersController = new UsersController(null);
+            mockUsersService = new Mock<IUsersService>();
+            usersController = new UsersController(mockUsersService.Object);
         }
 
         [Test]
