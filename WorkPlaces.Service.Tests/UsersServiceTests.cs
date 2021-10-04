@@ -87,7 +87,7 @@ namespace Workplaces.Service.Tests
         [Test]
         public void GetUserAsyncMethod_WithExistingUser_ShouldReturnUserCorrectly()
         {
-            usersFromRepository.Add(new User { Id = 1, FirstName = "Ivan", LastName = "Ivanov"});
+            usersFromRepository.Add(new User { Id = 1, FirstName = "Ivan", LastName = "Ivanov" });
             usersFromRepository.Add(new User { Id = 2, FirstName = "John", LastName = "Doe" });
             usersFromRepository.Add(new User { Id = 3, FirstName = "Dimitar", LastName = "Dimitrov" });
 
@@ -139,6 +139,17 @@ namespace Workplaces.Service.Tests
             var actualResult = usersFromRepository.Count();
 
             Assert.AreEqual(1, actualResult);
+        }
+
+        [Test]
+        public void DeleteUserAsyncMethod_WithExistingUSer_ShouldDeleteCorrectUser()
+        {
+            usersFromRepository.Add(new User { Id = 1 });
+
+            usersService.DeleteUserAsync(1);
+            var actualResult = usersFromRepository.FirstOrDefault(u => u.Id == 1);
+
+            Assert.IsNull(actualResult);
         }
 
         [Test]
