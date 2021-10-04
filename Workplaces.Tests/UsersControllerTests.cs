@@ -26,22 +26,12 @@ namespace Workplaces.Tests
             usersFromService = new List<User>();
             mockUsersService = new Mock<IUsersService>();
             mockUsersService.Setup(s => s.GetUsers())
-                .Returns(usersFromService.Select(u => new UserDTO
-                {
-                    Id = u.Id,
-                    Name = $"{u.FirstName} {u.LastName}",
-                    Email = u.Email,
-                    Age = u.DateOfBirth.GetAge()
-                }));
+                .Returns(usersFromService.Select(u => new UserDTO()));
             mockUsersService.Setup(s => s.GetUserAsync(It.IsAny<int>()))
                 .ReturnsAsync((int id) => usersFromService.Where(u => u.Id == id)
-                .Select(u => new UserForManipulationDTO
-                {
-                    FirstName = u.FirstName,
-                    LastName = u.LastName,
-                    Email = u.Email,
-                    DateOfBirth = u.DateOfBirth,
-                }).Single());
+                .Select(u => new UserForManipulationDTO()).Single());
+            mockUsersService.Setup(s => s.CreateUserAsync(It.IsAny<UserForManipulationDTO>()))
+                .Callback((UserForManipulationDTO user) => usersFromService.Add(new User()));
             mockUsersService.Setup(s => s.UserExistsAsync(It.IsAny<int>()))
                 .ReturnsAsync((int id) => usersFromService.Any(u => u.Id == id));
 
