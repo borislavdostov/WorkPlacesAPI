@@ -10,5 +10,11 @@ namespace Workplaces.Tests
         {
 
         }
+
+        [Test]
+        public void Constructor_WithNullUsersService_ShouldThrowArgumentNullException()
+        {
+
+        }
     }
 }
