@@ -29,7 +29,6 @@ namespace Workplaces.Service.Tests
         IWorkplacesRepository workplacesRepository;
         List<Workplace> workplacesFromRepository;
 
-
         [SetUp]
         public void Initialize()
         {
