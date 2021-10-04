@@ -30,11 +30,11 @@ namespace Workplaces.Common.Tests
         [Test]
         public void GetAgeMethod_WithNegativeAge_ShouldReturnNegativeAge()
         {
-            var date = new DateTime(2025, 3, 3);
+            var date = DateTime.Now.AddYears(1);
 
             var actualResult = date.GetAge();
 
-            Assert.AreEqual(-4, actualResult);
+            Assert.AreEqual(-1, actualResult);
         }
     }
 }
