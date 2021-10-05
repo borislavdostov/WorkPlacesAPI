@@ -64,16 +64,6 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void GetUser_WithExistingUser_ShouldReturnOk()
-        {
-            usersFromService.Add(new User { Id = 1 });
-
-            var actualResult = usersController.GetUser(1).Result.Result;
-
-            Assert.IsInstanceOf<OkObjectResult>(actualResult);
-        }
-
-        [Test]
         public void GetUser_WithEmptyCollection_ShouldReturnNotFound()
         {
             var actualResult = usersController.GetUser(1).Result.Result;
@@ -89,6 +79,16 @@ namespace Workplaces.Tests
             var actualResult = usersController.GetUser(2).Result.Result;
 
             Assert.IsInstanceOf<NotFoundResult>(actualResult);
+        }
+
+        [Test]
+        public void GetUser_WithExistingUser_ShouldReturnOk()
+        {
+            usersFromService.Add(new User { Id = 1 });
+
+            var actualResult = usersController.GetUser(1).Result.Result;
+
+            Assert.IsInstanceOf<OkObjectResult>(actualResult);
         }
 
         [Test]
