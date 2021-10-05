@@ -30,7 +30,7 @@ namespace Workplaces.Tests
                 .ReturnsAsync((int id) => usersFromService.Where(u => u.Id == id)
                 .Select(u => new UserForManipulationDTO()).Single());
             mockUsersService.Setup(s => s.CreateUserAsync(It.IsAny<UserForManipulationDTO>()))
-                .Callback((UserForManipulationDTO user) => usersFromService.Add(new User()))
+                .Callback(() => usersFromService.Add(new User()))
                 .ReturnsAsync(new UserDTO());
             mockUsersService.Setup(s => s.UserExistsAsync(It.IsAny<int>()))
                 .ReturnsAsync((int id) => usersFromService.Any(u => u.Id == id));
