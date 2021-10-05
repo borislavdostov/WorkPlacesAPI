@@ -183,15 +183,6 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void UpdateUserWorkplace_WithEmptyCollection_ShouldReturnNotFound()
-        {
-            var actualResult = userWorkplacesController.UpdateUserWorkplace(
-                1, new UserWorkplaceForManipulationDTO()).Result;
-
-            Assert.IsInstanceOf<NotFoundResult>(actualResult);
-        }
-
-        [Test]
         public void UpdateUserWorkplace_WithNonExistingUserWorkplace_ShouldReturnNotFound()
         {
             userWorkplacesFromService.Add(new UserWorkplace { Id = 1 });
