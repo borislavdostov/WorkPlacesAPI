@@ -218,8 +218,6 @@ namespace Workplaces.Tests
             Assert.IsInstanceOf<NoContentResult>(actualResult);
         }
 
-        //Update UserWorkplace
 
-        //Delete UserWorkplace
     }
 }
