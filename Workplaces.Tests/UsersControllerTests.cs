@@ -110,7 +110,7 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void UpdateUser_EmptyCollectionWithNonExistingUser_ShouldReturnNotFound()
+        public void UpdateUser_EmptyCollection_ShouldReturnNotFound()
         {
             var actualResult = usersController.UpdateUser(1, new UserForManipulationDTO()).Result;
 
