@@ -213,6 +213,17 @@ namespace Workplaces.Tests
             Assert.IsInstanceOf<NotFoundResult>(actualResult);
         }
 
+        [Test]
+        public void UpdateUserWorkplace_WithNonExistingUserWorkplace_ShouldReturnNotFound()
+        {
+            userWorkplacesFromService.Add(new UserWorkplace { Id = 1 });
+
+            var actualResult = userWorkplacesController.UpdateUserWorkplace(
+                2, new UserWorkplaceForManipulationDTO()).Result;
+
+            Assert.IsInstanceOf<NotFoundResult>(actualResult);
+        }
+
         //Update UserWorkplace
 
         //Delete UserWorkplace
