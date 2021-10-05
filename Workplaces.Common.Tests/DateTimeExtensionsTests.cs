@@ -7,12 +7,18 @@ namespace Workplaces.Common.Tests
     [TestFixture]
     public class DateTimeExtensionsTests
     {
+        DateTime date;
+
+        [SetUp]
+        public void Initialize()
+        {
+            date = DateTime.Now;
+        }
+
         [Test]
         public void GetAge_WithFutureDate_ShouldReturnNegativeAge()
         {
-            var date = DateTime.Now.AddYears(1);
-
-            var actualResult = date.GetAge();
+            var actualResult = date.AddYears(1).GetAge();
 
             Assert.AreEqual(-1, actualResult);
         }
@@ -20,8 +26,6 @@ namespace Workplaces.Common.Tests
         [Test]
         public void GetAge_WithDateTimeNow_ShouldReturnZeroAge()
         {
-            var date = DateTime.Now;
-
             var actualResult = date.GetAge();
 
             Assert.AreEqual(0, actualResult);
@@ -30,9 +34,7 @@ namespace Workplaces.Common.Tests
         [Test]
         public void GetAge_WithDateBeforeTwentyFiveYears_ShouldReturnAgeOfTwentyFive()
         {
-            var date = DateTime.Now.AddYears(-25);
-
-            var actualResult = date.GetAge();
+            var actualResult = date.AddYears(-25).GetAge();
 
             Assert.AreEqual(25, actualResult);
         }
