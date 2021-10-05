@@ -36,6 +36,14 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
+        public void WorkplaceExistsAsync_WithNonExistingWorkplace_ShouldReturnFalse()
+        {
+            var actualResult = workplacesService.WorkplaceExistsAsync(1).Result;
+
+            Assert.IsFalse(actualResult);
+        }
+
+        [Test]
         public void WorkplaceExistsAsync_WithExistingWorkplace_ShouldReturnTrue()
         {
             workplacesFromRepository.Add(new Workplace { Id = 1 });
@@ -43,14 +51,6 @@ namespace Workplaces.Service.Tests
             var actualResult = workplacesService.WorkplaceExistsAsync(1).Result;
 
             Assert.IsTrue(actualResult);
-        }
-
-        [Test]
-        public void WorkplaceExistsAsync_WithNonExistingWorkplace_ShouldReturnFalse()
-        {
-            var actualResult = workplacesService.WorkplaceExistsAsync(1).Result;
-
-            Assert.IsFalse(actualResult);
         }
     }
 }
