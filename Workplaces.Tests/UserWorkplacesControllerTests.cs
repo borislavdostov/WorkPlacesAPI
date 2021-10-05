@@ -13,12 +13,15 @@ namespace Workplaces.Tests
         private UserWorkplacesController userWorkplacesController;
 
         private Mock<IUserWorkplacesService> mockUserWorkplacesService;
+        private IUserWorkplacesService userWorkplacesService;
         private List<UserWorkplace> userWorkplacesFromService;
 
         private Mock<IUsersService> mockUsersService;
+        private IUsersService usersService;
         private List<User> usersFromService;
 
         private Mock<IWorkplacesService> mockWorkplacesService;
+        private IWorkplacesService workplacesService;
         private List<Workplace> workplacesFromService;
 
         [SetUp]
@@ -26,6 +29,7 @@ namespace Workplaces.Tests
         {
             userWorkplacesFromService = new List<UserWorkplace>();
             mockUserWorkplacesService = new Mock<IUserWorkplacesService>();
+            userWorkplacesService = mockUserWorkplacesService.Object;
             //mockUserWorkplacesService.Setup(s => s.GetUsers())
             //    .Returns(usersFromService.Select(u => new UserDTO()));
             //mockUserWorkplacesService.Setup(s => s.GetUserAsync(It.IsAny<int>()))
@@ -39,9 +43,11 @@ namespace Workplaces.Tests
 
             usersFromService = new List<User>();
             mockUsersService = new Mock<IUsersService>();
+            usersService = mockUsersService.Object;
 
             workplacesFromService = new List<Workplace>();
             mockWorkplacesService = new Mock<IWorkplacesService>();
+            workplacesService = mockWorkplacesService.Object;
 
             userWorkplacesController = new UserWorkplacesController(
                 mockUserWorkplacesService.Object, mockUsersService.Object, mockWorkplacesService.Object);
