@@ -49,29 +49,28 @@ namespace Workplaces.Tests
             mockWorkplacesService = new Mock<IWorkplacesService>();
             workplacesService = mockWorkplacesService.Object;
 
-            userWorkplacesController = new UserWorkplacesController(
-                mockUserWorkplacesService.Object, mockUsersService.Object, mockWorkplacesService.Object);
+            userWorkplacesController = new UserWorkplacesController(userWorkplacesService, usersService, workplacesService);
         }
 
         [Test]
         public void Constructor_WithNullUserWorkplacesService_ShouldThrowArgumentNullException()
         {
             Assert.Throws<ArgumentNullException>(() => userWorkplacesController =
-                new UserWorkplacesController(null, mockUsersService.Object, mockWorkplacesService.Object));
+            new UserWorkplacesController(null, usersService, workplacesService));
         }
 
         [Test]
         public void Constructor_WithNullUsersService_ShouldThrowArgumentNullException()
         {
             Assert.Throws<ArgumentNullException>(() => userWorkplacesController =
-                new UserWorkplacesController(mockUserWorkplacesService.Object, null, mockWorkplacesService.Object));
+            new UserWorkplacesController(userWorkplacesService, null, workplacesService));
         }
 
         [Test]
         public void Constructor_WithNullWorkplacesService_ShouldThrowArgumentNullException()
         {
             Assert.Throws<ArgumentNullException>(() => userWorkplacesController =
-                new UserWorkplacesController(mockUserWorkplacesService.Object, mockUsersService.Object, null));
+            new UserWorkplacesController(userWorkplacesService, usersService, null));
         }
 
         //Get UserWorkplaces
