@@ -115,13 +115,13 @@ namespace Workplaces.Tests
             Assert.IsInstanceOf<OkObjectResult>(actualResult);
         }
 
-        //[Test]
-        //public void GetUserWorkplace_WithEmptyCollection_ShouldReturnNotFound()
-        //{
-        //    var actualResult = userWorkplacesController.GetUserWorkplace(1).Result.Result;
+        [Test]
+        public void GetUserWorkplace_WithEmptyCollection_ShouldReturnNotFound()
+        {
+            var actualResult = userWorkplacesController.GetUserWorkplace(1).Result.Result;
 
-        //    Assert.IsInstanceOf<NotFoundResult>(actualResult);
-        //}
+            Assert.IsInstanceOf<NotFoundResult>(actualResult);
+        }
 
         //[Test]
         //public void GetUser_WithNonExistingUser_ShouldReturnNotFound()
