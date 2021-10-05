@@ -84,16 +84,16 @@ namespace Workplaces.Tests
             Assert.IsInstanceOf<OkObjectResult>(actualResult);
         }
 
-        //[Test]
-        //public void GetUsers_WithTwoUsers_ShouldReturnOk()
-        //{
-        //    usersFromService.Add(new User { Id = 1 });
-        //    usersFromService.Add(new User { Id = 2 });
+        [Test]
+        public void GetUsers_WithTwoUsers_ShouldReturnOk()
+        {
+            userWorkplacesFromService.Add(new UserWorkplace { Id = 1 });
+            userWorkplacesFromService.Add(new UserWorkplace { Id = 2 });
 
-        //    var actualResult = usersController.GetUsers().Result;
+            var actualResult = userWorkplacesController.GetUserWorkplaces().Result;
 
-        //    Assert.IsInstanceOf<OkObjectResult>(actualResult);
-        //}
+            Assert.IsInstanceOf<OkObjectResult>(actualResult);
+        }
 
         //Get UserWorkplaces
 
