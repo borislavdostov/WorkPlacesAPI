@@ -128,16 +128,6 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void DeleteUser_WithExistingUser_ShouldReturnNoContent()
-        {
-            usersFromService.Add(new User { Id = 1 });
-
-            var actualResult = usersController.DeleteUser(1).Result;
-
-            Assert.IsInstanceOf<NoContentResult>(actualResult);
-        }
-
-        [Test]
         public void DeleteUser_EmptyCollection_ShouldReturnNotFound()
         {
             var actualResult = usersController.DeleteUser(1).Result;
@@ -153,6 +143,16 @@ namespace Workplaces.Tests
             var actualResult = usersController.DeleteUser(2).Result;
 
             Assert.IsInstanceOf<NotFoundResult>(actualResult);
+        }
+
+        [Test]
+        public void DeleteUser_WithExistingUser_ShouldReturnNoContent()
+        {
+            usersFromService.Add(new User { Id = 1 });
+
+            var actualResult = usersController.DeleteUser(1).Result;
+
+            Assert.IsInstanceOf<NoContentResult>(actualResult);
         }
     }
 }
