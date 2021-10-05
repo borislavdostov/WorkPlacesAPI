@@ -8,7 +8,7 @@ namespace Workplaces.Common.Tests
     public class DateTimeExtensionsTests
     {
         [Test]
-        public void GetAge_WithNegativeAge_ShouldReturnNegativeAge()
+        public void GetAge_WithFutureDate_ShouldReturnNegativeAge()
         {
             var date = DateTime.Now.AddYears(1);
 
