@@ -123,15 +123,15 @@ namespace Workplaces.Tests
             Assert.IsInstanceOf<NotFoundResult>(actualResult);
         }
 
-        //[Test]
-        //public void GetUser_WithNonExistingUser_ShouldReturnNotFound()
-        //{
-        //    userWorkplacesFromService.Add(new UserWorkplace { Id = 1 });
+        [Test]
+        public void GetUser_WithNonExistingUser_ShouldReturnNotFound()
+        {
+            userWorkplacesFromService.Add(new UserWorkplace { Id = 1 });
 
-        //    var actualResult = userWorkplacesController.GetUserWorkplace(2).Result.Result;
+            var actualResult = userWorkplacesController.GetUserWorkplace(2).Result.Result;
 
-        //    Assert.IsInstanceOf<NotFoundResult>(actualResult);
-        //}
+            Assert.IsInstanceOf<NotFoundResult>(actualResult);
+        }
 
         //Get UserWorkplace
 
