@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workplaces", "WorkPlaces\Workplaces.csproj", "{AE3BAA4A-7942-4C8C-8EE2-A0344442F1B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workplaces", "Workplaces\Workplaces.csproj", "{AE3BAA4A-7942-4C8C-8EE2-A0344442F1B5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workplaces.Service", "WorkPlaces.Service\Workplaces.Service.csproj", "{1E7C8ADB-C8AD-4B8D-A6C5-BFEFD139C98B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workplaces.Service", "Workplaces.Service\Workplaces.Service.csproj", "{1E7C8ADB-C8AD-4B8D-A6C5-BFEFD139C98B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workplaces.Data", "WorkPlaces.Data\Workplaces.Data.csproj", "{14542983-8F43-454C-97DA-2442E46F5496}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workplaces.Data", "Workplaces.Data\Workplaces.Data.csproj", "{14542983-8F43-454C-97DA-2442E46F5496}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workplaces.DataModel", "WorkPlaces.DataModel\Workplaces.DataModel.csproj", "{CEB671EA-4E93-4ADA-9ADB-49177A29C880}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workplaces.DataModel", "Workplaces.DataModel\Workplaces.DataModel.csproj", "{CEB671EA-4E93-4ADA-9ADB-49177A29C880}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workplaces.Common", "WorkPlaces.Common\Workplaces.Common.csproj", "{6A4932FF-6FD3-46FE-A9D0-96CB2C5AD222}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workplaces.Common", "Workplaces.Common\Workplaces.Common.csproj", "{6A4932FF-6FD3-46FE-A9D0-96CB2C5AD222}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1E0DC80C-04C4-421B-B5A3-9AF26967F90A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workplaces.Service.Tests", "WorkPlaces.Service.Tests\Workplaces.Service.Tests.csproj", "{776D1951-4E84-4063-8DB0-D5B14E19AF42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workplaces.Service.Tests", "Workplaces.Service.Tests\Workplaces.Service.Tests.csproj", "{776D1951-4E84-4063-8DB0-D5B14E19AF42}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workplaces.Common.Tests", "Workplaces.Common.Tests\Workplaces.Common.Tests.csproj", "{1CEC5B08-4F56-4354-9A7E-42178402B735}"
 EndProject
