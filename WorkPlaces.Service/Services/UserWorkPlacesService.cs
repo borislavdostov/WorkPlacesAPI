@@ -87,7 +87,6 @@ namespace Workplaces.Service.Services
             await userWorkplacesRepository.AddAsync(userWorkplaceEntity);
             await userWorkplacesRepository.SaveChangesAsync();
 
-            //TODO: Load relations instead of loading the added entity
             var addedUserWorkplaceEntity = await userWorkplacesRepository.GetAsync(userWorkplaceEntity.Id);
 
             return new UserWorkplaceDTO
