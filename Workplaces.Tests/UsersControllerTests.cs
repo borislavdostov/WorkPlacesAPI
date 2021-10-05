@@ -100,14 +100,6 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void UpdateUser_EmptyCollection_ShouldReturnNotFound()
-        {
-            var actualResult = usersController.UpdateUser(1, new UserForManipulationDTO()).Result;
-
-            Assert.IsInstanceOf<NotFoundResult>(actualResult);
-        }
-
-        [Test]
         public void UpdateUser_WithNonExistingUser_ShouldReturnNotFound()
         {
             usersFromService.Add(new User { Id = 1 });
