@@ -95,15 +95,15 @@ namespace Workplaces.Tests
             Assert.IsInstanceOf<OkObjectResult>(actualResult);
         }
 
-        //[Test]
-        //public void GetUserWorkplace_WithExistingUser_ShouldReturnOk()
-        //{
-        //    usersFromService.Add(new User { Id = 1 });
+        [Test]
+        public void GetUserWorkplace_WithExistingUserWorkplace_ShouldReturnOk()
+        {
+            userWorkplacesFromService.Add(new UserWorkplace { Id = 1 });
 
-        //    var actualResult = usersController.GetUser(1).Result.Result;
+            var actualResult = userWorkplacesController.GetUserWorkplace(1).Result.Result;
 
-        //    Assert.IsInstanceOf<OkObjectResult>(actualResult);
-        //}
+            Assert.IsInstanceOf<OkObjectResult>(actualResult);
+        }
 
         //[Test]
         //public void GetUser_WithEmptyCollection_ShouldReturnNotFound()
