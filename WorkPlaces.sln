@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workplaces.Common.Tests", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workplaces.DataModel.Tests", "Workplaces.DataModel.Tests\Workplaces.DataModel.Tests.csproj", "{5BAA3258-0C4D-4F4A-B7BA-D3C69BE0D693}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workplaces.Tests", "Workplaces.Tests\Workplaces.Tests.csproj", "{57293413-8977-489F-AAC9-135C81B226B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workplaces.Tests", "Workplaces.Tests\Workplaces.Tests.csproj", "{57293413-8977-489F-AAC9-135C81B226B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
