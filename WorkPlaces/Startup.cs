@@ -83,7 +83,7 @@ namespace Workplaces
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Workplaces API V1");
+                c.SwaggerEndpoint(GlobalConstants.SwaggerURL, "Workplaces API V1");
                 c.RoutePrefix = string.Empty;
             });
 
