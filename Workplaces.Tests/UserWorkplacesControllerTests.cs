@@ -40,19 +40,23 @@ namespace Workplaces.Tests
             mockUserWorkplacesService.Setup(s => s.GetUserWorkplaceAsync(It.IsAny<int>()))
                 .ReturnsAsync((int id) => userWorkplacesFromService.Where(u => u.Id == id)
                 .Select(u => new UserWorkplaceForManipulationDTO()).Single());
-            //mockUserWorkplacesService.Setup(s => s.CreateUserAsync(It.IsAny<UserForManipulationDTO>()))
-            //    .Callback((UserForManipulationDTO user) => usersFromService.Add(new User()))
-            //    .ReturnsAsync(new UserDTO());
+            mockUserWorkplacesService.Setup(s => s.CreateUserWorkplaceAsync(It.IsAny<UserWorkplaceForManipulationDTO>()))
+                .Callback(() => userWorkplacesFromService.Add(new UserWorkplace()))
+                .ReturnsAsync(new UserWorkplaceDTO());
             mockUserWorkplacesService.Setup(s => s.UserWorkplaceExistsAsync(It.IsAny<int>()))
                 .ReturnsAsync((int id) => userWorkplacesFromService.Any(u => u.Id == id));
 
             usersFromService = new List<User>();
             mockUsersService = new Mock<IUsersService>();
             usersService = mockUsersService.Object;
+            mockUsersService.Setup(s => s.UserExistsAsync(It.IsAny<int>()))
+                .ReturnsAsync((int id) => usersFromService.Any(u => u.Id == id));
 
             workplacesFromService = new List<Workplace>();
             mockWorkplacesService = new Mock<IWorkplacesService>();
             workplacesService = mockWorkplacesService.Object;
+            mockWorkplacesService.Setup(s => s.WorkplaceExistsAsync(It.IsAny<int>()))
+                .ReturnsAsync((int id) => workplacesFromService.Any(u => u.Id == id));
 
             userWorkplacesController = new UserWorkplacesController(userWorkplacesService, usersService, workplacesService);
         }
@@ -133,7 +137,13 @@ namespace Workplaces.Tests
             Assert.IsInstanceOf<NotFoundResult>(actualResult);
         }
 
-        //Get UserWorkplace
+        //[Test]
+        //public void CreateUser_AddUser_ShouldReturnCreatedAtRoute()
+        //{
+        //    var actualResult = usersController.CreateUser(new UserForManipulationDTO()).Result.Result;
+
+        //    Assert.IsInstanceOf<CreatedAtRouteResult>(actualResult);
+        //}
 
         //Create UserWorkplace
 
