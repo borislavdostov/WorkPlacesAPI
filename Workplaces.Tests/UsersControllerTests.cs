@@ -100,7 +100,15 @@ namespace Workplaces.Tests
             Assert.IsInstanceOf<CreatedAtRouteResult>(actualResult);
         }
 
-        //Create User
+        [Test]
+        public void UpdateUser_WithExistingUser_ShouldReturnNoContent()
+        {
+            usersFromService.Add(new User { Id = 1 });
+
+            var actualResult = usersController.UpdateUser(1, new UserForManipulationDTO()).Result;
+
+            Assert.IsInstanceOf<NoContentResult>(actualResult);
+        }
 
         //Update User
 
