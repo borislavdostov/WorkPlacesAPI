@@ -147,28 +147,6 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void CreateUserWorkplace_WithoutUser_ShouldReturnNotFound()
-        {
-            workplacesFromService.Add(new Workplace { Id = 1 });
-
-            var actualResult = userWorkplacesController.CreateUserWorkplace(
-                new UserWorkplaceForManipulationDTO { WorkplaceId = 1 }).Result.Result;
-
-            Assert.IsInstanceOf<NotFoundResult>(actualResult);
-        }
-
-        [Test]
-        public void CreateUserWorkplace_WithoutWorkplace_ShouldReturnNotFound()
-        {
-            usersFromService.Add(new User { Id = 1 });
-
-            var actualResult = userWorkplacesController.CreateUserWorkplace(
-                new UserWorkplaceForManipulationDTO { UserId = 1 }).Result.Result;
-
-            Assert.IsInstanceOf<NotFoundResult>(actualResult);
-        }
-
-        [Test]
         public void CreateUserWorkplace_WithNonExistingUser_ShouldReturnNotFound()
         {
             usersFromService.Add(new User { Id = 1 });
