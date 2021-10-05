@@ -58,7 +58,8 @@ namespace Workplaces.Tests
             mockWorkplacesService.Setup(s => s.WorkplaceExistsAsync(It.IsAny<int>()))
                 .ReturnsAsync((int id) => workplacesFromService.Any(u => u.Id == id));
 
-            userWorkplacesController = new UserWorkplacesController(userWorkplacesService, usersService, workplacesService);
+            userWorkplacesController = new UserWorkplacesController(
+                userWorkplacesService, usersService, workplacesService);
         }
 
         [Test]
