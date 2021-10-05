@@ -54,6 +54,20 @@ namespace Workplaces.Tests
                 new UserWorkplacesController(null, mockUsersService.Object, mockWorkplacesService.Object));
         }
 
+        [Test]
+        public void Constructor_WithNullUsersService_ShouldThrowArgumentNullException()
+        {
+            Assert.Throws<ArgumentNullException>(() => userWorkplacesController =
+                new UserWorkplacesController(mockUserWorkplacesService.Object, null, mockWorkplacesService.Object));
+        }
+
+        //[Test]
+        //public void Constructor_WithNullUserWorkplacesService_ShouldThrowArgumentNullException()
+        //{
+        //    Assert.Throws<ArgumentNullException>(() => userWorkplacesController =
+        //        new UserWorkplacesController(null, mockUsersService.Object, mockWorkplacesService.Object));
+        //}
+
         //Get UserWorkplaces
 
         //Get UserWorkplace
