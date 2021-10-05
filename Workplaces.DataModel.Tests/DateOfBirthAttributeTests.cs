@@ -17,17 +17,6 @@ namespace Workplaces.DataModel.Tests
         }
 
         [Test]
-        public void IsValid_WithCorrectDateOfBirth_ShouldReturnTrue()
-        {
-            var dateOfBirth = DateTime.Now.AddYears(-20);
-
-            var validationResult = dateOfBirthAttribute.GetValidationResult(dateOfBirth, new ValidationContext(dateOfBirth));
-            var actualResult = validationResult == ValidationResult.Success;
-
-            Assert.IsTrue(actualResult);
-        }
-
-        [Test]
         public void IsValid_WithBiggerDateThanToday_ShouldReturnFalse()
         {
             var dateOfBirth = DateTime.Now.AddDays(1);
@@ -69,6 +58,17 @@ namespace Workplaces.DataModel.Tests
             var actualResult = validationResult.ErrorMessage;
 
             Assert.AreEqual("User is not old enough to work.", actualResult);
+        }
+
+        [Test]
+        public void IsValid_WithCorrectDateOfBirth_ShouldReturnTrue()
+        {
+            var dateOfBirth = DateTime.Now.AddYears(-20);
+
+            var validationResult = dateOfBirthAttribute.GetValidationResult(dateOfBirth, new ValidationContext(dateOfBirth));
+            var actualResult = validationResult == ValidationResult.Success;
+
+            Assert.IsTrue(actualResult);
         }
     }
 }
