@@ -120,17 +120,6 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void DeleteUserAsync_WithExistingUser_ShouldDecrementUsersCount()
-        {
-            usersFromRepository.Add(new User { Id = 1 });
-
-            usersService.DeleteUserAsync(1);
-            var actualResult = usersFromRepository.Count();
-
-            Assert.AreEqual(0, actualResult);
-        }
-
-        [Test]
         public void DeleteUserAsync_WithNonExistingUser_ShouldNotReflectOnUsersCount()
         {
             usersFromRepository.Add(new User { Id = 1 });
@@ -139,6 +128,17 @@ namespace Workplaces.Service.Tests
             var actualResult = usersFromRepository.Count();
 
             Assert.AreEqual(1, actualResult);
+        }
+
+        [Test]
+        public void DeleteUserAsync_WithExistingUser_ShouldDecrementUsersCount()
+        {
+            usersFromRepository.Add(new User { Id = 1 });
+
+            usersService.DeleteUserAsync(1);
+            var actualResult = usersFromRepository.Count();
+
+            Assert.AreEqual(0, actualResult);
         }
 
         [Test]
