@@ -23,7 +23,6 @@ namespace Workplaces.DataModel.Tests
         [TestCase("1Peter")]
         [TestCase("'Peter")]
         [TestCase("Peter1")]
-        //[TestCase("Jan  van")]
         public void IsValid_WithIncorrectName_ShouldReturnFalse(string name)
         {
             var validationResult = personNameAttribute.GetValidationResult(name, new ValidationContext(name));
