@@ -49,7 +49,7 @@ namespace Workplaces.DataModel.Tests
                 .GetValidationResult(dateOfBirth, new ValidationContext(dateOfBirth));
             var actualResult = validationResult.ErrorMessage;
 
-            Assert.AreEqual("Date of birth should be lower than today's date.", actualResult);
+            Assert.AreEqual(ValidationMessage.IncorrectDateOfBirth, actualResult);
         }
 
         [Test]
@@ -61,7 +61,7 @@ namespace Workplaces.DataModel.Tests
                 .GetValidationResult(dateOfBirth, new ValidationContext(dateOfBirth));
             var actualResult = validationResult.ErrorMessage;
 
-            Assert.AreEqual("User is not old enough to work.", actualResult);
+            Assert.AreEqual(ValidationMessage.UserNotOldEnough, actualResult);
         }
 
         [Test]
