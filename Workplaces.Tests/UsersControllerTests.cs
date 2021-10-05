@@ -120,14 +120,6 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void DeleteUser_EmptyCollection_ShouldReturnNotFound()
-        {
-            var actualResult = usersController.DeleteUser(1).Result;
-
-            Assert.IsInstanceOf<NotFoundResult>(actualResult);
-        }
-
-        [Test]
         public void DeleteUser_WithNonExistingUser_ShouldReturnNotFound()
         {
             usersFromService.Add(new User { Id = 1 });
