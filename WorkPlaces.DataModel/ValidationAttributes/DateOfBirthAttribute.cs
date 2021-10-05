@@ -11,12 +11,12 @@ namespace Workplaces.DataModel.ValidationAttributes
 
             if (dateOfBirth > DateTime.Now)
             {
-                return new ValidationResult("Date of birth should be lower than today's date.");
+                return new ValidationResult(ValidationMessage.IncorrectDateOfBirth);
             }
 
             if (DateTime.Now.Year - dateOfBirth.Year < 18)
             {
-                return new ValidationResult("User is not old enough to work.");
+                return new ValidationResult(ValidationMessage.UserNotOldEnough);
             }
 
             return ValidationResult.Success;
