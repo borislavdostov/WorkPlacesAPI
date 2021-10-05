@@ -154,7 +154,5 @@ namespace Workplaces.Tests
 
             Assert.IsInstanceOf<NotFoundResult>(actualResult);
         }
-
-        //Delete User
     }
 }
