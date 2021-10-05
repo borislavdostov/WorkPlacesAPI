@@ -94,7 +94,8 @@ namespace Workplaces.Service.Tests
         [Test]
         public void GetUserWorkplaces_WithOneUserWorkplace_ShouldReturnCountOne()
         {
-            userWorkplacesFromRepository.Add(new UserWorkplace { User = new User(), Workplace = new Workplace() });
+            userWorkplacesFromRepository.Add(
+                new UserWorkplace { User = new User(), Workplace = new Workplace() });
 
             var actualResult = userWorkplacesService.GetUserWorkplaces().Count();
 
@@ -104,7 +105,8 @@ namespace Workplaces.Service.Tests
         [Test]
         public void GetUserWorkplaces_WithOneUserWorkplace_ShouldReturnUserWorkplacesCorrectly()
         {
-            userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1, User = new User(), Workplace = new Workplace() });
+            userWorkplacesFromRepository.Add(
+                new UserWorkplace { Id = 1, User = new User(), Workplace = new Workplace() });
 
             var userWorkplaces = userWorkplacesService.GetUserWorkplaces();
             var actualResult = userWorkplaces.First().Id;
@@ -204,7 +206,8 @@ namespace Workplaces.Service.Tests
         {
             userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1, UserId = 1, WorkplaceId = 1 });
 
-            userWorkplacesService.UpdateUserWorkplaceAsync(1, new UserWorkplaceForManipulationDTO { UserId = 2, WorkplaceId = 3 });
+            userWorkplacesService.UpdateUserWorkplaceAsync(
+                1, new UserWorkplaceForManipulationDTO { UserId = 2, WorkplaceId = 3 });
             var user = userWorkplacesFromRepository.FirstOrDefault();
 
             Assert.AreEqual(2, user.UserId);
