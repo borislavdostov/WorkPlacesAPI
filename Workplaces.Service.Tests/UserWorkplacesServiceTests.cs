@@ -123,7 +123,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUserWorkplaceOptionsAsync_WithOneUserWorkPlaceOption_ShouldReturnUserOptionsCountOne()
+        public void GetUserWorkplaceOptionsAsync_WithOneUserWorkplaceOption_ShouldReturnUserOptionsCountOne()
         {
             usersFromRepository.Add(new User());
 
@@ -133,7 +133,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUserWorkplaceOptionsAsync_WithOneUserWorkPlaceOption_ShouldReturnWorkplaceOptionsCountOne()
+        public void GetUserWorkplaceOptionsAsync_WithOneUserWorkplaceOption_ShouldReturnWorkplaceOptionsCountOne()
         {
             workplacesFromRepository.Add(new Workplace());
 
@@ -143,7 +143,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUserWorkplaceOptionsAsync_WithOneUserWorkPlaceOption_ShouldReturnUserOptionsCorrectly()
+        public void GetUserWorkplaceOptionsAsync_WithOneUserWorkplaceOption_ShouldReturnUserOptionsCorrectly()
         {
             usersFromRepository.Add(new User { Id = 1 });
 
@@ -153,7 +153,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void GetUserWorkplaceOptionsAsync_WithOneUserWorkPlaceOption_ShouldReturnWorkplaceOptionsCorrectly()
+        public void GetUserWorkplaceOptionsAsync_WithOneUserWorkplaceOption_ShouldReturnWorkplaceOptionsCorrectly()
         {
             workplacesFromRepository.Add(new Workplace { Id = 1 });
 
@@ -193,7 +193,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void CreateUserWorkplaceAsync_UserWorkPlaceAdded_ShouldIncrementUserWorkplacesCount()
+        public void CreateUserWorkplaceAsync_UserWorkplaceAdded_ShouldIncrementUserWorkplacesCount()
         {
             userWorkplacesService.CreateUserWorkplaceAsync(new UserWorkplaceForManipulationDTO());
             var actualResult = userWorkplacesFromRepository.Count;
