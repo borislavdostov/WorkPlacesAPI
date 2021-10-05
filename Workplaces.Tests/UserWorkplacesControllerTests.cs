@@ -23,7 +23,27 @@ namespace Workplaces.Tests
         [SetUp]
         public void Initialize()
         {
+            userWorkplacesFromService = new List<UserWorkplace>();
+            mockUserWorkplacesService = new Mock<IUserWorkplacesService>();
+            //mockUserWorkplacesService.Setup(s => s.GetUsers())
+            //    .Returns(usersFromService.Select(u => new UserDTO()));
+            //mockUserWorkplacesService.Setup(s => s.GetUserAsync(It.IsAny<int>()))
+            //    .ReturnsAsync((int id) => usersFromService.Where(u => u.Id == id)
+            //    .Select(u => new UserForManipulationDTO()).Single());
+            //mockUserWorkplacesService.Setup(s => s.CreateUserAsync(It.IsAny<UserForManipulationDTO>()))
+            //    .Callback((UserForManipulationDTO user) => usersFromService.Add(new User()))
+            //    .ReturnsAsync(new UserDTO());
+            //mockUserWorkplacesService.Setup(s => s.UserExistsAsync(It.IsAny<int>()))
+            //    .ReturnsAsync((int id) => usersFromService.Any(u => u.Id == id));
 
+            usersFromService = new List<User>();
+            mockUsersService = new Mock<IUsersService>();
+
+            workplacesFromService = new List<Workplace>();
+            mockWorkplacesService = new Mock<IWorkplacesService>();
+
+            userWorkplacesController = new UserWorkplacesController(
+                mockUserWorkplacesService.Object, mockUsersService.Object, mockWorkplacesService.Object);
         }
 
         //Constructor
