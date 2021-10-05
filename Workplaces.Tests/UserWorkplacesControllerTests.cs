@@ -77,7 +77,7 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void GetUserWorkplaces_WithZeroUsers_ShouldReturnOk()
+        public void GetUserWorkplaces_WithZeroUserWorkplaces_ShouldReturnOk()
         {
             var actualResult = userWorkplacesController.GetUserWorkplaces().Result;
 
@@ -85,7 +85,7 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void GetUsers_WithTwoUsers_ShouldReturnOk()
+        public void GetUsers_WithTwoUserWorkplaces_ShouldReturnOk()
         {
             userWorkplacesFromService.Add(new UserWorkplace { Id = 1 });
             userWorkplacesFromService.Add(new UserWorkplace { Id = 2 });
@@ -95,7 +95,33 @@ namespace Workplaces.Tests
             Assert.IsInstanceOf<OkObjectResult>(actualResult);
         }
 
-        //Get UserWorkplaces
+        //[Test]
+        //public void GetUserWorkplace_WithExistingUser_ShouldReturnOk()
+        //{
+        //    usersFromService.Add(new User { Id = 1 });
+
+        //    var actualResult = usersController.GetUser(1).Result.Result;
+
+        //    Assert.IsInstanceOf<OkObjectResult>(actualResult);
+        //}
+
+        //[Test]
+        //public void GetUser_WithEmptyCollection_ShouldReturnNotFound()
+        //{
+        //    var actualResult = usersController.GetUser(1).Result.Result;
+
+        //    Assert.IsInstanceOf<NotFoundResult>(actualResult);
+        //}
+
+        //[Test]
+        //public void GetUser_WithNonExistingUser_ShouldReturnNotFound()
+        //{
+        //    usersFromService.Add(new User { Id = 1 });
+
+        //    var actualResult = usersController.GetUser(2).Result.Result;
+
+        //    Assert.IsInstanceOf<NotFoundResult>(actualResult);
+        //}
 
         //Get UserWorkplace
 
