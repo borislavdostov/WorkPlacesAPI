@@ -61,9 +61,9 @@ namespace Workplaces.DataModel.Tests
         }
 
         [Test]
-        public void IsValid_WithCorrectDateOfBirth_ShouldReturnTrue()
+        public void IsValid_WithDateBeforeTwentyFiveYears_ShouldReturnTrue()
         {
-            var dateOfBirth = DateTime.Now.AddYears(-20);
+            var dateOfBirth = DateTime.Now.AddYears(-25);
 
             var validationResult = dateOfBirthAttribute.GetValidationResult(dateOfBirth, new ValidationContext(dateOfBirth));
             var actualResult = validationResult == ValidationResult.Success;
