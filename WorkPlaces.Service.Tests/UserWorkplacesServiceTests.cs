@@ -212,17 +212,6 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void DeleteUserWorkplaceAsync_WithExistingUserWorkplace_ShouldDecrementUserWorkplacesCount()
-        {
-            userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1 });
-
-            userWorkplacesService.DeleteUserWorkplaceAsync(1);
-            var actualResult = userWorkplacesFromRepository.Count();
-
-            Assert.AreEqual(0, actualResult);
-        }
-
-        [Test]
         public void DeleteUserWorkplaceAsync_WithNonExistingUser_ShouldNotReflectOnUserWorkplacesCount()
         {
             userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1 });
@@ -231,6 +220,17 @@ namespace Workplaces.Service.Tests
             var actualResult = userWorkplacesFromRepository.Count();
 
             Assert.AreEqual(1, actualResult);
+        }
+
+        [Test]
+        public void DeleteUserWorkplaceAsync_WithExistingUserWorkplace_ShouldDecrementUserWorkplacesCount()
+        {
+            userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1 });
+
+            userWorkplacesService.DeleteUserWorkplaceAsync(1);
+            var actualResult = userWorkplacesFromRepository.Count();
+
+            Assert.AreEqual(0, actualResult);
         }
 
         [Test]
@@ -245,6 +245,14 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
+        public void UserWorkplaceExistsAsync_WithNonExistingUserWorkplace_ShouldReturnFalse()
+        {
+            var actualResult = userWorkplacesService.UserWorkplaceExistsAsync(1).Result;
+
+            Assert.IsFalse(actualResult);
+        }
+
+        [Test]
         public void UserWorkplaceExistsAsync_WithExistingUserWorkplace_ShouldReturnTrue()
         {
             userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1 });
@@ -252,14 +260,6 @@ namespace Workplaces.Service.Tests
             var actualResult = userWorkplacesService.UserWorkplaceExistsAsync(1).Result;
 
             Assert.IsTrue(actualResult);
-        }
-
-        [Test]
-        public void UserWorkplaceExistsAsync_WithNonExistingUserWorkplace_ShouldReturnFalse()
-        {
-            var actualResult = userWorkplacesService.UserWorkplaceExistsAsync(1).Result;
-
-            Assert.IsFalse(actualResult);
         }
     }
 }
