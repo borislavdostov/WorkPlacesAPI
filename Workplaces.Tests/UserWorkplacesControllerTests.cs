@@ -204,7 +204,14 @@ namespace Workplaces.Tests
             Assert.IsInstanceOf<CreatedAtRouteResult>(actualResult);
         }
 
-        //Create UserWorkplace
+        [Test]
+        public void UpdateUserWorkplace_WithEmptyCollection_ShouldReturnNotFound()
+        {
+            var actualResult = userWorkplacesController.UpdateUserWorkplace(
+                1, new UserWorkplaceForManipulationDTO()).Result;
+
+            Assert.IsInstanceOf<NotFoundResult>(actualResult);
+        }
 
         //Update UserWorkplace
 
