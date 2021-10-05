@@ -153,6 +153,14 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
+        public void UserExistsAsync_WithNonExistingUser_ShouldReturnFalse()
+        {
+            var actualResult = usersService.UserExistsAsync(1).Result;
+
+            Assert.IsFalse(actualResult);
+        }
+
+        [Test]
         public void UserExistsAsync_WithExistingUser_ShouldReturnTrue()
         {
             usersFromRepository.Add(new User { Id = 1 });
@@ -160,14 +168,6 @@ namespace Workplaces.Service.Tests
             var actualResult = usersService.UserExistsAsync(1).Result;
 
             Assert.IsTrue(actualResult);
-        }
-
-        [Test]
-        public void UserExistsAsync_WithNonExistingUser_ShouldReturnFalse()
-        {
-            var actualResult = usersService.UserExistsAsync(1).Result;
-
-            Assert.IsFalse(actualResult);
         }
     }
 }
