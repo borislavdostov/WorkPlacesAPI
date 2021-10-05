@@ -65,22 +65,22 @@ namespace Workplaces.Service.Tests
         [Test]
         public void Constructor_WithNullUserWorkplacesRepository_ShouldThrowArgumentNullException()
         {
-            Assert.Throws<ArgumentNullException>(
-                () => userWorkplacesService = new UserWorkplacesService(null, usersRepository, workplacesRepository));
+            Assert.Throws<ArgumentNullException>(() => userWorkplacesService =
+                new UserWorkplacesService(null, usersRepository, workplacesRepository));
         }
 
         [Test]
         public void Constructor_WithNullUsersRepository_ShouldThrowArgumentNullException()
         {
-            Assert.Throws<ArgumentNullException>(
-                () => userWorkplacesService = new UserWorkplacesService(userWorkplacesRepository, null, workplacesRepository));
+            Assert.Throws<ArgumentNullException>(() => userWorkplacesService =
+                new UserWorkplacesService(userWorkplacesRepository, null, workplacesRepository));
         }
 
         [Test]
         public void Constructor_WithNullWorkplacesRepository_ShouldThrowArgumentNullException()
         {
-            Assert.Throws<ArgumentNullException>(
-                () => userWorkplacesService = new UserWorkplacesService(userWorkplacesRepository, usersRepository, null));
+            Assert.Throws<ArgumentNullException>(() => userWorkplacesService =
+                new UserWorkplacesService(userWorkplacesRepository, usersRepository, null));
         }
 
         [Test]
