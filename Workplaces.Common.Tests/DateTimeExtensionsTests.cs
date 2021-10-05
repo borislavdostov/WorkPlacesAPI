@@ -8,16 +8,6 @@ namespace Workplaces.Common.Tests
     public class DateTimeExtensionsTests
     {
         [Test]
-        public void GetAge_WithAgeTwentyFive_ShouldReturnAgeCorrectly()
-        {
-            var date = DateTime.Now.AddYears(-25);
-
-            var actualResult = date.GetAge();
-
-            Assert.AreEqual(25, actualResult);
-        }
-
-        [Test]
         public void GetAge_WithAgeZero_ShouldReturnZeroAge()
         {
             var date = DateTime.Now;
@@ -35,6 +25,16 @@ namespace Workplaces.Common.Tests
             var actualResult = date.GetAge();
 
             Assert.AreEqual(-1, actualResult);
+        }
+
+        [Test]
+        public void GetAge_WithAgeTwentyFive_ShouldReturnAgeCorrectly()
+        {
+            var date = DateTime.Now.AddYears(-25);
+
+            var actualResult = date.GetAge();
+
+            Assert.AreEqual(25, actualResult);
         }
     }
 }
