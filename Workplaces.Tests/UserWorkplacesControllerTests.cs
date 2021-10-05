@@ -1,5 +1,6 @@
 ﻿using Moq;
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using Workplaces.Controllers;
 using Workplaces.Data.Entities;
@@ -46,7 +47,12 @@ namespace Workplaces.Tests
                 mockUserWorkplacesService.Object, mockUsersService.Object, mockWorkplacesService.Object);
         }
 
-        //Constructor
+        [Test]
+        public void Constructor_WithNullUserWorkplacesService_ShouldThrowArgumentNullException()
+        {
+            Assert.Throws<ArgumentNullException>(() => userWorkplacesController =
+                new UserWorkplacesController(null, mockUsersService.Object, mockWorkplacesService.Object));
+        }
 
         //Get UserWorkplaces
 
