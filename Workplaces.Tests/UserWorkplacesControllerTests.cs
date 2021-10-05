@@ -84,8 +84,6 @@ namespace Workplaces.Tests
             Assert.IsInstanceOf<OkObjectResult>(actualResult);
         }
 
-        //Get User Workplace Options
-
         [Test]
         public void GetUserWorkplaces_WithTwoUserWorkplaces_ShouldReturnOk()
         {
@@ -93,6 +91,14 @@ namespace Workplaces.Tests
             userWorkplacesFromService.Add(new UserWorkplace { Id = 2 });
 
             var actualResult = userWorkplacesController.GetUserWorkplaces().Result;
+
+            Assert.IsInstanceOf<OkObjectResult>(actualResult);
+        }
+
+        [Test]
+        public void GetUserWorkplaceOptions_WithZeroUserWorkplaceOptions_ShouldReturnOk()
+        {
+            var actualResult = userWorkplacesController.GetUserWorkplaceOptions().Result;
 
             Assert.IsInstanceOf<OkObjectResult>(actualResult);
         }
