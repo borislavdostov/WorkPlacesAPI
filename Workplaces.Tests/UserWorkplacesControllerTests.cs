@@ -43,8 +43,8 @@ namespace Workplaces.Tests
             //mockUserWorkplacesService.Setup(s => s.CreateUserAsync(It.IsAny<UserForManipulationDTO>()))
             //    .Callback((UserForManipulationDTO user) => usersFromService.Add(new User()))
             //    .ReturnsAsync(new UserDTO());
-            //mockUserWorkplacesService.Setup(s => s.UserExistsAsync(It.IsAny<int>()))
-            //    .ReturnsAsync((int id) => usersFromService.Any(u => u.Id == id));
+            mockUserWorkplacesService.Setup(s => s.UserWorkplaceExistsAsync(It.IsAny<int>()))
+                .ReturnsAsync((int id) => userWorkplacesFromService.Any(u => u.Id == id));
 
             usersFromService = new List<User>();
             mockUsersService = new Mock<IUsersService>();
@@ -105,20 +105,20 @@ namespace Workplaces.Tests
             Assert.IsInstanceOf<OkObjectResult>(actualResult);
         }
 
-        //[Test]
-        //public void GetUserWorkplace_WithExistingUserWorkplace_ShouldReturnOk()
-        //{
-        //    userWorkplacesFromService.Add(new UserWorkplace { Id = 1 });
+        [Test]
+        public void GetUserWorkplace_WithExistingUserWorkplace_ShouldReturnOk()
+        {
+            userWorkplacesFromService.Add(new UserWorkplace { Id = 1 });
 
+            var actualResult = userWorkplacesController.GetUserWorkplace(1).Result.Result;
+
+            Assert.IsInstanceOf<OkObjectResult>(actualResult);
+        }
+
+        //[Test]
+        //public void GetUserWorkplace_WithEmptyCollection_ShouldReturnNotFound()
+        //{
         //    var actualResult = userWorkplacesController.GetUserWorkplace(1).Result.Result;
-
-        //    Assert.IsInstanceOf<OkObjectResult>(actualResult);
-        //}
-
-        //[Test]
-        //public void GetUser_WithEmptyCollection_ShouldReturnNotFound()
-        //{
-        //    var actualResult = usersController.GetUser(1).Result.Result;
 
         //    Assert.IsInstanceOf<NotFoundResult>(actualResult);
         //}
@@ -126,9 +126,9 @@ namespace Workplaces.Tests
         //[Test]
         //public void GetUser_WithNonExistingUser_ShouldReturnNotFound()
         //{
-        //    usersFromService.Add(new User { Id = 1 });
+        //    userWorkplacesFromService.Add(new UserWorkplace { Id = 1 });
 
-        //    var actualResult = usersController.GetUser(2).Result.Result;
+        //    var actualResult = userWorkplacesController.GetUserWorkplace(2).Result.Result;
 
         //    Assert.IsInstanceOf<NotFoundResult>(actualResult);
         //}
