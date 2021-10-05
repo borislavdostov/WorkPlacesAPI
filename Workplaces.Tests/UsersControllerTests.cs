@@ -118,7 +118,7 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void UpdateUser_WithOneUserWithNonExistingUser_ShouldReturnNotFound()
+        public void UpdateUser_WithNonExistingUser_ShouldReturnNotFound()
         {
             usersFromService.Add(new User { Id = 1 });
 
