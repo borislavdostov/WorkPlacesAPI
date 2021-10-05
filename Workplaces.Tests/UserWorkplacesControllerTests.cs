@@ -137,13 +137,16 @@ namespace Workplaces.Tests
             Assert.IsInstanceOf<NotFoundResult>(actualResult);
         }
 
-        //[Test]
-        //public void CreateUser_AddUser_ShouldReturnCreatedAtRoute()
-        //{
-        //    var actualResult = usersController.CreateUser(new UserForManipulationDTO()).Result.Result;
+        [Test]
+        public void CreateUserWorkplace_WithoutUser_ShouldReturnNotFound()
+        {
+            workplacesFromService.Add(new Workplace { Id = 1 });
 
-        //    Assert.IsInstanceOf<CreatedAtRouteResult>(actualResult);
-        //}
+            var actualResult = userWorkplacesController.CreateUserWorkplace(
+                new UserWorkplaceForManipulationDTO { WorkplaceId = 1 }).Result.Result;
+
+            Assert.IsInstanceOf<NotFoundResult>(actualResult);
+        }
 
         //Create UserWorkplace
 
