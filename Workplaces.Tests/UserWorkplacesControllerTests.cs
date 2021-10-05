@@ -1,4 +1,5 @@
 ﻿using Moq;
+using NUnit.Framework;
 using System.Collections.Generic;
 using Workplaces.Controllers;
 using Workplaces.Data.Entities;
@@ -19,7 +20,11 @@ namespace Workplaces.Tests
         private Mock<IWorkplacesService> mockWorkplacesService;
         private List<Workplace> workplacesFromService;
 
-        //SetUp method
+        [SetUp]
+        public void Initialize()
+        {
+
+        }
 
         //Constructor
 
