@@ -35,6 +35,8 @@ namespace Workplaces.Tests
             userWorkplacesService = mockUserWorkplacesService.Object;
             mockUserWorkplacesService.Setup(s => s.GetUserWorkplaces())
                 .Returns(userWorkplacesFromService.Select(u => new UserWorkplaceDTO()));
+            mockUserWorkplacesService.Setup(s => s.GetUserWorkplaceOptions())
+                .Returns(new UserWorkplaceOptionsDTO());
             mockUserWorkplacesService.Setup(s => s.GetUserWorkplaceAsync(It.IsAny<int>()))
                 .ReturnsAsync((int id) => userWorkplacesFromService.Where(u => u.Id == id)
                 .Select(u => new UserWorkplaceForManipulationDTO()).Single());
@@ -96,7 +98,7 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void GetUserWorkplaceOptions_WithZeroUserWorkplaceOptions_ShouldReturnOk()
+        public void GetUserWorkplaceOptions_WithUserWorkplaceOptions_ShouldReturnOk()
         {
             var actualResult = userWorkplacesController.GetUserWorkplaceOptions().Result;
 
