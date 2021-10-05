@@ -87,7 +87,7 @@ namespace Workplaces.Tests
         //Get User Workplace Options
 
         [Test]
-        public void GetUsers_WithTwoUserWorkplaces_ShouldReturnOk()
+        public void GetUserWorkplaces_WithTwoUserWorkplaces_ShouldReturnOk()
         {
             userWorkplacesFromService.Add(new UserWorkplace { Id = 1 });
             userWorkplacesFromService.Add(new UserWorkplace { Id = 2 });
