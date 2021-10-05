@@ -18,7 +18,7 @@ namespace Workplaces.Common.Tests
         }
 
         [Test]
-        public void GetAge_WithAgeZero_ShouldReturnZeroAge()
+        public void GetAge_WithDateTimeNow_ShouldReturnZeroAge()
         {
             var date = DateTime.Now;
 
