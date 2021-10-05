@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿using Microsoft.AspNetCore.Mvc;
+using Moq;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -74,6 +75,25 @@ namespace Workplaces.Tests
             Assert.Throws<ArgumentNullException>(() => userWorkplacesController =
             new UserWorkplacesController(userWorkplacesService, usersService, null));
         }
+
+        [Test]
+        public void GetUserWorkplaces_WithZeroUsers_ShouldReturnOk()
+        {
+            var actualResult = userWorkplacesController.GetUserWorkplaces().Result;
+
+            Assert.IsInstanceOf<OkObjectResult>(actualResult);
+        }
+
+        //[Test]
+        //public void GetUsers_WithTwoUsers_ShouldReturnOk()
+        //{
+        //    usersFromService.Add(new User { Id = 1 });
+        //    usersFromService.Add(new User { Id = 2 });
+
+        //    var actualResult = usersController.GetUsers().Result;
+
+        //    Assert.IsInstanceOf<OkObjectResult>(actualResult);
+        //}
 
         //Get UserWorkplaces
 
