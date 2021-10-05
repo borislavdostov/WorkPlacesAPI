@@ -138,7 +138,7 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void DeleteUser_EmptyCollectionWithNonExistingUser_ShouldReturnNotFound()
+        public void DeleteUser_EmptyCollection_ShouldReturnNotFound()
         {
             var actualResult = usersController.DeleteUser(1).Result;
 
@@ -146,7 +146,7 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void DeleteUser_WithOneUserWithNonExistingUser_ShouldReturnNotFound()
+        public void DeleteUser_WithNonExistingUser_ShouldReturnNotFound()
         {
             usersFromService.Add(new User { Id = 1 });
 
