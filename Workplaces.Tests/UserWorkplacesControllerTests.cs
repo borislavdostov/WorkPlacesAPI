@@ -124,7 +124,7 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void GetUser_WithNonExistingUser_ShouldReturnNotFound()
+        public void GetUserWorkplace_WithNonExistingUserWorkplace_ShouldReturnNotFound()
         {
             userWorkplacesFromService.Add(new UserWorkplace { Id = 1 });
 
