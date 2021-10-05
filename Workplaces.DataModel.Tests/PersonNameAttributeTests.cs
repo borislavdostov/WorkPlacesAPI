@@ -40,8 +40,7 @@ namespace Workplaces.DataModel.Tests
             var validationResult = personNameAttribute.GetValidationResult(name, new ValidationContext(name));
             var actualResult = validationResult.ErrorMessage;
 
-            Assert.AreEqual(
-                "Name should start with a capital letter and cannot contain numbers or any special symbols.", actualResult);
+            Assert.AreEqual(ValidationMessage.IncorrectName, actualResult);
         }
 
         [TestCase("Peter")]
