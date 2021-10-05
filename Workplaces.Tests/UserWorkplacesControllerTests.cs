@@ -110,16 +110,6 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void GetUserWorkplace_WithExistingUserWorkplace_ShouldReturnOk()
-        {
-            userWorkplacesFromService.Add(new UserWorkplace { Id = 1 });
-
-            var actualResult = userWorkplacesController.GetUserWorkplace(1).Result.Result;
-
-            Assert.IsInstanceOf<OkObjectResult>(actualResult);
-        }
-
-        [Test]
         public void GetUserWorkplace_WithEmptyCollection_ShouldReturnNotFound()
         {
             var actualResult = userWorkplacesController.GetUserWorkplace(1).Result.Result;
@@ -135,6 +125,16 @@ namespace Workplaces.Tests
             var actualResult = userWorkplacesController.GetUserWorkplace(2).Result.Result;
 
             Assert.IsInstanceOf<NotFoundResult>(actualResult);
+        }
+
+        [Test]
+        public void GetUserWorkplace_WithExistingUserWorkplace_ShouldReturnOk()
+        {
+            userWorkplacesFromService.Add(new UserWorkplace { Id = 1 });
+
+            var actualResult = userWorkplacesController.GetUserWorkplace(1).Result.Result;
+
+            Assert.IsInstanceOf<OkObjectResult>(actualResult);
         }
 
         [Test]
