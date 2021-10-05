@@ -210,6 +210,15 @@ namespace Workplaces.Tests
             Assert.IsInstanceOf<NoContentResult>(actualResult);
         }
 
+        [Test]
+        public void DeleteUserWorkplace_WithNonExistingUserWorkplace_ShouldReturnNotFound()
+        {
+            userWorkplacesFromService.Add(new UserWorkplace { Id = 1 });
+
+            var actualResult = userWorkplacesController.DeleteUserWorkplace(2).Result;
+
+            Assert.IsInstanceOf<NotFoundResult>(actualResult);
+        }
 
     }
 }
