@@ -2,8 +2,10 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Workplaces.Controllers;
 using Workplaces.Data.Entities;
+using Workplaces.DataModel.Models;
 using Workplaces.Service.Interfaces;
 
 namespace Workplaces.Tests
@@ -30,8 +32,8 @@ namespace Workplaces.Tests
             userWorkplacesFromService = new List<UserWorkplace>();
             mockUserWorkplacesService = new Mock<IUserWorkplacesService>();
             userWorkplacesService = mockUserWorkplacesService.Object;
-            //mockUserWorkplacesService.Setup(s => s.GetUsers())
-            //    .Returns(usersFromService.Select(u => new UserDTO()));
+            mockUserWorkplacesService.Setup(s => s.GetUserWorkplaces())
+                .Returns(userWorkplacesFromService.Select(u => new UserWorkplaceDTO()));
             //mockUserWorkplacesService.Setup(s => s.GetUserAsync(It.IsAny<int>()))
             //    .ReturnsAsync((int id) => usersFromService.Where(u => u.Id == id)
             //    .Select(u => new UserForManipulationDTO()).Single());
