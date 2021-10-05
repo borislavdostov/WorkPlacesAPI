@@ -64,14 +64,6 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void GetUser_WithEmptyCollection_ShouldReturnNotFound()
-        {
-            var actualResult = usersController.GetUser(1).Result.Result;
-
-            Assert.IsInstanceOf<NotFoundResult>(actualResult);
-        }
-
-        [Test]
         public void GetUser_WithNonExistingUser_ShouldReturnNotFound()
         {
             usersFromService.Add(new User { Id = 1 });
