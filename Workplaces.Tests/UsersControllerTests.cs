@@ -7,7 +7,6 @@ using System.Linq;
 using Workplaces.Controllers;
 using Workplaces.Data.Entities;
 using Workplaces.DataModel.Models;
-using Workplaces.Extensions;
 using Workplaces.Service.Interfaces;
 
 namespace Workplaces.Tests
@@ -128,7 +127,33 @@ namespace Workplaces.Tests
             Assert.IsInstanceOf<NotFoundResult>(actualResult);
         }
 
-        //Update User
+        [Test]
+        public void DeleteUser_WithExistingUser_ShouldReturnNoContent()
+        {
+            usersFromService.Add(new User { Id = 1 });
+
+            var actualResult = usersController.DeleteUser(1).Result;
+
+            Assert.IsInstanceOf<NoContentResult>(actualResult);
+        }
+
+        //[Test]
+        //public void UpdateUser_EmptyCollectionWithNonExistingUser_ShouldReturnNotFound()
+        //{
+        //    var actualResult = usersController.UpdateUser(1, new UserForManipulationDTO()).Result;
+
+        //    Assert.IsInstanceOf<NotFoundResult>(actualResult);
+        //}
+
+        //[Test]
+        //public void UpdateUser_WithOneUserWithNonExistingUser_ShouldReturnNotFound()
+        //{
+        //    usersFromService.Add(new User { Id = 1 });
+
+        //    var actualResult = usersController.UpdateUser(2, new UserForManipulationDTO()).Result;
+
+        //    Assert.IsInstanceOf<NotFoundResult>(actualResult);
+        //}
 
         //Delete User
     }
