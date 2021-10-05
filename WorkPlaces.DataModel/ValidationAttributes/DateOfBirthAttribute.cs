@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Workplaces.DataModel.Models;
 
 namespace Workplaces.DataModel.ValidationAttributes
 {
@@ -8,7 +7,6 @@ namespace Workplaces.DataModel.ValidationAttributes
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            //var user = (UserForManipulationDTO)validationContext.ObjectInstance;
             var dateOfBirth = Convert.ToDateTime(value);
 
             if (dateOfBirth > DateTime.Now)
