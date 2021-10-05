@@ -220,5 +220,14 @@ namespace Workplaces.Tests
             Assert.IsInstanceOf<NotFoundResult>(actualResult);
         }
 
+        [Test]
+        public void DeleteUserWorkplace_WithExistingUserWorkplace_ShouldReturnNoContent()
+        {
+            userWorkplacesFromService.Add(new UserWorkplace { Id = 1 });
+
+            var actualResult = userWorkplacesController.DeleteUserWorkplace(1).Result;
+
+            Assert.IsInstanceOf<NoContentResult>(actualResult);
+        }
     }
 }
