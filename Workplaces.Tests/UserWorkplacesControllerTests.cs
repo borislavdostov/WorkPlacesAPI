@@ -110,14 +110,6 @@ namespace Workplaces.Tests
         }
 
         [Test]
-        public void GetUserWorkplace_WithEmptyCollection_ShouldReturnNotFound()
-        {
-            var actualResult = userWorkplacesController.GetUserWorkplace(1).Result.Result;
-
-            Assert.IsInstanceOf<NotFoundResult>(actualResult);
-        }
-
-        [Test]
         public void GetUserWorkplace_WithNonExistingUserWorkplace_ShouldReturnNotFound()
         {
             userWorkplacesFromService.Add(new UserWorkplace { Id = 1 });
