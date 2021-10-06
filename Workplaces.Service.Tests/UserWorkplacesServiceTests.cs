@@ -202,7 +202,7 @@ namespace Workplaces.Service.Tests
         }
 
         [Test]
-        public void UpdateUserWorkplaceAsync_WithExistingUserWorkplace_ShouldChangeUserIdCorrectly()
+        public void UpdateUserWorkplaceAsync_WithExistingUserWorkplace_ShouldChangeUserIdAndWorkplaceIdCorrectly()
         {
             userWorkplacesFromRepository.Add(new UserWorkplace { Id = 1, UserId = 1, WorkplaceId = 1 });
 
