@@ -23,8 +23,7 @@ namespace Workplaces.Data
                 new Workplace { Id = 1, Name = "Web Developer", CreatedAt = DateTime.Now },
                 new Workplace { Id = 2, Name = "QA Specialist", CreatedAt = DateTime.Now },
                 new Workplace { Id = 3, Name = "Mobile Developer", CreatedAt = DateTime.Now },
-                new Workplace { Id = 4, Name = "Full Stack Developer", CreatedAt = DateTime.Now }
-                );
+                new Workplace { Id = 4, Name = "Full Stack Developer", CreatedAt = DateTime.Now });
         }
     }
 }
